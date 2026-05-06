@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dvwobsle4omp2"]
+
+[ext_resource type="Script" uid="uid://iuyou0n4x86r" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://fbs5d8e5d0o3" path="res://character.gd" id="2_0xm2m"]
+
+[node name="Main" type="Node" unique_id=103684850 node_paths=PackedStringArray("character_to_kill")]
+script = ExtResource("1_ig7tw")
+my_alignment = 1
+character_to_kill = NodePath("Character")
+
+[node name="Label" type="Label" parent="." unique_id=540678141]
+offset_left = 264.0
+offset_top = 166.0
+offset_right = 385.0
+offset_bottom = 189.0
+theme_override_font_sizes/font_size = 32
+text = "This is a label"
+horizontal_alignment = 1
+
+[node name="Alignment" type="Label" parent="." unique_id=538203233]
+anchors_preset = -1
+anchor_right = 0.046000004
+anchor_bottom = 0.065000005
+offset_left = 264.0
+offset_top = 253.0
+offset_right = 548.008
+offset_bottom = 307.88
+text = "Alignment: "
+metadata/_edit_use_anchors_ = true
+
+[node name="Character" type="Node" parent="." unique_id=1590888671]
+script = ExtResource("2_0xm2m")
+profession = "Knight"
+health = 100
+
+[connection signal="chance_changed" from="." to="." method="_on_chance_changed"]
+[connection signal="health_changed" from="." to="." method="_on_health_changed"]
