@@ -7,12 +7,18 @@
 [node name="Game" type="Node2D" unique_id=1879333319]
 y_sort_enabled = true
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=313257185]
-offset_right = 1922.0
-offset_bottom = 1077.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=881916006]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=313257185]
+offset_left = -6.0
+offset_top = -2.0
+offset_right = 1916.0
+offset_bottom = 1075.0
+scale = Vector2(0.75999933, 0.7600005)
 
 [node name="Player" parent="." unique_id=967538582 instance=ExtResource("1_l26od")]
-position = Vector2(928, 541)
+position = Vector2(718, 408)
 
 [node name="Trees" type="Node" parent="." unique_id=729200670]
 
