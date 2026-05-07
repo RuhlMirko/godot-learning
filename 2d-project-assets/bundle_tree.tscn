@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://5eubwiqrg505"]
+
+[ext_resource type="Texture2D" uid="uid://dk5b8a84a6n2h" path="res://characters/ground_shadow.png" id="1_b71v1"]
+[ext_resource type="Texture2D" uid="uid://bql1cc345qv7d" path="res://trees/pine_tree.png" id="2_pcnwx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b71v1"]
+size = Vector2(185, 104)
+
+[node name="BundleTree" type="StaticBody2D" unique_id=406758172]
+
+[node name="GroundShadow" type="Sprite2D" parent="." unique_id=1683170902]
+modulate = Color(0.495, 0.55, 0.5399167, 1)
+position = Vector2(7.000003, 24.000002)
+scale = Vector2(2.4047618, 2.3461537)
+texture = ExtResource("1_b71v1")
+
+[node name="PineTree" type="Sprite2D" parent="." unique_id=1275283181]
+position = Vector2(-0.25000095, -54.9375)
+scale = Vector2(0.78515625, 0.84128296)
+texture = ExtResource("2_pcnwx")
+
+[node name="PineTree2" type="Sprite2D" parent="." unique_id=1623831845]
+modulate = Color(0.5472, 0.6997067, 0.76, 1)
+position = Vector2(-60, -40.999996)
+scale = Vector2(0.61647034, 0.707757)
+skew = -0.05759585
+texture = ExtResource("2_pcnwx")
+
+[node name="PineTree3" type="Sprite2D" parent="." unique_id=498750054]
+modulate = Color(0.7435999, 0.624, 0.78, 1)
+position = Vector2(73, -38)
+scale = Vector2(0.797424, 0.87593323)
+skew = 0.11693704
+texture = ExtResource("2_pcnwx")
+
+[node name="PineTree5" type="Sprite2D" parent="." unique_id=215408720]
+modulate = Color(0.7163733, 0.67160004, 0.73, 1)
+position = Vector2(51.373173, 1.7589688)
+scale = Vector2(0.6742592, 0.76552427)
+skew = 0.04712391
+texture = ExtResource("2_pcnwx")
+
+[node name="PineTree4" type="Sprite2D" parent="." unique_id=1076949687]
+modulate = Color(0.76, 0.7372, 0.7372, 1)
+position = Vector2(-30.999996, 9)
+scale = Vector2(0.79187787, 0.81236756)
+skew = -0.087266445
+texture = ExtResource("2_pcnwx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414456326]
+y_sort_enabled = true
+position = Vector2(-0.5, 20)
+shape = SubResource("RectangleShape2D_b71v1")

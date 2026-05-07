@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://player.tscn" id="1_l26od"]
 [ext_resource type="Script" uid="uid://c1bfau31nfqio" path="res://survivors_game.gd" id="1_qqaft"]
+[ext_resource type="Script" uid="uid://bf7lc336d4phe" path="res://game_manager.gd" id="2_7jj1j"]
 [ext_resource type="PackedScene" uid="uid://dq3r015sr1uql" path="res://pine_tree.tscn" id="2_qqaft"]
+[ext_resource type="PackedScene" uid="uid://5eubwiqrg505" path="res://bundle_tree.tscn" id="3_qqaft"]
 
 [sub_resource type="Curve2D" id="Curve2D_7jj1j"]
 _data = {
@@ -14,10 +16,14 @@ point_count = 5
 y_sort_enabled = true
 script = ExtResource("1_qqaft")
 
+[node name="GameManager" type="Node" parent="." unique_id=658972517]
+script = ExtResource("2_7jj1j")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=881916006]
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=313257185]
+texture_repeat = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,9 +32,11 @@ offset_bottom = 258.4203
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75999933, 0.7600005)
+color = Color(0.79, 1, 0.818, 1)
 
 [node name="Player" parent="." unique_id=967538582 instance=ExtResource("1_l26od")]
 unique_name_in_owner = true
+z_index = 2
 position = Vector2(718, 408)
 
 [node name="Path2D" type="Path2D" parent="Player" unique_id=135408697]
@@ -42,7 +50,28 @@ rotation = -0.0019579025
 
 [node name="Trees" type="Node" parent="." unique_id=729200670]
 
-[node name="PineTree" parent="Trees" unique_id=406758172 instance=ExtResource("2_qqaft")]
+[node name="BundleTree3" parent="Trees" unique_id=406758172 instance=ExtResource("3_qqaft")]
+z_index = 2
+position = Vector2(1362, -190)
+
+[node name="BundleTree4" parent="Trees" unique_id=1877755174 instance=ExtResource("3_qqaft")]
+position = Vector2(2111, -8)
+scale = Vector2(1.7, 1.7)
+
+[node name="PineTree6" parent="Trees" unique_id=1684817768 instance=ExtResource("2_qqaft")]
+position = Vector2(-439, 1000)
+
+[node name="BundleTree2" parent="Trees" unique_id=1711108949 instance=ExtResource("3_qqaft")]
+position = Vector2(1896, -508)
+scale = Vector2(1.5, 1.5)
+
+[node name="PineTree7" parent="Trees" unique_id=1780537508 instance=ExtResource("2_qqaft")]
+position = Vector2(-663, 335)
+
+[node name="PineTree8" parent="Trees" unique_id=806358322 instance=ExtResource("2_qqaft")]
+position = Vector2(-20, -258)
+
+[node name="PineTree" parent="Trees" unique_id=854197219 instance=ExtResource("2_qqaft")]
 position = Vector2(544, 791)
 
 [node name="PineTree2" parent="Trees" unique_id=2013529158 instance=ExtResource("2_qqaft")]
@@ -53,6 +82,10 @@ position = Vector2(1532, 418)
 
 [node name="PineTree4" parent="Trees" unique_id=146770661 instance=ExtResource("2_qqaft")]
 position = Vector2(1202, 241)
+
+[node name="BundleTree" parent="Trees" unique_id=596705145 instance=ExtResource("3_qqaft")]
+position = Vector2(2187, -478)
+scale = Vector2(2, 2)
 
 [node name="PineTree5" parent="Trees" unique_id=885867421 instance=ExtResource("2_qqaft")]
 position = Vector2(1268, 269)

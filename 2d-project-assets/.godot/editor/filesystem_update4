@@ -1,6 +1,2 @@
-res://mob.tscn
-res://survivors_game.gd
-res://survivors_game.tscn
-res://mob.gd
-res://gun.tscn
-res://gun.gd
+res://ak47.tscn
+res://player.tscn
