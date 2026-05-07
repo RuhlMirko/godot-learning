@@ -15,3 +15,7 @@ func _on_timer_timeout() -> void:
 		spawn_mob()
 		mob_count += 1
 	
+
+func _on_player_health_depleted() -> void:
+	%GameOver.visible = true
+	get_tree().paused = true

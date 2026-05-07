@@ -18,10 +18,13 @@ script = ExtResource("1_qqaft")
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=313257185]
-offset_left = -6.0
-offset_top = -2.0
-offset_right = 1916.0
-offset_bottom = 1075.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 456.05432
+offset_bottom = 258.4203
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.75999933, 0.7600005)
 
 [node name="Player" parent="." unique_id=967538582 instance=ExtResource("1_l26od")]
@@ -58,4 +61,32 @@ position = Vector2(1268, 269)
 wait_time = 1.1489999999999998
 autostart = true
 
+[node name="GameOver" type="CanvasLayer" parent="." unique_id=1124306314]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=450252713]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6509804)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect" unique_id=485277845]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.089999974, 0.089999974, 1)
+theme_override_font_sizes/font_size = 80
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
