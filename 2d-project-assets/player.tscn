@@ -8,6 +8,9 @@
 radius = 9.737554
 height = 94.459625
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3pqv"]
+radius = 34.0147
+
 [node name="Player" type="CharacterBody2D" unique_id=967538582]
 script = ExtResource("1_onrkg")
 
@@ -24,3 +27,13 @@ shape = SubResource("CapsuleShape2D_i3pqv")
 
 [node name="Gun" parent="." unique_id=1411222839 instance=ExtResource("3_i3pqv")]
 position = Vector2(0, -18)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=830782453]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=558582991]
+position = Vector2(-1, -15)
+shape = SubResource("CircleShape2D_i3pqv")
+debug_color = Color(0.91646, 0.2268039, 0.45691037, 0.41960785)
