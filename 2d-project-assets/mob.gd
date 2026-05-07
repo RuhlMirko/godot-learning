@@ -3,7 +3,7 @@ extends CharacterBody2D
 const MOB_SPEED = 300.0
 var base_health = randf_range(20, 100)
 
-@onready var player = $"../../Player"
+@onready var player = get_node("/root/Game/Player")
 
 func _ready():
 	%Slime.play_walk()

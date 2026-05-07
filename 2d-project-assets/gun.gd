@@ -12,6 +12,11 @@ func shoot():
 	new_bullet.global_position = %ShootingPoint.global_position
 	new_bullet.global_rotation = %ShootingPoint.global_rotation
 	%ShootingPoint.add_child(new_bullet)
+	print( %ShootingPoint.global_rotation)
+	if global_rotation>=2.0 or global_rotation <= -1.5:
+		%Pistol.flip_v = true
+	else:
+		%Pistol.flip_v = false
 
 
 func _on_timer_timeout() -> void:
