@@ -1,5 +1,7 @@
+CanvasLayer
+Camera2D
+Node
 CollisionShape2D
 CharacterBody2D
 StaticBody2D
 ColorRect
-Node
