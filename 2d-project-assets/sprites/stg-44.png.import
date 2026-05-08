@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbtyj7hun5qa6"
-path="res://.godot/imported/AK-SU.png-9689561696c42eb938b07d5717dbf14d.ctex"
+uid="uid://bwxiv4rg6li2x"
+path="res://.godot/imported/stg-44.png-4a1a401e0f7370a41e019194d7c5b016.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://AK-SU.png"
-dest_files=["res://.godot/imported/AK-SU.png-9689561696c42eb938b07d5717dbf14d.ctex"]
+source_file="res://sprites/stg-44.png"
+dest_files=["res://.godot/imported/stg-44.png-4a1a401e0f7370a41e019194d7c5b016.ctex"]
 
 [params]
 

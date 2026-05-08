@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://yh2ao5or56lq" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://d06yywtcas4vl" path="res://characters/sas_player.png" id="2_sweqy"]
-[ext_resource type="PackedScene" uid="uid://du5i8r7jdycua" path="res://gun.tscn" id="3_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://cgplb1rt215oy" path="res://ak47.tscn" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://cgcy46r6oagxe" path="res://sprites/armored.png" id="2_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://du5i8r7jdycua" path="res://scenes/gun.tscn" id="3_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://cgplb1rt215oy" path="res://scenes/ak47.tscn" id="4_hqtel"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
 radius = 11.180154
@@ -16,26 +16,19 @@ height = 122.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
 bg_color = Color(0.17, 0.17, 0.17, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqtel"]
 bg_color = Color(0.21000001, 0.7, 0.24266665, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
 
 [node name="Player" type="CharacterBody2D" unique_id=967538582]
 script = ExtResource("1_onrkg")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1287731102]
+[node name="Sas" type="Sprite2D" parent="." unique_id=1287731102]
+unique_name_in_owner = true
 texture_filter = 1
-position = Vector2(0, -1)
-scale = Vector2(1.7295377, 1.3750895)
-texture = ExtResource("2_sweqy")
+position = Vector2(-8.345205, -1)
+scale = Vector2(1.599144, 1.3750895)
+texture = ExtResource("2_qlg0r")
 
 [node name="HappyBoo" parent="." unique_id=1091727253 instance=ExtResource("1_4flbx")]
 unique_name_in_owner = true
@@ -65,14 +58,15 @@ debug_color = Color(0.91646, 0.2268039, 0.45691037, 0.41960785)
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1146533480]
 unique_name_in_owner = true
-offset_left = -56.0
-offset_top = -106.0
-offset_right = 56.0
-offset_bottom = -79.0
+offset_left = -55.0
+offset_top = 89.0
+offset_right = 57.0
+offset_bottom = 116.0
+scale = Vector2(1, 0.32)
 theme_override_styles/background = SubResource("StyleBoxFlat_i3pqv")
 theme_override_styles/fill = SubResource("StyleBoxFlat_hqtel")
 value = 100.0
 show_percentage = false
 
 [node name="Gun2" parent="." unique_id=942716455 instance=ExtResource("4_hqtel")]
-position = Vector2(6, 0)
+position = Vector2(1, -13)

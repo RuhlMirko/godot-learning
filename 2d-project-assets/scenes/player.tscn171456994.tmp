@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://c1sx7bic4uhdj"]
+
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://yh2ao5or56lq" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://d06yywtcas4vl" path="res://characters/sas_player.png" id="2_sweqy"]
+[ext_resource type="PackedScene" uid="uid://du5i8r7jdycua" path="res://scenes/gun.tscn" id="3_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://cgplb1rt215oy" path="res://scenes/ak47.tscn" id="4_hqtel"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
+radius = 11.180154
+height = 130.20111
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqy"]
+radius = 20.0
+height = 122.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
+bg_color = Color(0.17, 0.17, 0.17, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqtel"]
+bg_color = Color(0.21000001, 0.7, 0.24266665, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Player" type="CharacterBody2D" unique_id=967538582]
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1287731102]
+texture_filter = 1
+position = Vector2(0, -1)
+scale = Vector2(1.7295377, 1.3750895)
+texture = ExtResource("2_sweqy")
+
+[node name="HappyBoo" parent="." unique_id=1091727253 instance=ExtResource("1_4flbx")]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.6651184, 0.73517257)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=129315255]
+position = Vector2(1, -20)
+scale = Vector2(-2.7727704, 0.7834035)
+shape = SubResource("CapsuleShape2D_i3pqv")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1388575314]
+
+[node name="Gun" parent="." unique_id=1411222839 instance=ExtResource("3_i3pqv")]
+visible = false
+position = Vector2(0, -18)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=830782453]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=558582991]
+position = Vector2(0, 11)
+shape = SubResource("CapsuleShape2D_sweqy")
+debug_color = Color(0.91646, 0.2268039, 0.45691037, 0.41960785)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1146533480]
+unique_name_in_owner = true
+offset_left = -56.0
+offset_top = -106.0
+offset_right = 56.0
+offset_bottom = -79.0
+theme_override_styles/background = SubResource("StyleBoxFlat_i3pqv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hqtel")
+value = 100.0
+show_percentage = false
+
+[node name="Gun2" parent="." unique_id=942716455 instance=ExtResource("4_hqtel")]
+position = Vector2(6, 0)

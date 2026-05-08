@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://th5uwp0hnn5n"
-path="res://.godot/imported/Galil.png-ae0b838386333a93b44b70eb89f06096.ctex"
+path="res://.godot/imported/Galil.png-23115ec5616df34d6b4423f8bb5d53cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pistol/Galil.png"
-dest_files=["res://.godot/imported/Galil.png-ae0b838386333a93b44b70eb89f06096.ctex"]
+source_file="res://sprites/Galil.png"
+dest_files=["res://.godot/imported/Galil.png-23115ec5616df34d6b4423f8bb5d53cc.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgplb1rt215oy"]
 
 [ext_resource type="Script" uid="uid://bpyfw0mh6bsnv" path="res://gun.gd" id="1_cqh1c"]
-[ext_resource type="Texture2D" uid="uid://bwxiv4rg6li2x" path="res://stg-44.png" id="2_cqh1c"]
+[ext_resource type="Texture2D" uid="uid://bwxiv4rg6li2x" path="res://sprites/stg-44.png" id="2_cqh1c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dk5gl"]
 radius = 586.14417
@@ -25,7 +25,8 @@ texture = ExtResource("2_cqh1c")
 
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol" unique_id=519952455]
 unique_name_in_owner = true
-position = Vector2(27.5, -3.5)
+position = Vector2(23, -5)
+rotation = 0.0045413226
 
 [node name="Timer" type="Timer" parent="." unique_id=851931536]
 wait_time = 0.3

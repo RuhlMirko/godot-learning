@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://delht61tcs571"]
 
-[ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://player.tscn" id="1_l26od"]
+[ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://scenes/player.tscn" id="1_l26od"]
 [ext_resource type="Script" uid="uid://c1bfau31nfqio" path="res://survivors_game.gd" id="1_qqaft"]
+[ext_resource type="Texture2D" uid="uid://b7mthm2okofpc" path="res://sprites/cobble.png" id="2_4bwrk"]
 [ext_resource type="Script" uid="uid://bf7lc336d4phe" path="res://game_manager.gd" id="2_7jj1j"]
-[ext_resource type="PackedScene" uid="uid://dq3r015sr1uql" path="res://pine_tree.tscn" id="2_qqaft"]
-[ext_resource type="PackedScene" uid="uid://5eubwiqrg505" path="res://bundle_tree.tscn" id="3_qqaft"]
+[ext_resource type="PackedScene" uid="uid://dq3r015sr1uql" path="res://sprites/pine_tree.tscn" id="2_qqaft"]
+[ext_resource type="PackedScene" uid="uid://5eubwiqrg505" path="res://scenes/bundle_tree.tscn" id="3_qqaft"]
 
 [sub_resource type="Curve2D" id="Curve2D_7jj1j"]
 _data = {
@@ -16,13 +17,35 @@ point_count = 5
 y_sort_enabled = true
 script = ExtResource("1_qqaft")
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=701320444]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="Background" type="TextureRect" parent="CanvasLayer2" unique_id=1694063651]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1056.0001
+offset_top = -929.0001
+offset_right = -1056.0001
+offset_bottom = -929.0001
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.461, 3)
+texture = ExtResource("2_4bwrk")
+stretch_mode = 1
+
 [node name="GameManager" type="Node" parent="." unique_id=658972517]
 script = ExtResource("2_7jj1j")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=881916006]
 layer = -1
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=313257185]
+visible = false
 texture_repeat = 2
 anchors_preset = 15
 anchor_right = 1.0

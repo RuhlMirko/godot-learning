@@ -1,8 +1,9 @@
+CanvasLayer
+TextureRect
 Sprite2D
 Node
 Label
 ColorRect
-CanvasLayer
 Timer
 PathFollow2D
 Path2D
@@ -11,5 +12,3 @@ CollisionShape2D
 Area2D
 Marker2D
 Camera2D
-CharacterBody2D
-StaticBody2D

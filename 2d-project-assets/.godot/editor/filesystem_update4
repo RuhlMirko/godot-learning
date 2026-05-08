@@ -1,4 +1,5 @@
-res://ak47.tscn
-res://player.tscn
-res://bullet.tscn
-res://bullet.gd
+res://scenes/player.tscn
+res://scenes/survivors_game.tscn
+res://scenes/ak47.tscn
+res://gun.gd
+res://player.gd

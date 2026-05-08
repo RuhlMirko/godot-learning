@@ -25,5 +25,18 @@ func _physics_process(delta: float) -> void:
 		
 		if curr_health <= 0.0:
 			health_depleted.emit()
-			
+	
+	var enemies = get_tree().get_nodes_in_group("enemy")
+
+	if enemies.size() > 0:
+		var closest_enemy = enemies[0]
+
+		for enemy in enemies:
+			if global_position.distance_to(enemy.global_position) < global_position.distance_to(closest_enemy.global_position):
+				closest_enemy = enemy
+
+		if closest_enemy.global_position.x < global_position.x:
+			%Sas.flip_h = true
+		else:
+			%Sas.flip_h = false
 	
