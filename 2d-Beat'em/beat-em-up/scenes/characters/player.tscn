@@ -68,7 +68,7 @@ _data = {
 [node name="Player" unique_id=1614859261 instance=ExtResource("1_rp718")]
 health = 30
 damage = 4.0
-speed = 35.0
+speed = 45.0
 
 [node name="CharacterSprite" parent="." index="1" unique_id=1328586494]
 texture = ExtResource("2_yewv4")
