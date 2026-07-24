@@ -11,7 +11,7 @@ var GRAVITY := 600.0
 @onready var character_sprite := $CharacterSprite
 @onready var damage_emitter := $DamageEmitter
 
-enum State {IDLE, WALK, ATTACK, TAKEOFF, JUMP, LAND}
+enum State {IDLE, WALK, ATTACK, TAKEOFF, JUMP, LAND, JUMPKICK}
 
 var anim_map :={
 	State.IDLE: "idle",
@@ -19,7 +19,8 @@ var anim_map :={
 	State.ATTACK: "punch",
 	State.TAKEOFF:"takeoff",
 	State.JUMP:"jump",
-	State.LAND:"landing"
+	State.LAND:"landing",
+	State.JUMPKICK: "jumpkick"
 }
 var height := 0.0
 var height_speed := 0.0
@@ -51,18 +52,21 @@ func handle_input() -> void:
 		state = State.ATTACK
 	if can_jump() and Input.is_action_just_pressed("jump"):
 		state = State.TAKEOFF
+	if can_jumpkick() and Input.is_action_just_pressed("attack"):
+		state = State.JUMPKICK
 
 func handle_animations() -> void:
 	if animation_player.has_animation(anim_map[state]):
 		animation_player.play(anim_map[state])
 
 func handle_air_time(delta:float)->void:
-	if state == State.JUMP:
+	if state == State.JUMP or state == State.JUMPKICK:
 		height += height_speed * delta
-		#position.y = height * delta
 		if height < 0:
 			height = 0
 			state = State.LAND
+		elif state == State.JUMPKICK:
+			height_speed -= GRAVITY / 2 * delta
 		else :
 			height_speed -= GRAVITY * delta
 
@@ -82,6 +86,9 @@ func can_attack() -> bool:
 
 func can_jump() -> bool:
 	return state == State.IDLE or state == State.WALK
+
+func can_jumpkick()->bool:
+	return state == State.JUMP or state == State.TAKEOFF
 
 func on_action_complete() -> void:
 	state = State.IDLE
