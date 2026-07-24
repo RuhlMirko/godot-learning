@@ -1,20 +1,25 @@
-[gd_scene format=3 uid="uid://dpngcaqu5mqt7"]
+[gd_scene format=3 uid="uid://h4wo2mqnh48o"]
 
-[ext_resource type="Script" uid="uid://btoq6u13v7435" path="res://scenes/characters/character.gd" id="1_1bdar"]
-[ext_resource type="Texture2D" uid="uid://biqn5shafoiut" path="res://assets/art/characters/shadow.png" id="2_e22cc"]
+[ext_resource type="Script" uid="uid://qptlv22p3170" path="res://scenes/characters/character.gd" id="1_cqjif"]
+[ext_resource type="Texture2D" uid="uid://d0jo43xa8ljw5" path="res://assets/art/characters/shadow.png" id="2_6rngr"]
+[ext_resource type="PackedScene" uid="uid://ck1led65jpclf" path="res://colliders/damage_emitter.tscn" id="3_e22cc"]
 
-[node name="Character" type="CharacterBody2D" unique_id=1614859261]
+[node name="Character" type="CharacterBody2D" unique_id=1640253199]
 collision_layer = 0
-script = ExtResource("1_1bdar")
-speed = 5.0
+collision_mask = 0
+script = ExtResource("1_cqjif")
 
-[node name="ShadowSprite" type="Sprite2D" parent="." unique_id=2098964756]
-texture = ExtResource("2_e22cc")
+[node name="ShadowSprite" type="Sprite2D" parent="." unique_id=360811234]
+texture = ExtResource("2_6rngr")
 centered = false
 offset = Vector2(-7, 0)
 
-[node name="CharacterSprite" type="Sprite2D" parent="." unique_id=1328586494]
+[node name="CharacterSprite" type="Sprite2D" parent="." unique_id=1616440262]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=955425438]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=575061619]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2014861368]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1097468231]
+
+[node name="DamageEmitter" parent="." unique_id=1506314145 instance=ExtResource("3_e22cc")]
+
+[editable path="DamageEmitter"]
