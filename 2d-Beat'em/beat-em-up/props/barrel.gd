@@ -9,7 +9,7 @@ const GRAVITY := 600.0
 enum State {IDLE, DESTROYED}
 
 var height := 0.0
-var height_speed := 0
+var height_speed := 0.0
 var state := State.IDLE
 var velocity := Vector2.ZERO
 
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	sprite.position = Vector2.UP * height
 	handle_air_time(delta)
 
-func on_receive_damage(damage:int, direction: Vector2)-> void:
+func on_receive_damage(_damage:int, direction: Vector2)-> void:
 	if state == State.IDLE:
 		sprite.frame = 2
 		height_speed = knockback_intensity * 2
