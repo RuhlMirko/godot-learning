@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bytfk3k0l4qmt"]
+
+[ext_resource type="Texture2D" uid="uid://cgp0yccdby48p" path="res://graphics/player/player.png" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://0dvi6chbpm67" path="res://graphics/projectiles/blue.png" id="2_gmlin"]
+
+[node name="Player" type="Node2D" unique_id=857478146]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1092270325]
+texture = ExtResource("1_dovo2")
+
+[node name="LaserImage" type="Sprite2D" parent="Sprite2D" unique_id=394981024]
+position = Vector2(-18, -314)
+texture = ExtResource("2_gmlin")
+centered = false

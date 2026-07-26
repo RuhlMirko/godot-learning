@@ -1,30 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvr6opvp31hp6"]
+[gd_scene format=3 uid="uid://cvr6opvp31hp6"]
 
 [ext_resource type="PackedScene" uid="uid://h4wo2mqnh48o" path="res://scenes/characters/character.tscn" id="1_1in0h"]
-[ext_resource type="Script" path="res://scenes/characters/player.gd" id="2_1d5f1"]
+[ext_resource type="Script" uid="uid://ddrw5spqdj31w" path="res://scenes/characters/player.gd" id="2_1d5f1"]
 [ext_resource type="Texture2D" uid="uid://cxg8d6qg72u72" path="res://assets/art/characters/player.png" id="2_fyfnq"]
+[ext_resource type="PackedScene" uid="uid://bguj8tju8f5w4" path="res://scenes/enemy_slot.tscn" id="4_dyp2m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kwi03"]
 radius = 2.0
 height = 12.0
-
-[sub_resource type="Animation" id="Animation_bwa1l"]
-resource_name = "idle"
-length = 0.4
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
 
 [sub_resource type="Animation" id="Animation_ot1yu"]
 length = 0.001
@@ -53,9 +36,9 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_fp4cu"]
-resource_name = "walk"
-length = 0.8
+[sub_resource type="Animation" id="Animation_bwa1l"]
+resource_name = "idle"
+length = 0.4
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -65,10 +48,101 @@ tracks/0/path = NodePath("CharacterSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [10, 11, 12, 13, 14, 15, 16, 17]
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_dl3bv"]
+resource_name = "jump"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [62]
+}
+
+[sub_resource type="Animation" id="Animation_gbu5k"]
+resource_name = "jumpkick"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [63]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageEmitter:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qsm04"]
+resource_name = "land"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [60]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_land_complete"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DamageEmitter:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_y660q"]
@@ -145,9 +219,9 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_dl3bv"]
-resource_name = "jump"
-length = 0.1
+[sub_resource type="Animation" id="Animation_fp4cu"]
+resource_name = "walk"
+length = 0.8
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -157,111 +231,38 @@ tracks/0/path = NodePath("CharacterSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [62]
-}
-
-[sub_resource type="Animation" id="Animation_qsm04"]
-resource_name = "land"
-length = 0.05
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [60]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.05),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"on_land_complete"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("DamageEmitter:monitoring")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_gbu5k"]
-resource_name = "jumpkick"
-length = 0.1
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [63]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DamageEmitter:monitoring")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [10, 11, 12, 13, 14, 15, 16, 17]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1vqdb"]
 _data = {
-"RESET": SubResource("Animation_ot1yu"),
-"idle": SubResource("Animation_bwa1l"),
-"jump": SubResource("Animation_dl3bv"),
-"jumpkick": SubResource("Animation_gbu5k"),
-"land": SubResource("Animation_qsm04"),
-"punch": SubResource("Animation_y660q"),
-"takeoff": SubResource("Animation_gtx5g"),
-"walk": SubResource("Animation_fp4cu")
+&"RESET": SubResource("Animation_ot1yu"),
+&"idle": SubResource("Animation_bwa1l"),
+&"jump": SubResource("Animation_dl3bv"),
+&"jumpkick": SubResource("Animation_gbu5k"),
+&"land": SubResource("Animation_qsm04"),
+&"punch": SubResource("Animation_y660q"),
+&"takeoff": SubResource("Animation_gtx5g"),
+&"walk": SubResource("Animation_fp4cu")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc3oh"]
 size = Vector2(10, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xonq"]
-size = Vector2(8, 8)
+size = Vector2(8, 18)
 
-[node name="Player" instance=ExtResource("1_1in0h")]
+[node name="Player" unique_id=716959676 instance=ExtResource("1_1in0h")]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("2_1d5f1")
 damage = 4
 jump_intensity = 150.0
 max_health = 30
-speed = 35.0
+speed = 45.0
 
 [node name="CharacterSprite" parent="." index="1"]
 texture = ExtResource("2_fyfnq")
@@ -275,10 +276,8 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_kwi03")
 
 [node name="AnimationPlayer" parent="." index="3"]
-libraries = {
-"": SubResource("AnimationLibrary_1vqdb")
-}
-autoplay = "idle"
+libraries/ = SubResource("AnimationLibrary_1vqdb")
+autoplay = &"idle"
 
 [node name="DamageEmitter" parent="." index="4"]
 position = Vector2(0, -12)
@@ -292,8 +291,22 @@ shape = SubResource("RectangleShape2D_xc3oh")
 collision_layer = 16
 
 [node name="CollisionShape2D" parent="DamageReceiver" index="0"]
-position = Vector2(0, -18)
+position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_5xonq")
+
+[node name="EnemySlots" type="Node2D" parent="." index="6" unique_id=635861577]
+
+[node name="EnemySlot" parent="EnemySlots" index="0" unique_id=2081564623 instance=ExtResource("4_dyp2m")]
+position = Vector2(14, 3)
+
+[node name="EnemySlot2" parent="EnemySlots" index="1" unique_id=117659416 instance=ExtResource("4_dyp2m")]
+position = Vector2(14, -4)
+
+[node name="EnemySlot3" parent="EnemySlots" index="2" unique_id=371478120 instance=ExtResource("4_dyp2m")]
+position = Vector2(-14, 3)
+
+[node name="EnemySlot4" parent="EnemySlots" index="3" unique_id=601792181 instance=ExtResource("4_dyp2m")]
+position = Vector2(-14, -4)
 
 [editable path="DamageEmitter"]
 [editable path="DamageReceiver"]

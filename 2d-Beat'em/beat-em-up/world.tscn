@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://uqrqng3qanfq"]
+[gd_scene format=3 uid="uid://uqrqng3qanfq"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_58n65"]
+[ext_resource type="Script" uid="uid://bx45c6uejqw5j" path="res://world.gd" id="1_58n65"]
 [ext_resource type="PackedScene" uid="uid://df3rikr3va82q" path="res://scenes/stage/stage.tscn" id="1_ea3cy"]
 [ext_resource type="PackedScene" uid="uid://cvr6opvp31hp6" path="res://scenes/characters/player.tscn" id="2_fso2d"]
 [ext_resource type="PackedScene" uid="uid://qilhs2wt8rl8" path="res://scenes/props/barrel.tscn" id="4_cs001"]
@@ -9,43 +9,43 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktcqf"]
 size = Vector2(6, 64)
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" unique_id=1708185667]
 script = ExtResource("1_58n65")
 
-[node name="Stage" parent="." instance=ExtResource("1_ea3cy")]
+[node name="Stage" parent="." unique_id=360350938 instance=ExtResource("1_ea3cy")]
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="." unique_id=1920840009]
 position = Vector2(50, 32)
 
-[node name="InvisibleWalls" type="Node2D" parent="Camera"]
+[node name="InvisibleWalls" type="Node2D" parent="Camera" unique_id=164271768]
 position = Vector2(-50, -32)
 
-[node name="LeftWall" type="StaticBody2D" parent="Camera/InvisibleWalls"]
+[node name="LeftWall" type="StaticBody2D" parent="Camera/InvisibleWalls" unique_id=1294529006]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/LeftWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/LeftWall" unique_id=1597179709]
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_ktcqf")
 
-[node name="RightWall" type="StaticBody2D" parent="Camera/InvisibleWalls"]
+[node name="RightWall" type="StaticBody2D" parent="Camera/InvisibleWalls" unique_id=552094801]
 position = Vector2(100, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/RightWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/RightWall" unique_id=355216115]
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_ktcqf")
 
-[node name="ActorsContainer" type="Node2D" parent="."]
+[node name="ActorsContainer" type="Node2D" parent="." unique_id=1674406293]
 y_sort_enabled = true
 
-[node name="Player" parent="ActorsContainer" instance=ExtResource("2_fso2d")]
+[node name="Player" parent="ActorsContainer" unique_id=1861435797 instance=ExtResource("2_fso2d")]
 position = Vector2(36, 46)
 
-[node name="Barrel" parent="ActorsContainer" instance=ExtResource("4_cs001")]
+[node name="Barrel" parent="ActorsContainer" unique_id=1432620711 instance=ExtResource("4_cs001")]
 position = Vector2(61, 47)
 
-[node name="BasicEnemy" parent="ActorsContainer" node_paths=PackedStringArray("player") instance=ExtResource("5_15mmh")]
-position = Vector2(67, 58)
+[node name="BasicEnemy" parent="ActorsContainer" unique_id=75487532 node_paths=PackedStringArray("player") instance=ExtResource("5_15mmh")]
+position = Vector2(133, 57)
 player = NodePath("../Player")
 
-[node name="BasicEnemy2" parent="ActorsContainer" node_paths=PackedStringArray("player") instance=ExtResource("5_15mmh")]
-position = Vector2(19, 58)
+[node name="BasicEnemy2" parent="ActorsContainer" unique_id=289250452 node_paths=PackedStringArray("player") instance=ExtResource("5_15mmh")]
+position = Vector2(87, 40)
 player = NodePath("../Player")
