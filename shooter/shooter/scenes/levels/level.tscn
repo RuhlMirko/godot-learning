@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://7k048776ywi8"]
 
-[ext_resource type="Texture2D" uid="uid://bf1pok23sj13n" path="res://graphics/car/main.png" id="1_377w7"]
+[ext_resource type="Texture2D" uid="uid://bx1cb1cq3l3sb" path="res://icon.svg" id="1_bovvr"]
+[ext_resource type="Script" uid="uid://gb1o0h2n447m" path="res://scenes/Logo.gd" id="2_b2cq8"]
 
 [node name="Level" type="Node2D" unique_id=890920135]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1735503810]
-position = Vector2(770, 315)
-texture = ExtResource("1_377w7")
+[node name="Logo" type="Sprite2D" parent="." unique_id=541359669]
+texture = ExtResource("1_bovvr")
+script = ExtResource("2_b2cq8")
