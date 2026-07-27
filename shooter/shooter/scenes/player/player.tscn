@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cgp0yccdby48p" path="res://graphics/player/player.png" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://yokag32s8a10" path="res://scenes/player/player.gd" id="1_gmlin"]
+[ext_resource type="Texture2D" uid="uid://bmu7ny2hm3cby" path="res://graphics/player/dashed-line.png" id="2_gmlin"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uw0n1"]
 radius = 50.01
@@ -9,12 +10,18 @@ radius = 50.01
 [node name="Player" type="CharacterBody2D" unique_id=735580097]
 script = ExtResource("1_gmlin")
 
+[node name="aim-line" type="Sprite2D" parent="." unique_id=1532777838]
+position = Vector2(393, -2)
+scale = Vector2(0.5, 1)
+texture = ExtResource("2_gmlin")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1092270325]
 position = Vector2(3, -27)
+rotation = 1.5707964
 texture = ExtResource("1_dovo2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=938792168]
-position = Vector2(-3, 18)
+position = Vector2(-44, -28)
 shape = SubResource("CircleShape2D_uw0n1")
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=2045312284]
@@ -26,6 +33,8 @@ wait_time = 2.0
 one_shot = true
 
 [node name="LaserSpawner" type="Node2D" parent="." unique_id=955225124]
+position = Vector2(-22, -31)
+rotation = 1.5707964
 
 [node name="Marker2D" type="Marker2D" parent="LaserSpawner" unique_id=1559131924]
 position = Vector2(16, -106)
