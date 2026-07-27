@@ -1,6 +1,6 @@
-extends Area2D
+extends RigidBody2D
 
-@export var speed : int = 1000
+@export var speed : int = 500
 
 func _process(delta: float) -> void:
 	var direction : Vector2 = Vector2.UP

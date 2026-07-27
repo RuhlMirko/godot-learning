@@ -20,9 +20,11 @@ func _process(_delta: float) -> void:
 		laser.emit(selected_marker.global_position)
 		
 	if Input.is_action_just_pressed("secondary action") and can_grenade:
-		grenade.emit()
+		var laser_markers = $LaserSpawner.get_children()
+		var selected_marker = laser_markers[randi() % laser_markers.size()]
 		can_grenade = false
 		$GrenadeTimer.start()
+		grenade.emit(selected_marker.global_position)
 
 func _on_timer_timeout() -> void:
 	can_laser = true

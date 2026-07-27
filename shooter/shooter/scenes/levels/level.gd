@@ -1,6 +1,7 @@
 extends Node2D
 
 var laser_scene : PackedScene = preload("res://scenes/projectiles/laser.tscn")
+var grenade_scene : PackedScene = preload("res://scenes/projectiles/grenade.tscn")
 
 func _ready() -> void:
 	pass
@@ -17,5 +18,8 @@ func _on_player_laser(pos) -> void:
 	laser.position = pos
 	$Projectiles.add_child(laser)
 
-func _on_player_grenade() -> void:
+func _on_player_grenade(pos) -> void:
 	print("grenade from level")
+	var grenade = grenade_scene.instantiate()
+	grenade.position = pos
+	$Projectiles.add_child(grenade)
