@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://1w5ht0ar514g" path="res://graphics/tilesets/outside_walls.png" id="4_ouxo3"]
 [ext_resource type="Texture2D" uid="uid://cflhmt74nknlp" path="res://graphics/tilesets/soil.png" id="5_icy5c"]
 [ext_resource type="PackedScene" uid="uid://dbho67x3sanwp" path="res://scenes/props/house.tscn" id="6_ouxo3"]
+[ext_resource type="PackedScene" uid="uid://ciqsjoh7dkqn2" path="res://scenes/steam_vent.tscn" id="7_icy5c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rmjfq"]
 resource_name = "walls"
@@ -83,6 +84,9 @@ layer_1/tile_data = PackedInt32Array(524279, 0, 2, 196608, 0, 0, 196609, 65536, 
 [node name="House" parent="Ground" unique_id=1134828486 instance=ExtResource("6_ouxo3")]
 position = Vector2(791, 4997)
 rotation = 2.612758
+
+[node name="SteamVent" parent="Ground" unique_id=2137447174 instance=ExtResource("7_icy5c")]
+position = Vector2(-733, 910)
 
 [node name="Gate" parent="." unique_id=939751637 instance=ExtResource("3_b2cq8")]
 position = Vector2(564, -618)
