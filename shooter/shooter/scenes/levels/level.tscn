@@ -2,10 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://bytfk3k0l4qmt" path="res://scenes/player/player.tscn" id="1_377w7"]
 [ext_resource type="Script" uid="uid://woh70umbg2bo" path="res://scenes/levels/level.gd" id="1_b2cq8"]
+[ext_resource type="Texture2D" uid="uid://lv7a1fi4dnd1" path="res://graphics/ground/stones.png" id="2_xb4v1"]
 [ext_resource type="PackedScene" uid="uid://bbmklrr0g0gy8" path="res://scenes/gate.tscn" id="3_b2cq8"]
 
 [node name="Level" type="Node2D" unique_id=890920135]
 script = ExtResource("1_b2cq8")
+
+[node name="Ground" type="Node2D" parent="." unique_id=1200282988]
+
+[node name="Soil" type="Sprite2D" parent="Ground" unique_id=1555116536]
+texture_repeat = 2
+position = Vector2(550, 576)
+scale = Vector2(1.3505208, 1.371875)
+texture = ExtResource("2_xb4v1")
+region_enabled = true
+region_rect = Rect2(-1609.3992, -801.5511, 5273.0986, 3100.9626)
 
 [node name="Gate" parent="." unique_id=939751637 instance=ExtResource("3_b2cq8")]
 position = Vector2(564, -618)
