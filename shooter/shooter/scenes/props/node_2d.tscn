@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://1vjta1flw5s5"]
+
+[ext_resource type="Texture2D" uid="uid://bexfcjw52hswm" path="res://graphics/objects/toilet.png" id="1_h271i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4k00h"]
+radius = 109.07337
+
+[node name="Node2D" type="StaticBody2D" unique_id=2054953824]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1433940187]
+texture = ExtResource("1_h271i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=525761103]
+shape = SubResource("CircleShape2D_4k00h")
