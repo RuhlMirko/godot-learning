@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bpld4f44fmu6l" path="res://scenes/projectiles/grenade.gd" id="1_b7x1w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b7x1w"]
-friction = 6.0
+friction = 3.0
 bounce = 0.4
 absorbent = true
 
@@ -12,10 +12,14 @@ absorbent = true
 radius = 23.0
 
 [node name="Grenade" type="RigidBody2D" unique_id=824316522]
+collision_layer = 8
+collision_mask = 15
+mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_b7x1w")
 gravity_scale = 0.0
-linear_damp = 1.2
+linear_damp = 1.6
 script = ExtResource("1_b7x1w")
+speed = 700
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=875754161]
 scale = Vector2(0.3, 0.3)

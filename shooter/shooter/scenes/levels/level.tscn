@@ -50,8 +50,8 @@ script = ExtResource("1_b2cq8")
 
 [node name="Soil" type="Sprite2D" parent="Ground" unique_id=1555116536]
 texture_repeat = 2
-position = Vector2(-712.5001, 2174.2966)
-scale = Vector2(2.1416647, 2.4030342)
+position = Vector2(-42.499878, 4372.797)
+scale = Vector2(3.204438, 3.8214219)
 texture = ExtResource("2_xb4v1")
 region_enabled = true
 region_rect = Rect2(-1609.3992, -801.5511, 5273.0986, 3100.9626)

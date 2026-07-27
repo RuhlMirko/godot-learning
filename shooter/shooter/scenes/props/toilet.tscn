@@ -6,6 +6,8 @@
 radius = 109.07337
 
 [node name="Node2D" type="StaticBody2D" unique_id=2054953824]
+collision_layer = 4
+collision_mask = 11
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1433940187]
 texture = ExtResource("1_h271i")
