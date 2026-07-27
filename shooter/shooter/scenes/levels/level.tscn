@@ -2,17 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://bytfk3k0l4qmt" path="res://scenes/player/player.tscn" id="1_377w7"]
 [ext_resource type="Script" uid="uid://woh70umbg2bo" path="res://scenes/levels/level.gd" id="1_b2cq8"]
-[ext_resource type="PackedScene" uid="uid://tqiv1uskq7q6" path="res://scenes/node_2d.tscn" id="4_xb4v1"]
-[ext_resource type="PackedScene" uid="uid://b0f6orqr0tjjs" path="res://scenes/props/bed.tscn" id="5_urvlt"]
+[ext_resource type="PackedScene" uid="uid://bbmklrr0g0gy8" path="res://scenes/gate.tscn" id="3_b2cq8"]
 
 [node name="Level" type="Node2D" unique_id=890920135]
 script = ExtResource("1_b2cq8")
 
+[node name="Gate" parent="." unique_id=939751637 instance=ExtResource("3_b2cq8")]
+position = Vector2(564, -618)
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=2010670619]
+
 [node name="Player" parent="." unique_id=857478146 instance=ExtResource("1_377w7")]
 position = Vector2(572, 510)
 
-[node name="Bed" parent="." unique_id=1883441614 instance=ExtResource("5_urvlt")]
-position = Vector2(1134, 19)
-
-[node name="Node2D" parent="." unique_id=1678759752 instance=ExtResource("4_xb4v1")]
-position = Vector2(-12, 217)
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]

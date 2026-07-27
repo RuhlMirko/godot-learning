@@ -16,3 +16,25 @@ texture = ExtResource("1_dovo2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=938792168]
 position = Vector2(-3, 18)
 shape = SubResource("CircleShape2D_uw0n1")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=2045312284]
+wait_time = 0.5
+one_shot = true
+
+[node name="GrenadeTimer" type="Timer" parent="." unique_id=1987841098]
+wait_time = 2.0
+one_shot = true
+
+[node name="LaserSpawner" type="Node2D" parent="." unique_id=955225124]
+
+[node name="Marker2D" type="Marker2D" parent="LaserSpawner" unique_id=1559131924]
+position = Vector2(16, -106)
+
+[node name="Marker2D2" type="Marker2D" parent="LaserSpawner" unique_id=1017529951]
+position = Vector2(27, -118)
+
+[node name="Marker2D3" type="Marker2D" parent="LaserSpawner" unique_id=1610192622]
+position = Vector2(48, -81)
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GrenadeTimer" to="." method="_on_grenade_timer_timeout"]

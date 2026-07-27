@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://tqiv1uskq7q6"]
+
+[ext_resource type="Script" uid="uid://b03i8g4w5vtg8" path="res://node_2d.gd" id="1_4dvvg"]
+[ext_resource type="Texture2D" uid="uid://d0nbtw7hgfjbe" path="res://graphics/enemies/drone.png" id="2_rnjyy"]
+
+[node name="Drone" type="Node2D" unique_id=116574730]
+modulate = Color(0.7750634, 0.7750634, 0.7750634, 1)
+script = ExtResource("1_4dvvg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1766824236]
+texture_filter = 1
+rotation = 1.5707964
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_rnjyy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=471394705]
+texture_filter = 1
+position = Vector2(-56, -63)
+rotation = 1.5707964
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("2_rnjyy")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=923085791]
+texture_filter = 1
+position = Vector2(-43, 67)
+rotation = 1.5707964
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_rnjyy")
