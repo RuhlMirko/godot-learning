@@ -5,3 +5,4 @@ var direction : Vector2
 
 func _process(delta: float) -> void:
 	position += direction * speed * delta
+	print(position - global_position)
