@@ -3,6 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://cgp0yccdby48p" path="res://graphics/player/player.png" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://yokag32s8a10" path="res://scenes/player/player.gd" id="1_gmlin"]
 [ext_resource type="Texture2D" uid="uid://bmu7ny2hm3cby" path="res://graphics/player/dashed-line.png" id="2_gmlin"]
+[ext_resource type="Texture2D" uid="uid://ck64e4hh8chbx" path="res://graphics/decals/white.png" id="2_lvxji"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p7724"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 17.56
+direction = Vector3(4, 0, 0)
+spread = 25.941
+initial_velocity_min = 750.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 0.5
+hue_variation_min = -0.15000002
+hue_variation_max = 0.09999997
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uw0n1"]
 radius = 50.01
@@ -10,6 +25,15 @@ radius = 50.01
 [node name="Player" type="CharacterBody2D" unique_id=735580097]
 collision_mask = 31
 script = ExtResource("1_gmlin")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1511242895]
+modulate = Color(0.11390001, 0.67, 0.67, 0.48235294)
+position = Vector2(79, -7)
+emitting = false
+texture = ExtResource("2_lvxji")
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_p7724")
 
 [node name="aim-line" type="Sprite2D" parent="." unique_id=1532777838]
 position = Vector2(393, -2)

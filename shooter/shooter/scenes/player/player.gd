@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 		can_laser = false
 		$ShootTimer.start()
 		laser.emit(selected_marker.global_position, direction_to_shoot)
+		$GPUParticles2D.emitting = true
 		
 	if Input.is_action_just_pressed("secondary action") and can_grenade:
 		can_grenade = false
