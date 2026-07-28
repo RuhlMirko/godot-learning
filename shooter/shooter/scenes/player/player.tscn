@@ -22,6 +22,9 @@ hue_variation_max = 0.09999997
 [sub_resource type="CircleShape2D" id="CircleShape2D_uw0n1"]
 radius = 50.01
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p7724"]
+polygon = PackedVector2Array(-72, -80, -94, -51, -95, -9, -52, 32, -5, 20, 37, 27, 60, 26, 100, 1, 97, -22, 52, -39, 15, -57, -8, -89)
+
 [node name="Player" type="CharacterBody2D" unique_id=735580097]
 collision_mask = 31
 script = ExtResource("1_gmlin")
@@ -69,6 +72,9 @@ position = Vector2(27, -118)
 
 [node name="Marker2D3" type="Marker2D" parent="LaserSpawner" unique_id=1610192622]
 position = Vector2(48, -81)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2008015297]
+occluder = SubResource("OccluderPolygon2D_p7724")
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="GrenadeTimer" to="." method="_on_grenade_timer_timeout"]

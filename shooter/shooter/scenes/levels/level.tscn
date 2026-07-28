@@ -94,7 +94,7 @@ position = Vector2(564, -618)
 [node name="Projectiles" type="Node2D" parent="." unique_id=2010670619]
 
 [node name="Player" parent="." unique_id=857478146 instance=ExtResource("1_377w7")]
-position = Vector2(572, 510)
+position = Vector2(-753, 3559)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1095674925]
 zoom = Vector2(0.4, 0.4)

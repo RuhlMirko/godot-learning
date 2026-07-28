@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dbho67x3sanwp"]
 
 [ext_resource type="Texture2D" uid="uid://bd6k1m6unwndr" path="res://graphics/tilesets/interior.png" id="1_gh3y0"]
+[ext_resource type="PackedScene" uid="uid://b30bpenawtj82" path="res://scenes/simple_light.tscn" id="2_guvol"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_guvol"]
 texture = ExtResource("1_gh3y0")
@@ -207,3 +208,10 @@ tile_set = SubResource("TileSet_4k00h")
 visible = false
 position = Vector2(188, -195.5)
 polygon = PackedVector2Array(2284, -1140.5, 2288, -23.5, 1207, 30.5, 1176, 1108.5, -1110, 1131.5, -1112, -1140.5)
+
+[node name="SimpleLight" parent="." unique_id=1466311821 instance=ExtResource("2_guvol")]
+position = Vector2(2443, -798)
+rotation = 1.5707964
+
+[node name="SimpleLight2" parent="." unique_id=1875422638 instance=ExtResource("2_guvol")]
+position = Vector2(404, -1278)
