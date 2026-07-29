@@ -2,59 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bytfk3k0l4qmt" path="res://scenes/player/player.tscn" id="1_377w7"]
 [ext_resource type="Script" uid="uid://woh70umbg2bo" path="res://scenes/levels/level.gd" id="1_b2cq8"]
-[ext_resource type="Texture2D" uid="uid://lv7a1fi4dnd1" path="res://graphics/ground/stones.png" id="2_xb4v1"]
-[ext_resource type="PackedScene" uid="uid://bbmklrr0g0gy8" path="res://scenes/gate.tscn" id="3_b2cq8"]
-[ext_resource type="Texture2D" uid="uid://bcibtkbywwj1q" path="res://graphics/decals/dirt_patch.png" id="3_mbbpy"]
-[ext_resource type="PackedScene" uid="uid://c7pnoqeh6mkof" path="res://scenes/light_fan_animation.tscn" id="6_icy5c"]
-[ext_resource type="PackedScene" uid="uid://dbho67x3sanwp" path="res://scenes/props/house.tscn" id="6_ouxo3"]
-[ext_resource type="PackedScene" uid="uid://ciqsjoh7dkqn2" path="res://scenes/steam_vent.tscn" id="7_icy5c"]
-[ext_resource type="PackedScene" uid="uid://ckmafj4i8fkjk" path="res://scenes/enemies/drone_enemy.tscn" id="9_icy5c"]
 
 [node name="Level" type="Node2D" unique_id=890920135]
 script = ExtResource("1_b2cq8")
 
 [node name="Ground" type="Node2D" parent="." unique_id=1200282988]
-
-[node name="Soil" type="Sprite2D" parent="Ground" unique_id=1555116536]
-texture_repeat = 2
-position = Vector2(-42.499878, 4372.797)
-scale = Vector2(3.204438, 3.8214219)
-texture = ExtResource("2_xb4v1")
-region_enabled = true
-region_rect = Rect2(-1609.3992, -801.5511, 5273.0986, 3100.9626)
-
-[node name="DirtPatch" type="Sprite2D" parent="Ground" unique_id=530849619]
-modulate = Color(0.93333334, 1, 0.654902, 0.42745098)
-position = Vector2(821, 410)
-texture = ExtResource("3_mbbpy")
-
-[node name="DirtPatch2" type="Sprite2D" parent="Ground" unique_id=1887151413]
-modulate = Color(0.93333334, 1, 0.654902, 0.42745098)
-position = Vector2(-1540, 1801)
-texture = ExtResource("3_mbbpy")
-
-[node name="DirtPatch3" type="Sprite2D" parent="Ground" unique_id=1303667700]
-modulate = Color(0.93333334, 1, 0.654902, 0.42745098)
-position = Vector2(3063, 1890)
-texture = ExtResource("3_mbbpy")
-
-[node name="House" parent="Ground" unique_id=1134828486 instance=ExtResource("6_ouxo3")]
-light_mask = 15
-visibility_layer = 15
-position = Vector2(791, 4997)
-rotation = 2.612758
-
-[node name="SteamVent" parent="Ground" unique_id=2137447174 instance=ExtResource("7_icy5c")]
-position = Vector2(-733, 910)
-
-[node name="LightFanAnimation" parent="Ground" unique_id=2082290073 instance=ExtResource("6_icy5c")]
-modulate = Color(1, 1, 1, 0.41568628)
-position = Vector2(847, 4606)
-autoplay = "default"
-frame_progress = 0.31743145
-
-[node name="Gate" parent="." unique_id=939751637 instance=ExtResource("3_b2cq8")]
-position = Vector2(564, -618)
 
 [node name="Projectiles" type="Node2D" parent="." unique_id=2010670619]
 
@@ -65,11 +17,5 @@ position = Vector2(416, 1654)
 zoom = Vector2(0.2, 0.2)
 position_smoothing_enabled = true
 
-[node name="DroneEnemy" parent="." unique_id=1750924040 instance=ExtResource("9_icy5c")]
-position = Vector2(-459, 1657)
-
-[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
-[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
-[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]

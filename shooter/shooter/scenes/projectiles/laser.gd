@@ -4,7 +4,7 @@ extends Area2D
 var direction : Vector2
 
 func _ready() -> void:
-	$Timer.start()
+	$SelfDestruct.start()
 
 func _process(delta: float) -> void:
 	position += direction * speed * delta

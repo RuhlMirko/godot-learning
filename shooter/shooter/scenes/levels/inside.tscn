@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ci71vvcuyfp8o"]
+
+[ext_resource type="PackedScene" uid="uid://7k048776ywi8" path="res://scenes/levels/level.tscn" id="1_8ht0b"]
+[ext_resource type="Texture2D" uid="uid://dyouwl8vof8p8" path="res://graphics/ground/Mesh.png" id="2_b1uqu"]
+[ext_resource type="PackedScene" uid="uid://1vjta1flw5s5" path="res://scenes/props/toilet.tscn" id="3_71x7e"]
+[ext_resource type="PackedScene" uid="uid://0030uqy53riw" path="res://scenes/props/box.tscn" id="4_086xj"]
+
+[node name="Level" unique_id=890920135 instance=ExtResource("1_8ht0b")]
+
+[node name="Soil" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(1200282988) index="0" unique_id=225802427]
+modulate = Color(0.78235406, 0.78235406, 0.78235406, 1)
+texture_repeat = 2
+position = Vector2(-42.499878, 4372.797)
+scale = Vector2(3.204438, 3.8214219)
+texture = ExtResource("2_b1uqu")
+region_enabled = true
+region_rect = Rect2(-1609.3992, -801.5511, 5273.0986, 3100.9626)
+
+[node name="Node2D" parent="." index="3" unique_id=2054953824 instance=ExtResource("3_71x7e")]
+position = Vector2(3174, 1774)
+
+[node name="Box" parent="Node2D" index="2" unique_id=1862061770 instance=ExtResource("4_086xj")]
+position = Vector2(-1055, -813)
