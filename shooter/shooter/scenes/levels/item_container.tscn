@@ -2,11 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cn148geyy11af" path="res://item_container.gd" id="1_432s1"]
 
-[node name="ItemContainer" type="Node2D" unique_id=1862061770]
+[node name="ItemContainer" type="StaticBody2D" unique_id=412129471]
 script = ExtResource("1_432s1")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=651310573]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1971712615]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2095356864]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1971712615]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2095356864]

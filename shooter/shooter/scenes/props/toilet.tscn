@@ -1,16 +1,18 @@
-[gd_scene format=3 uid="uid://1vjta1flw5s5"]
+[gd_scene format=3 uid="uid://dpxkyymvw00dy"]
 
 [ext_resource type="Texture2D" uid="uid://bexfcjw52hswm" path="res://graphics/objects/toilet.png" id="1_h271i"]
+[ext_resource type="PackedScene" uid="uid://cjjhxyy1hrl45" path="res://scenes/levels/item_container.tscn" id="1_mkd4n"]
+[ext_resource type="Script" uid="uid://usepwenfalek" path="res://scenes/props/toilet.gd" id="2_1em8g"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4k00h"]
-radius = 109.07337
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d65ec"]
+size = Vector2(205, 218)
 
-[node name="Node2D" type="StaticBody2D" unique_id=2054953824]
-collision_layer = 4
-collision_mask = 11
+[node name="Toilet" unique_id=1862061770 instance=ExtResource("1_mkd4n")]
+script = ExtResource("2_1em8g")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1433940187]
+[node name="Sprite2D" parent="." index="0" unique_id=1971712615]
 texture = ExtResource("1_h271i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=525761103]
-shape = SubResource("CircleShape2D_4k00h")
+[node name="CollisionShape2D" parent="." index="1" unique_id=2095356864]
+position = Vector2(-0.5, 18)
+shape = SubResource("RectangleShape2D_d65ec")

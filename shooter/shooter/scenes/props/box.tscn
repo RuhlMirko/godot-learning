@@ -10,9 +10,9 @@ size = Vector2(358, 255)
 [node name="Box" unique_id=1862061770 instance=ExtResource("1_nsoa3")]
 script = ExtResource("2_sidhr")
 
-[node name="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(651310573) index="0" unique_id=2095356864]
+[node name="Sprite2D" parent="." index="0" unique_id=1971712615]
+texture = ExtResource("2_6d8kf")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=2095356864]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_xoucj")
-
-[node name="Sprite2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(651310573) index="1" unique_id=1971712615]
-texture = ExtResource("2_6d8kf")

@@ -1,5 +1,4 @@
-extends Node2D
-
+extends ItemContainer
 
 func hit()->void:
 	print("box hit")

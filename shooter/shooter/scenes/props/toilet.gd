@@ -1,4 +1,4 @@
-extends Node2D
+extends ItemContainer
 
 func hit()->void:
 	print("toilet hit")
