@@ -58,12 +58,14 @@ position = Vector2(564, -618)
 [node name="Projectiles" type="Node2D" parent="." unique_id=2010670619]
 
 [node name="Player" parent="." unique_id=857478146 instance=ExtResource("1_377w7")]
-position = Vector2(-753, 3559)
+position = Vector2(416, 1654)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1095674925]
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(0.2, 0.2)
 position_smoothing_enabled = true
 
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]

@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dbho67x3sanwp"]
 
+[ext_resource type="Script" uid="uid://6crd7m7h2cyj" path="res://scenes/props/house.gd" id="1_crk4c"]
 [ext_resource type="Texture2D" uid="uid://bd6k1m6unwndr" path="res://graphics/tilesets/interior.png" id="1_gh3y0"]
 [ext_resource type="PackedScene" uid="uid://b30bpenawtj82" path="res://scenes/simple_light.tscn" id="2_guvol"]
 
@@ -285,6 +286,7 @@ sources/0 = SubResource("TileSetAtlasSource_4neci")
 
 [node name="House" type="Area2D" unique_id=1134828486]
 collision_layer = 16
+script = ExtResource("1_crk4c")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1188668960]
 tile_map_data = PackedByteArray("AAD/////AQABAAEAAAAAAP//AQABAAEAAAAAAAAAAQABAAEAAAD//wAAAQABAAEAAAD+////AQABAAEAAAD+/wAAAQABAAEAAAD+//7/AQABAAEAAAD+//3/AQABAAEAAAD///3/AQABAAEAAAD///7/AQABAAEAAAAAAP7/AQABAAEAAAABAP7/AQABAAEAAAABAP//AQABAAEAAAABAAAAAQABAAEAAAABAAEAAQABAAEAAAABAP3/AQABAAEAAAAAAP3/AQABAAEAAAD//wEAAQABAAEAAAD+/wEAAQABAAEAAAAAAAEAAQABAAEAAAACAAEAAQABAAEAAAACAAAAAQABAAEAAAACAP//AQABAAEAAAACAP7/AQABAAEAAAACAP3/AQABAAEAAAADAP3/AQABAAEAAAAEAP3/AQABAAEAAAAFAP3/AQABAAEAAAAFAP7/AQABAAEAAAAFAP//AQACAAQAAAAEAP//AQACAAQAAAADAP//AQAAAAQAAAADAP7/AQABAAEAAAAEAP7/AQABAAEAAAD9//z/AQAAAAAAAAD+//z/AQABAAAAAAD///z/AQABAAAAAAAAAPz/AQABAAAAAAABAPz/AQABAAAAAAACAPz/AQABAAAAAAADAPz/AQABAAAAAAAEAPz/AQABAAAAAAAFAPz/AQABAAAAAAD+/wIAAQACAAQAAAD//wIAAQACAAQAAAAAAAIAAQABAAIAAAABAAIAAQABAAIAAAACAAIAAQABAAIAAAADAAAAAQACAAEAAAAGAP3/AQACAAEAAAAGAP7/AQACAAEAAAD9//3/AQAAAAEAAAD9//7/AQAAAAEAAAD9////AQAAAAEAAAD9/wAAAQAAAAEAAAD9/wEAAQAAAAEAAAD9/wIAAQAAAAIAAAADAAIAAQACAAIAAAAGAPz/AQACAAAAAAADAAEAAQACAAEAAAAGAP//AQACAAIAAAA=")
@@ -306,6 +308,11 @@ polygon = PackedVector2Array(2284, -1140.5, 2288, -23.5, 1207, 30.5, 1176, 1108.
 [node name="SimpleLight" parent="." unique_id=1466311821 instance=ExtResource("2_guvol")]
 position = Vector2(2443, -798)
 rotation = 1.5707964
+collision_layer = 4
 
 [node name="SimpleLight2" parent="." unique_id=1875422638 instance=ExtResource("2_guvol")]
 position = Vector2(404, -1278)
+collision_layer = 4
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
