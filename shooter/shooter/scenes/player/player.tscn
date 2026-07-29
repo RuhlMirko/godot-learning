@@ -76,6 +76,7 @@ position = Vector2(48, -81)
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2008015297]
 visible = false
 occluder = SubResource("OccluderPolygon2D_p7724")
+occluder_light_mask = 15
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="GrenadeTimer" to="." method="_on_grenade_timer_timeout"]
