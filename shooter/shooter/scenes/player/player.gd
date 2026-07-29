@@ -3,9 +3,12 @@ extends CharacterBody2D
 signal laser(position, direction)
 signal grenade(position, direction)
 
-const speed : int = 400
+
 var can_laser: bool = true
 var can_grenade: bool = true
+
+@export var max_speed : int = 500
+var speed : int = max_speed
 
 func _process(_delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up","down")

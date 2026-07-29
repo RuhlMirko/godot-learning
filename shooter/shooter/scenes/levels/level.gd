@@ -11,6 +11,8 @@ func _process(_delta: float) -> void:
 
 func _on_gate_player_entered_gate(body) -> void:
 	print("player on gate ", body)
+	var tween = create_tween()
+	tween.tween_property($Player, "speed", 0, 0.5)
 
 func _on_player_laser(pos, direction) -> void:
 	var laser = laser_scene.instantiate() as Area2D
@@ -25,10 +27,11 @@ func _on_player_grenade(pos, direction) -> void:
 	grenade.linear_velocity = direction * grenade.speed
 	$Projectiles.add_child(grenade)
 
-
 func _on_house_player_entered() -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.5,0.5), 1)
+	tween.set_parallel(true)
+	tween.tween_property($Ground/House/Roof, "modulate:a", 0, 1)
+	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.5,0.5), 1).set_ease(Tween.EASE_IN)
 
 func _on_house_player_exited() -> void:
 	var tween = get_tree().create_tween()
