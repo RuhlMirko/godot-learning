@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dwqvi7kbi2tan"]
+
+[ext_resource type="Script" uid="uid://dkybq0afj8mux" path="res://scenes/board.gd" id="1_bw3vb"]
+[ext_resource type="PackedScene" uid="uid://bj5y3he5ro53" path="res://scenes/spawner_area.tscn" id="2_tx6nw"]
+
+[node name="Board" type="Node2D" unique_id=729977735]
+script = ExtResource("1_bw3vb")
+
+[node name="SpawnerArea" parent="." unique_id=226580624 instance=ExtResource("2_tx6nw")]
+position = Vector2(523, 311)

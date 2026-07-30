@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bj5y3he5ro53"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nglv8"]
+radius = 194.0
+height = 708.0
+
+[node name="SpawnerArea" type="Area2D" unique_id=226580624]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1162487559]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_nglv8")
+
+[node name="Dices" type="Node2D" parent="." unique_id=979328262]
