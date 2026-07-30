@@ -1,13 +1,32 @@
 [gd_scene format=3 uid="uid://bj5y3he5ro53"]
 
+[ext_resource type="Script" uid="uid://c5gxy65xeftcx" path="res://scenes/spawner_area.gd" id="1_qthkk"]
+[ext_resource type="PackedScene" uid="uid://y7dxusnmptvu" path="res://scenes/dice.tscn" id="2_iu1qe"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nglv8"]
 radius = 194.0
 height = 708.0
 
 [node name="SpawnerArea" type="Area2D" unique_id=226580624]
+script = ExtResource("1_qthkk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1162487559]
+visible = false
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_nglv8")
 
 [node name="Dices" type="Node2D" parent="." unique_id=979328262]
+
+[node name="Dice" parent="Dices" unique_id=1559733028 instance=ExtResource("2_iu1qe")]
+
+[node name="Dice2" parent="Dices" unique_id=1197384320 instance=ExtResource("2_iu1qe")]
+position = Vector2(197, -55)
+
+[node name="Dice3" parent="Dices" unique_id=1632889287 instance=ExtResource("2_iu1qe")]
+position = Vector2(-209, -80)
+
+[node name="Timer" type="Timer" parent="." unique_id=146293798]
+wait_time = 20.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -7,4 +7,11 @@
 script = ExtResource("1_bw3vb")
 
 [node name="SpawnerArea" parent="." unique_id=226580624 instance=ExtResource("2_tx6nw")]
-position = Vector2(523, 311)
+position = Vector2(580, 345)
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=147210357]
+offset_left = 376.0
+offset_top = 86.0
+offset_right = 776.0
+offset_bottom = 131.0
+text = "Score: 0"
