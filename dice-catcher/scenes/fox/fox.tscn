@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bx7c4mo02v7sl"]
+
+[ext_resource type="Script" uid="uid://cgpj5sgnvgr61" path="res://scenes/fox/fox.gd" id="1_cmr24"]
+[ext_resource type="Texture2D" uid="uid://b5l13bny08i66" path="res://assets/Fox.png" id="1_fh7y2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7724"]
+size = Vector2(107, 40)
+
+[node name="Fox" type="Area2D" unique_id=1964743249]
+script = ExtResource("1_cmr24")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2088849191]
+texture = ExtResource("1_fh7y2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1698905544]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_p7724")
