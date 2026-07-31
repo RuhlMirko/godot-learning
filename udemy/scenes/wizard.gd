@@ -10,5 +10,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_timer_timeout() -> void:
+
+
+func _on_spell_timer_timeout() -> void:
+	print("Spell was cast")
+
+
+func _on_reveal_timer_timeout() -> void:
 	show()
