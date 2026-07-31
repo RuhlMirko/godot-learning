@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c7ln1hlovqnnv"]
+
+[ext_resource type="Texture2D" uid="uid://dsf56j1h8kukw" path="res://assets/Bg.png" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://brbudymkkniln" path="res://scenes/hobbit.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://baqug7puycn1t" path="res://scenes/wizard.tscn" id="3_4wyf3"]
+
+[node name="World" type="Node" unique_id=375255879]
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=1684405964]
+texture = ExtResource("1_nnsk1")
+centered = false
+
+[node name="Hobbit" parent="." unique_id=1978091064 instance=ExtResource("2_rwgxs")]
+position = Vector2(147, 478)
+
+[node name="Hobbit2" parent="." unique_id=30340190 instance=ExtResource("2_rwgxs")]
+position = Vector2(560, 488)
+
+[node name="Hobbit3" parent="." unique_id=1216222167 instance=ExtResource("2_rwgxs")]
+position = Vector2(377, 517)
+
+[node name="Wizard" parent="." unique_id=261955713 instance=ExtResource("3_4wyf3")]
+position = Vector2(932, 456)
