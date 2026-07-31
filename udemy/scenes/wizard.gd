@@ -22,5 +22,5 @@ func _on_reveal_timer_timeout() -> void:
 	show()
 
 func hit_by_spell()->void:
-	scale = Vector2(0.5,0.5)
-	set_process(false)
+	queue_free()
+	

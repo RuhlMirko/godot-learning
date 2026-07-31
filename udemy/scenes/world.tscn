@@ -17,6 +17,3 @@ position = Vector2(147, 478)
 
 [node name="Wizard" parent="." unique_id=261955713 instance=ExtResource("3_4wyf3")]
 position = Vector2(932, 456)
-
-[connection signal="hobbit_spell" from="Hobbit" to="." method="_on_hobbit_hobbit_spell"]
-[connection signal="cast_spell" from="Wizard" to="." method="_on_wizard_cast_spell"]
