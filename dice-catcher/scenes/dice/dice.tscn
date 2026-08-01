@@ -10,7 +10,9 @@ radius = 38.013157
 script = ExtResource("1_fvt51")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1440034991]
+position = Vector2(0, 35)
 shape = SubResource("CircleShape2D_p7724")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=277477672]
+position = Vector2(0, 35)
 texture = ExtResource("1_4fys5")
