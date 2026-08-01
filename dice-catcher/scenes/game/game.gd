@@ -1,6 +1,7 @@
 extends Node
 
-@export var dice_scene : PackedScene = preload("res://scenes/dice/dice.tscn")
+#const dice_scene : PackedScene = preload("res://scenes/dice/dice.tscn")
+const DICE_SCENE = preload("uid://c6wsbyjga68up")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +13,7 @@ func _process(delta: float) -> void:
 	pass
 
 func spawn_dice()->void:
-	var newDice: Dice = dice_scene.instantiate()
+	var newDice: Dice = DICE_SCENE.instantiate()
 	add_child(newDice)
 
 

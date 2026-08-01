@@ -16,3 +16,7 @@ shape = SubResource("CircleShape2D_p7724")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=277477672]
 position = Vector2(0, 35)
 texture = ExtResource("1_4fys5")
+
+[node name="DespawnerTimer" type="Timer" parent="." unique_id=1153848511]
+wait_time = 6.0
+autostart = true

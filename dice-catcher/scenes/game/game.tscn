@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b7rsbmmbdfmj1" path="res://scenes/game/game.gd" id="1_kelw5"]
 [ext_resource type="Texture2D" uid="uid://djjponsttwqfs" path="res://assets/GemBg.png" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://bx7c4mo02v7sl" path="res://scenes/fox/fox.tscn" id="3_kelw5"]
+[ext_resource type="AudioStream" uid="uid://rxwcie4b6wbb" path="res://assets/tetris.mp3" id="4_kelw5"]
 
 [node name="Game" type="Node" unique_id=874553724]
 script = ExtResource("1_kelw5")
@@ -18,5 +19,12 @@ position = Vector2(568, 592)
 [node name="SpawnerTimer" type="Timer" parent="." unique_id=559719173]
 wait_time = 2.5
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1679166913]
+stream = ExtResource("4_kelw5")
+volume_db = -11.86
+pitch_scale = 0.8
+autoplay = true
+parameters/looping = true
 
 [connection signal="timeout" from="SpawnerTimer" to="." method="_on_spawner_timer_timeout"]
