@@ -27,4 +27,4 @@ func check_off_screen()->void:
 	if get_viewport_rect().end.y < position.y:
 		get_tree().paused = true
 		game_over.emit()
-		queue_free()
+		#queue_free()
