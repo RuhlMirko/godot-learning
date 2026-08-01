@@ -4,6 +4,8 @@ extends Node
 const DICE_SCENE = preload("uid://c6wsbyjga68up")
 var _score: int  = 0
 @onready var label: Label = $Label
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+const GAME_OVER = preload("uid://c0orcx0ncovyq")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +18,13 @@ func _process(delta: float) -> void:
 
 func spawn_dice()->void:
 	var newDice: Dice = DICE_SCENE.instantiate()
+	newDice.game_over.connect(game_over)
 	add_child(newDice)
+	
+func game_over()->void:
+	audio_stream_player.stop()
+	audio_stream_player.stream = GAME_OVER
+	audio_stream_player.play()
 
 
 func _on_spawner_timer_timeout() -> void:
@@ -25,5 +33,4 @@ func _on_spawner_timer_timeout() -> void:
 
 func _on_fox_fox_ate() -> void:
 	_score += 1
-	print(_score)
-	label.text = String(str(_score)).lpad(4,"0")
+	label.text = "%04d" % _score

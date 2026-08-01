@@ -1,6 +1,8 @@
 extends Area2D
 class_name Dice
 
+signal game_over
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 const MAX_SPEED : float = 150.0
@@ -24,3 +26,5 @@ func _physics_process(delta: float) -> void:
 func check_off_screen()->void:
 	if get_viewport_rect().end.y < position.y:
 		get_tree().paused = true
+		game_over.emit()
+		queue_free()
