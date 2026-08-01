@@ -4,6 +4,7 @@ extends Node
 const DICE_SCENE = preload("uid://c6wsbyjga68up")
 var _score: int  = 0
 @onready var label: Label = $Label
+@onready var game_over_label: Label = $GameOverLabel
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 const GAME_OVER = preload("uid://c0orcx0ncovyq")
 
@@ -11,6 +12,7 @@ const GAME_OVER = preload("uid://c0orcx0ncovyq")
 func _ready() -> void:
 	spawn_dice()
 	get_tree().paused = false
+	game_over_label.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,7 +28,7 @@ func game_over()->void:
 	audio_stream_player.stop()
 	audio_stream_player.stream = GAME_OVER
 	audio_stream_player.play()
-
+	game_over_label.show()
 
 func _on_spawner_timer_timeout() -> void:
 	spawn_dice()

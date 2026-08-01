@@ -7,6 +7,13 @@
 [ext_resource type="FontFile" uid="uid://dteiqmwvsiakg" path="res://assets/TitanOne-Regular.ttf" id="5_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://bfrj51vughybw" path="res://scenes/game/reloader.tscn" id="6_5i0tg"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_p7724"]
+font = ExtResource("5_lfrn8")
+font_size = 70
+font_color = Color(1, 0.06666667, 0.13725491, 1)
+outline_size = 26
+outline_color = Color(0, 0, 0, 0.8352941)
+
 [sub_resource type="LabelSettings" id="LabelSettings_kelw5"]
 font = ExtResource("5_lfrn8")
 font_size = 48
@@ -20,6 +27,24 @@ script = ExtResource("1_kelw5")
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_sul5r")
 centered = false
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=1551016989]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -487.5
+offset_top = -82.5
+offset_right = 487.5
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over
+press \"R\" to restart game"
+label_settings = SubResource("LabelSettings_p7724")
+horizontal_alignment = 1
 
 [node name="Fox" parent="." unique_id=1964743249 instance=ExtResource("3_kelw5")]
 position = Vector2(568, 592)
