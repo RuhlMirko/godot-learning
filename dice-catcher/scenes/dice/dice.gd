@@ -19,7 +19,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position.y += random_spin_speed * delta
 	sprite_2d.rotate((random_spin_speed / rotation_speed ) * delta)
-	#check_off_screen()
+	check_off_screen()
 
 func check_off_screen()->void:
 	if get_viewport_rect().end.y < position.y:
