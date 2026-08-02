@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cg7qexifcvg8p"]
+
+[ext_resource type="FontFile" uid="uid://cftwkmxh0x4w5" path="res://assets/fonts/TitanOne-Regular.ttf" id="1_54eh6"]
+
+[resource]
+font = ExtResource("1_54eh6")
+font_size = 20
+font_color = Color(1, 0.9372549, 0.61960787, 0.9098039)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0.06, 0, 0.30980393)
+shadow_offset = Vector2(0.89, 0.785)

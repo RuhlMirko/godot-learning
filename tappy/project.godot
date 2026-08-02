@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tappy"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="uid://cg0767yigyres"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="uid://ba7abb8soymoa"
 
@@ -20,6 +20,7 @@ config/icon="uid://ba7abb8soymoa"
 window/size/viewport_width=480
 window/size/viewport_height=854
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 

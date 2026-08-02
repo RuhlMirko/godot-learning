@@ -19,7 +19,9 @@ func _on_screen_exited_notifier() -> void:
 
 func _on_pipe_body_entered(body: Node2D) -> void:
 	print("_body_entered: %s %s" % [name, body.name])
-	get_tree().paused = true
+	
+	if body.has_method("die"):
+		body.die()
 
 
 func _on_laser_body_entered(body: Node2D) -> void:
