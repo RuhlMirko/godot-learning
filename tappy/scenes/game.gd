@@ -2,14 +2,19 @@ extends Node
 
 const PIPES_SCENE : PackedScene = preload("uid://ddkk8c55mitlj")
 
+
 @onready var upper_spawn: Marker2D = $UpperSpawn
 @onready var lower_spawn: Marker2D = $LowerSpawn
 @onready var pipes: Node2D = $Pipes
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("dev"):
+		GameManager.load_main_screen()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(upper_spawn.position.y, lower_spawn.position.y)
+	#print(upper_spawn.position.y, lower_spawn.position.y)
+	pass
 
 
 func _on_spawner_timer_timeout() -> void:
