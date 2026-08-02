@@ -10,14 +10,16 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="Tappy"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://ba7abb8soymoa"
 
 [display]
 
+window/size/viewport_width=480
+window/size/viewport_height=854
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [physics]
 
