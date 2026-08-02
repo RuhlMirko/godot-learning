@@ -1,6 +1,6 @@
 extends Node2D
-
-@export var speed: float = 100
+class_name Pipes
+@export var speed: float = 120
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

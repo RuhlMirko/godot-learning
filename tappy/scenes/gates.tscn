@@ -6,6 +6,7 @@
 
 [node name="Gates" type="Node2D" unique_id=90690040]
 script = ExtResource("1_1g4qm")
+speed = null
 
 [node name="Laser" parent="." unique_id=1392971740 instance=ExtResource("2_1g4qm")]
 
