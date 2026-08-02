@@ -350,6 +350,68 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="Animation" id="Animation_rlpvy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8rl1u"]
+resource_name = "fly"
+length = 0.39999999999999997
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.3490658503988659, 0.3490658503988659, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b0j2b"]
+_data = {
+&"RESET": SubResource("Animation_rlpvy"),
+&"fly": SubResource("Animation_8rl1u")
+}
+
 [node name="Tappy" type="CharacterBody2D" unique_id=2101948981]
 script = ExtResource("1_rlpvy")
 
@@ -357,7 +419,11 @@ script = ExtResource("1_rlpvy")
 shape = SubResource("CircleShape2D_p7724")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=185345688]
-position = Vector2(0, 11)
 sprite_frames = SubResource("SpriteFrames_p7724")
 animation = &"fly"
 autoplay = "fly"
+offset = Vector2(0, 9)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1453935195]
+libraries/ = SubResource("AnimationLibrary_b0j2b")
+autoplay = &"RESET"
