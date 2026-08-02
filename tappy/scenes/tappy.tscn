@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://conn4bs0pciuy"]
 
 [ext_resource type="Texture2D" uid="uid://dgbg6ohu5ka5a" path="res://assets/items/frog.png" id="1_0pbox"]
+[ext_resource type="Script" uid="uid://ch8wta15di6ih" path="res://scenes/tappy.gd" id="1_rlpvy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p7724"]
+radius = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlpvy"]
 atlas = ExtResource("1_0pbox")
@@ -346,16 +350,14 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p7724"]
-radius = 18.0
-
 [node name="Tappy" type="CharacterBody2D" unique_id=2101948981]
+script = ExtResource("1_rlpvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=236105773]
+shape = SubResource("CircleShape2D_p7724")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=185345688]
 position = Vector2(0, 11)
 sprite_frames = SubResource("SpriteFrames_p7724")
 animation = &"fly"
 autoplay = "fly"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=236105773]
-shape = SubResource("CircleShape2D_p7724")

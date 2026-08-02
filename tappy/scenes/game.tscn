@@ -2,7 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://conn4bs0pciuy" path="res://scenes/tappy.tscn" id="1_uwrxv"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
+
 [node name="Game" type="Node" unique_id=1069872280]
 
 [node name="Tappy" parent="." unique_id=2101948981 instance=ExtResource("1_uwrxv")]
-position = Vector2(49, 435)
+position = Vector2(40, 141)
+
+[node name="Boundary" type="StaticBody2D" parent="." unique_id=2129813176]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" unique_id=706631910]
+position = Vector2(239, 5)
+shape = SubResource("WorldBoundaryShape2D_uwrxv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundary" unique_id=1079714809]
+position = Vector2(239, 796)
+shape = SubResource("WorldBoundaryShape2D_yqjtg")
