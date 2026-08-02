@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmvi8rt67bmrw"]
 
 [ext_resource type="PackedScene" uid="uid://conn4bs0pciuy" path="res://scenes/tappy.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://ddkk8c55mitlj" path="res://scenes/gates.tscn" id="2_yqjtg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 normal = Vector2(0, 1)
@@ -22,3 +23,6 @@ shape = SubResource("WorldBoundaryShape2D_uwrxv")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundary" unique_id=1079714809]
 position = Vector2(239, 796)
 shape = SubResource("WorldBoundaryShape2D_yqjtg")
+
+[node name="Gates" parent="." unique_id=90690040 instance=ExtResource("2_yqjtg")]
+position = Vector2(367, 388)

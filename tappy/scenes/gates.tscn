@@ -5,11 +5,11 @@
 
 [node name="Gates" type="Node2D" unique_id=90690040]
 
+[node name="Laser" parent="." unique_id=1392971740 instance=ExtResource("2_1g4qm")]
+
 [node name="PipeBottom" parent="." unique_id=18975327 instance=ExtResource("1_1na2k")]
-position = Vector2(1, 95)
+position = Vector2(1, 84)
 
 [node name="PipeTop" parent="." unique_id=70379691 instance=ExtResource("1_1na2k")]
-position = Vector2(-2, -96)
+position = Vector2(-1, -83)
 rotation = 3.1415927
-
-[node name="Laser" parent="." unique_id=1392971740 instance=ExtResource("2_1g4qm")]
