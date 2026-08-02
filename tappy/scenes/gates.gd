@@ -13,5 +13,14 @@ func _process(delta: float) -> void:
 
 
 func _on_screen_exited_notifier() -> void:
-	print("Exited")
+	#print("Exited")
 	queue_free()
+
+
+func _on_pipe_body_entered(body: Node2D) -> void:
+	print("_body_entered: %s %s" % [name, body.name])
+	get_tree().paused = true
+
+
+func _on_laser_body_entered(body: Node2D) -> void:
+	print("+1")

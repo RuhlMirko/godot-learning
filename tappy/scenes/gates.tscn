@@ -6,7 +6,6 @@
 
 [node name="Gates" type="Node2D" unique_id=90690040]
 script = ExtResource("1_1g4qm")
-speed = null
 
 [node name="Laser" parent="." unique_id=1392971740 instance=ExtResource("2_1g4qm")]
 
@@ -20,4 +19,7 @@ rotation = 3.1415927
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1223310267]
 position = Vector2(105, 0)
 
+[connection signal="body_entered" from="Laser" to="." method="_on_laser_body_entered" flags=6]
+[connection signal="body_entered" from="PipeBottom" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="PipeTop" to="." method="_on_pipe_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited_notifier"]

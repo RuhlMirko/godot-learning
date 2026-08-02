@@ -14,9 +14,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		_jumped = true
 
 func _physics_process(delta: float) -> void:
+	if is_on_floor():
+		die()
 	velocity.y += _gravity * delta
 	if _jumped:
 		velocity.y += JUMP_FORCE
 		_jumped = false
 		animation_player.play("fly")
 	move_and_slide()
+
+func die()->void:
+	get_tree().paused = true
