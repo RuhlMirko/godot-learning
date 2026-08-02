@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Tappy
 
-
 var _gravity : float = ProjectSettings.get("physics/2d/default_gravity")
 var _jumped: bool = false
 const JUMP_FORCE : float = -350.0
@@ -25,3 +24,5 @@ func _physics_process(delta: float) -> void:
 
 func die()->void:
 	get_tree().paused = true
+	#player_died.emit()
+	Signalhub.emit_tappy_died()

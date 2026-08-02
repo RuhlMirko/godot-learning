@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cvu54sel7yi7s"]
+
+[ext_resource type="Script" uid="uid://6nbg8ksv3mhw" path="res://scenes/game_ui.gd" id="1_u001w"]
+[ext_resource type="LabelSettings" uid="uid://cg7qexifcvg8p" path="res://resources/smText.tres" id="1_yubou"]
+[ext_resource type="FontFile" uid="uid://cftwkmxh0x4w5" path="res://assets/fonts/TitanOne-Regular.ttf" id="2_rns2u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u001w"]
+font = ExtResource("2_rns2u")
+font_size = 71
+font_color = Color(1, 1, 0.61960787, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 11
+shadow_color = Color(0, 0, 0, 0.39215687)
+shadow_offset = Vector2(1.815, 2.52)
+
+[node name="GameUI" type="Control" unique_id=1355179814]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u001w")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1786564519]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer" unique_id=1649722459]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "0000"
+label_settings = ExtResource("1_yubou")
+
+[node name="GameOverLabel" type="Label" parent="MarginContainer" unique_id=1555712654]
+visible = false
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_u001w")
+horizontal_alignment = 1
+vertical_alignment = 1

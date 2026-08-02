@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://y1c66xmbu4fo" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://conn4bs0pciuy" path="res://scenes/tappy.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cvu54sel7yi7s" path="res://scenes/game_ui.tscn" id="3_lnu2h"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 normal = Vector2(0, 1)
@@ -9,7 +10,7 @@ distance = -17.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
 
-[node name="Game" type="Node" unique_id=1069872280]
+[node name="Game" type="Node2D" unique_id=550779597]
 script = ExtResource("1_lnu2h")
 
 [node name="Tappy" parent="." unique_id=2101948981 instance=ExtResource("1_uwrxv")]
@@ -37,5 +38,9 @@ wait_time = 1.6
 autostart = true
 
 [node name="Pipes" type="Node2D" parent="." unique_id=102905048]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1523830965]
+
+[node name="GameUI" parent="CanvasLayer" unique_id=1355179814 instance=ExtResource("3_lnu2h")]
 
 [connection signal="timeout" from="SpawnerTimer" to="." method="_on_spawner_timer_timeout"]
