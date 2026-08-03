@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 
 
 func _on_screen_exited_notifier() -> void:
-	#print("Exited")
 	queue_free()
 
 
