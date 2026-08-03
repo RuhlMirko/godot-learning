@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://6nbg8ksv3mhw" path="res://scenes/game_ui.gd" id="1_u001w"]
 [ext_resource type="LabelSettings" uid="uid://cg7qexifcvg8p" path="res://resources/smText.tres" id="1_yubou"]
 [ext_resource type="FontFile" uid="uid://cftwkmxh0x4w5" path="res://assets/fonts/TitanOne-Regular.ttf" id="2_rns2u"]
+[ext_resource type="AudioStream" uid="uid://h5jqoonkylxd" path="res://assets/audio/game_over.wav" id="4_u2dgd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u001w"]
 font = ExtResource("2_rns2u")
@@ -50,3 +51,21 @@ text = "GAME OVER"
 label_settings = SubResource("LabelSettings_u001w")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GameOverLabel2" type="Label" parent="MarginContainer" unique_id=1505190156]
+visible = false
+layout_mode = 2
+text = "Press jump"
+label_settings = SubResource("LabelSettings_u001w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="gameOverSound" type="AudioStreamPlayer" parent="." unique_id=524937181]
+stream = ExtResource("4_u2dgd")
+volume_db = -24.632
+
+[node name="ChangeLabelTimer" type="Timer" parent="." unique_id=1970080679]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="ChangeLabelTimer" to="." method="_on_change_label_timer_timeout"]
