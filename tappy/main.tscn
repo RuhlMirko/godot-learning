@@ -99,7 +99,7 @@ size_flags_vertical = 8
 text = "Highscore"
 label_settings = ExtResource("3_1bvp3")
 
-[node name="Label3" type="Label" parent="MarginContainer" unique_id=295600725]
+[node name="HighScoreLabel" type="Label" parent="MarginContainer" unique_id=295600725]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8

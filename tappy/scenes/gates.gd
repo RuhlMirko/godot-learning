@@ -27,4 +27,7 @@ func _on_pipe_body_entered(body: Node2D) -> void:
 func _on_laser_body_entered(_body: Node2D) -> void:
 	print("+1")
 	score_sound.play()
-	Signalhub.scored_gate()
+	ScoreManager.add_point()
+	
+func add_point()->void:
+	Signalhub.scored_gate(1)

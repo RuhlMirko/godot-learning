@@ -11,7 +11,7 @@ const PIPES_SCENE : PackedScene = preload("uid://ddkk8c55mitlj")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	ScoreManager.reset_score()
 
 
 func _on_spawner_timer_timeout() -> void:
