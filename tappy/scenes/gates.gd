@@ -1,6 +1,7 @@
 extends Node2D
 class_name Pipes
 @export var speed: float = 120
+@export var score_sound: AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,3 +27,5 @@ func _on_pipe_body_entered(body: Node2D) -> void:
 
 func _on_laser_body_entered(_body: Node2D) -> void:
 	print("+1")
+	score_sound.play()
+	Signalhub.scored_gate()

@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://bw4voqnp78nsn" path="res://scenes/gates.gd" id="1_1g4qm"]
 [ext_resource type="PackedScene" uid="uid://cprisvrqbww30" path="res://scenes/pipe.tscn" id="1_1na2k"]
 [ext_resource type="PackedScene" uid="uid://dh2reb4yrxdfe" path="res://scenes/laser.tscn" id="2_1g4qm"]
+[ext_resource type="AudioStream" uid="uid://btnc1h43n2sf4" path="res://assets/audio/score.wav" id="4_yiimi"]
 
-[node name="Gates" type="Node2D" unique_id=90690040]
+[node name="Gates" type="Node2D" unique_id=90690040 node_paths=PackedStringArray("score_sound")]
 script = ExtResource("1_1g4qm")
+score_sound = NodePath("ScoreSound")
 
 [node name="Laser" parent="." unique_id=1392971740 instance=ExtResource("2_1g4qm")]
 
@@ -18,6 +20,11 @@ rotation = 3.1415927
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1223310267]
 position = Vector2(105, 0)
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="." unique_id=1160470207]
+stream = ExtResource("4_yiimi")
+volume_db = -20.0
+pitch_scale = 0.72
 
 [connection signal="body_entered" from="Laser" to="." method="_on_laser_body_entered" flags=6]
 [connection signal="body_entered" from="PipeBottom" to="." method="_on_pipe_body_entered"]

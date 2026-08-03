@@ -7,10 +7,10 @@ const PIPES_SCENE : PackedScene = preload("uid://ddkk8c55mitlj")
 @onready var lower_spawn: Marker2D = $LowerSpawn
 @onready var pipes: Node2D = $Pipes
 
+#var currScore : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#print(upper_spawn.position.y, lower_spawn.position.y)
 	pass
 
 
