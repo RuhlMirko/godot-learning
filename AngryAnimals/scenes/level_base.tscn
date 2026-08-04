@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bs121fvkue0fi"]
 
 [ext_resource type="Texture2D" uid="uid://d0h8tl5wxu6iu" path="res://assets/scene/colored_castle.png" id="1_548ah"]
+[ext_resource type="PackedScene" uid="uid://daanafqeo0wv2" path="res://scenes/animal.tscn" id="2_osu2p"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p7724"]
 
 [node name="LevelBase" type="Node" unique_id=94978059]
 
@@ -9,3 +12,12 @@ position = Vector2(-3, -101)
 scale = Vector2(1.13, 0.9)
 texture = ExtResource("1_548ah")
 centered = false
+
+[node name="Animal" parent="." unique_id=1520767897 instance=ExtResource("2_osu2p")]
+position = Vector2(290, 342)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1020785522]
+position = Vector2(513, 704)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1686369031]
+shape = SubResource("WorldBoundaryShape2D_p7724")
