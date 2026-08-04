@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cqv11uksswi2a"]
+
+[ext_resource type="PackedScene" uid="uid://bjnk71fl5aa1q" path="res://scenes/tableBalls.tscn" id="1_23jka"]
+[ext_resource type="Texture2D" uid="uid://blrem7bjfv3wq" path="res://assets/8ball.png" id="2_oqvfy"]
+
+[node name="Plain" unique_id=85959585 instance=ExtResource("1_23jka")]
+
+[node name="Sprite2D" parent="." index="1" unique_id=1877156648]
+texture = ExtResource("2_oqvfy")
+frame = 2

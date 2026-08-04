@@ -2,10 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://blrem7bjfv3wq" path="res://assets/8ball.png" id="1_x6v43"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_olh0b"]
+friction = 0.5
+bounce = 0.5
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_p7724"]
 radius = 8.0
 
 [node name="PlayerBall" type="RigidBody2D" unique_id=340738625]
+mass = 0.4
+physics_material_override = SubResource("PhysicsMaterial_olh0b")
+gravity_scale = 0.0
+linear_velocity = Vector2(-600, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1321636714]
 shape = SubResource("CircleShape2D_p7724")
