@@ -14,7 +14,7 @@ texture = ExtResource("1_548ah")
 centered = false
 
 [node name="Animal" parent="." unique_id=1520767897 instance=ExtResource("2_osu2p")]
-position = Vector2(290, 342)
+position = Vector2(100, 560)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1020785522]
 position = Vector2(513, 704)

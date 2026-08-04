@@ -36,6 +36,7 @@ volume_db = -24.632
 
 [node name="LaunchSound" type="AudioStreamPlayer" parent="." unique_id=1811349049]
 stream = ExtResource("4_ieass")
+volume_db = -18.353
 
 [node name="Label" type="Label" parent="." unique_id=176073445]
 top_level = true
