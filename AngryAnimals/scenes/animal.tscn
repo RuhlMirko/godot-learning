@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bmu243wuhmcrh" path="res://assets/audio/kick_wood.ogg" id="2_3v7ex"]
 [ext_resource type="AudioStream" uid="uid://b5f5seu34mi1f" path="res://assets/audio/stretch2.ogg" id="3_3c5tq"]
 [ext_resource type="AudioStream" uid="uid://bx43ahcn8xrer" path="res://assets/audio/catapult.ogg" id="4_ieass"]
+[ext_resource type="Texture2D" uid="uid://ld1ucjqkwowc" path="res://assets/items/arrow.png" id="6_ieass"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rsu6n"]
 
@@ -31,6 +32,7 @@ stream = ExtResource("2_3v7ex")
 
 [node name="StretchSound" type="AudioStreamPlayer" parent="." unique_id=404290606]
 stream = ExtResource("3_3c5tq")
+volume_db = -24.632
 
 [node name="LaunchSound" type="AudioStreamPlayer" parent="." unique_id=1811349049]
 stream = ExtResource("4_ieass")
@@ -48,3 +50,11 @@ theme_override_font_sizes/font_size = 24
 text = "print
 print
 print"
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=63577503]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_ieass")
+offset = Vector2(150, 0)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
