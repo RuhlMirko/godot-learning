@@ -353,6 +353,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_rlpvy"]
 length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -459,3 +460,4 @@ stream = ExtResource("3_8rl1u")
 volume_db = -29.023
 pitch_scale = 1.37
 autoplay = true
+parameters/looping = true
