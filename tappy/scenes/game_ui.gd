@@ -10,7 +10,7 @@ var can_go_main:bool= false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and can_go_main:
-		GameManager.load_main_screen()
+		ComplexChange.load_main_screen()
 
 func _ready() -> void:
 	Signalhub.tappy_died.connect(game_over)

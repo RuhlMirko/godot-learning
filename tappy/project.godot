@@ -17,9 +17,9 @@ config/icon="uid://ba7abb8soymoa"
 
 [autoload]
 
-GameManager="*uid://cq6miw6x7fuho"
 Signalhub="*uid://bc023qusy7bux"
 ScoreManager="*uid://0dog33vriegn"
+ComplexChange="*uid://cg4mlymdbawal"
 
 [display]
 
