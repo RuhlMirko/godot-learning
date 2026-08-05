@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://v25e51g6xemi" path="res://scenes/table_balls.gd" id="1_1p7jn"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b284v"]
+friction = 0.75
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_p7724"]
 radius = 8.0
 
 [node name="TableBalls" type="RigidBody2D" unique_id=85959585]
+physics_material_override = SubResource("PhysicsMaterial_b284v")
 gravity_scale = 0.0
+linear_damp = 0.5
 script = ExtResource("1_1p7jn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11701850]
