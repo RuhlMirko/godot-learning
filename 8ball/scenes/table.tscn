@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dqojq41fwpr3j"]
+
+[ext_resource type="Texture2D" uid="uid://2g5emroemhg4" path="res://assets/table.png" id="1_02ppr"]
+
+[node name="Table" type="Sprite2D" unique_id=1902031071]
+texture = ExtResource("1_02ppr")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1902985465]
+
+[node name="TopLeft" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1373528598]
+polygon = PackedVector2Array(90, 57, 109, 77, 555, 78, 565, 57, 565, -130, 90, -131)
+
+[node name="Right" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1926737442]
+position = Vector2(1201.8109, 3.5604205)
+rotation = 1.5707964
+scale = Vector2(1.0254864, 1.0061388)
+polygon = PackedVector2Array(90, 57, 111.37558, 79.323975, 542.6105, 79.323975, 565, 57, 565, -130, 90, -131)
+
+[node name="Left" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1007200341]
+position = Vector2(-1, 675)
+rotation = -1.5707964
+scale = Vector2(1.0254864, 1.0061388)
+polygon = PackedVector2Array(90, 57, 111.37558, 79.323975, 542.6105, 79.323975, 565, 57, 565, -130, 90, -131)
+
+[node name="BottomRight" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=649611340]
+position = Vector2(1196.8448, 679)
+rotation = 3.1415927
+scale = Vector2(1.0175416, 1)
+polygon = PackedVector2Array(90, 57, 110.899414, 78, 555, 78, 565, 57, 565, -130, 90, -131)
+
+[node name="TopRight" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=840775333]
+position = Vector2(537.1332, -1)
+scale = Vector2(1.002209, 1)
+polygon = PackedVector2Array(84, 58, 94, 78, 544, 78, 565, 57, 565, -130, 84, -130)
+
+[node name="BottomLeft" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=287347323]
+position = Vector2(649.63245, 678)
+rotation = 3.1415927
+scale = Vector2(0.99172044, 1)
+polygon = PackedVector2Array(84, 58, 94, 78, 544, 78, 565, 57, 565, -130, 84, -130)
