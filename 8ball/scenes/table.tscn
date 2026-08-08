@@ -1,66 +1,41 @@
-[gd_scene format=3 uid="uid://dqojq41fwpr3j"]
+[gd_scene format=3 uid="uid://bcff5kndcttg0"]
 
-[ext_resource type="PackedScene" uid="uid://bl3jqh60d3c0" path="res://scenes/playerBall.tscn" id="1_02ppr"]
-[ext_resource type="PackedScene" uid="uid://2djxoaflakk2" path="res://scenes/striped.tscn" id="2_olh0b"]
-[ext_resource type="PackedScene" uid="uid://cqv11uksswi2a" path="res://scenes/plain.tscn" id="3_u03e6"]
-[ext_resource type="PackedScene" uid="uid://bub7k4wx73uw3" path="res://scenes/8_ball.tscn" id="4_2f5gb"]
+[ext_resource type="Texture2D" uid="uid://bo8v08ind5ory" path="res://assets/table.png" id="1_02ppr"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p7724"]
+[node name="Table" type="Sprite2D" unique_id=1062240288]
+texture_filter = 1
+texture = ExtResource("1_02ppr")
+centered = false
 
-[node name="Table" type="Node" unique_id=249006584]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=479749010]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1667733948]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -2.0
-offset_right = 1.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.17549999, 0.39, 0.264875, 1)
-metadata/_edit_lock_ = true
+[node name="TopLeft" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1325174662]
+polygon = PackedVector2Array(87, 55, 109, 77, 555, 77, 564, 56, 564, -122, 87, -124)
 
-[node name="PlayerBall" parent="." unique_id=340738625 instance=ExtResource("1_02ppr")]
-position = Vector2(990, 348)
-
-[node name="Boundaries" type="Node2D" parent="." unique_id=506029590]
-
-[node name="Left" type="StaticBody2D" parent="Boundaries" unique_id=590412010]
-position = Vector2(14, 317)
+[node name="Right" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1773672351]
+position = Vector2(1197, 6.3577676)
 rotation = 1.5707964
+scale = Vector2(1.0203816, 1)
+polygon = PackedVector2Array(87, 55, 108.43222, 76, 543.56354, 76, 565.1831, 55, 565.1831, -123, 87, -124)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Left" unique_id=651009836]
-shape = SubResource("WorldBoundaryShape2D_p7724")
+[node name="Left" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1903516599]
+position = Vector2(1.9999847, 673)
+rotation = -1.5714943
+scale = Vector2(1.0203816, 1)
+polygon = PackedVector2Array(87, 55, 108.43222, 76, 543.56354, 76, 565.1831, 55, 565.1831, -123, 87, -124)
 
-[node name="bottom" type="StaticBody2D" parent="Boundaries" unique_id=1086485081]
-position = Vector2(616, 614)
+[node name="TopRight" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1376304919]
+position = Vector2(530, 0)
+polygon = PackedVector2Array(92, 56, 101, 77, 552, 78, 573, 57, 573, -123, 92, -123)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/bottom" unique_id=399793213]
-shape = SubResource("WorldBoundaryShape2D_p7724")
-
-[node name="Top" type="StaticBody2D" parent="Boundaries" unique_id=90776815]
-position = Vector2(590, 21)
+[node name="BottomLeft" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2123458838]
+position = Vector2(657.393, 679)
 rotation = 3.1415927
+scale = Vector2(0.9924855, 1)
+polygon = PackedVector2Array(92, 56, 101, 77, 552, 78, 573, 57, 573, -123, 92, -123)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Top" unique_id=21040929]
-shape = SubResource("WorldBoundaryShape2D_p7724")
-
-[node name="Right" type="StaticBody2D" parent="Boundaries" unique_id=1789176774]
-position = Vector2(1133, 348)
-rotation = 4.712389
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Right" unique_id=2108223047]
-shape = SubResource("WorldBoundaryShape2D_p7724")
-
-[node name="TableBallsSpawn" type="Node2D" parent="." unique_id=1890015720]
-
-[node name="Striped" parent="TableBallsSpawn" unique_id=85959585 instance=ExtResource("2_olh0b")]
-position = Vector2(606, 348)
-
-[node name="Plain" parent="TableBallsSpawn" unique_id=492316724 instance=ExtResource("3_u03e6")]
-position = Vector2(583, 353)
-
-[node name="8ball" parent="TableBallsSpawn" unique_id=840680067 instance=ExtResource("4_2f5gb")]
-position = Vector2(585, 336)
+[node name="BottomRight" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=528584477]
+position = Vector2(1190.0001, 677)
+rotation = 3.1415927
+scale = Vector2(0.9924855, 1)
+polygon = PackedVector2Array(87.65881, 56, 108.81787, 77, 563.2324, 76.99994, 573, 57, 573, -123, 87.65869, -123)

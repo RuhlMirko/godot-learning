@@ -67,6 +67,7 @@ func scale_arrow()->void:
 	#arrow.scale.x = 
 	var perc: float = clamp(calculate_impulse().length() / IMPULSE_MAX,0.0 ,1.0)
 	arrow.scale.x = lerpf(_arrow_scale_x, _arrow_scale_x*2, perc)
+	arrow
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("drag"):
