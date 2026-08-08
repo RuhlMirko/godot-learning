@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://2g5emroemhg4" path="res://assets/table.png" id="1_02ppr"]
 [ext_resource type="PackedScene" uid="uid://4j4avreynill" path="res://scenes/cornerpockets.tscn" id="2_eotx8"]
+[ext_resource type="PackedScene" uid="uid://im68isbanqo7" path="res://scenes/straight_pocket.tscn" id="3_x8522"]
 
 [node name="Table" type="Sprite2D" unique_id=1902031071]
 texture = ExtResource("1_02ppr")
@@ -41,13 +42,21 @@ rotation = 3.1415927
 scale = Vector2(0.99172044, 1)
 polygon = PackedVector2Array(84, 58, 94, 78, 544, 78, 565, 57, 565, -130, 84, -130)
 
-[node name="Pockets" parent="." unique_id=1500847474 instance=ExtResource("2_eotx8")]
+[node name="Node2D" type="Node2D" parent="." unique_id=942221236]
 
-[node name="Pockets2" parent="." unique_id=643292088 instance=ExtResource("2_eotx8")]
+[node name="Pockets" parent="Node2D" unique_id=1500847474 instance=ExtResource("2_eotx8")]
+
+[node name="Pockets2" parent="Node2D" unique_id=643292088 instance=ExtResource("2_eotx8")]
 position = Vector2(1194, 4)
 
-[node name="Pockets3" parent="." unique_id=409530414 instance=ExtResource("2_eotx8")]
+[node name="Pockets3" parent="Node2D" unique_id=409530414 instance=ExtResource("2_eotx8")]
 position = Vector2(-3, 676)
 
-[node name="Pockets4" parent="." unique_id=251978367 instance=ExtResource("2_eotx8")]
+[node name="Pockets4" parent="Node2D" unique_id=251978367 instance=ExtResource("2_eotx8")]
 position = Vector2(1195, 674)
+
+[node name="StraightPocket" parent="Node2D" unique_id=2101676083 instance=ExtResource("3_x8522")]
+position = Vector2(595, 744)
+
+[node name="StraightPocket2" parent="Node2D" unique_id=2122433589 instance=ExtResource("3_x8522")]
+position = Vector2(594, -62)
