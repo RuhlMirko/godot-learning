@@ -17,7 +17,6 @@ config/icon="uid://dgqqumbat2f8p"
 [display]
 
 window/size/viewport_width=1200
-window/size/viewport_height=778
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
