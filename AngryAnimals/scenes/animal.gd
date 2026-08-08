@@ -4,6 +4,7 @@ extends RigidBody2D
 const DRAG_LIMIT_MAX:Vector2= Vector2(0,60)
 const DRAG_LIMIT_MIN:Vector2= Vector2(-60,0)
 const IMPLULSE_MULT : float = 15.0
+const IMPULSE_MAX : float = 2000.0
 
 @onready var label: Label = $Label
 @onready var arrow: Sprite2D = $Arrow
@@ -13,6 +14,7 @@ const IMPLULSE_MULT : float = 15.0
 var _start : Vector2 = Vector2.ZERO
 var _drag_start : Vector2 = Vector2.ZERO
 var _is_dragging: bool = false
+var _arrow_scale_x: float = 0.0
 var _drag_vector: Vector2 = Vector2.ZERO
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -22,6 +24,7 @@ func _unhandled_input(event: InputEvent) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_start = position
+	_arrow_scale_x = arrow.scale.x
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -59,6 +62,11 @@ func handle_dragging()->void:
 	_drag_vector = new_dragVec2
 	position = _start + _drag_vector
 	
+
+func scale_arrow()->void:
+	#arrow.scale.x = 
+	var perc: float = clamp(calculate_impulse().length() / IMPULSE_MAX,0.0 ,1.0)
+	arrow.scale.x = lerpf(_arrow_scale_x, _arrow_scale_x*2, perc)
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("drag"):
