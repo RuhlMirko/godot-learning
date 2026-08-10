@@ -4,6 +4,8 @@ extends Node
 @export var ball_scene : PackedScene
 
 var ball_images := []
+var cue_ball 
+const START_POS := Vector2(890, 340)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +14,7 @@ func _ready() -> void:
 
 func new_game() -> void:
 	generate_balls()
+	reset_cue_ball()
 	
 func load_images()->void:
 	for i in range(1,17,1):
@@ -33,8 +36,13 @@ func generate_balls()->void:
 			b.get_node("Sprite2D").texture = ball_images[count]
 			count +=1
 		rows -= 1
-		
+
+func reset_cue_ball()->void:
+	cue_ball = ball_scene.instantiate()
+	add_child(cue_ball)
+	cue_ball.position = START_POS
+	cue_ball.get_node("Sprite2D").texture = ball_images[15]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
