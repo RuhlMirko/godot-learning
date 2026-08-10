@@ -50,3 +50,7 @@ func show_cue()->void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+
+
+func _on_cue_shoot(vec2) -> void:
+	cue_ball.apply_central_impulse(vec2)

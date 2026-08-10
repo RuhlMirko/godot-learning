@@ -13,3 +13,5 @@ ball_scene = ExtResource("2_sugp2")
 
 [node name="Cue" parent="." unique_id=352717907 instance=ExtResource("4_jyhfs")]
 z_index = 2
+
+[connection signal="shoot" from="Cue" to="." method="_on_cue_shoot"]
