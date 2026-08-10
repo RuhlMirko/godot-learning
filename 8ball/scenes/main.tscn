@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://c3hlcerikevh8" path="res://scenes/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dqojq41fwpr3j" path="res://scenes/table.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://fkuvcu806u28" path="res://scenes/pool_ball.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://b1lngp6b680es" path="res://scenes/cue.tscn" id="4_jyhfs"]
 
 [node name="Main" type="Node" unique_id=1146171074]
 script = ExtResource("1_0wfyh")
 ball_scene = ExtResource("2_sugp2")
 
 [node name="Table" parent="." unique_id=1902031071 instance=ExtResource("1_o5qli")]
+
+[node name="Cue" parent="." unique_id=352717907 instance=ExtResource("4_jyhfs")]
+z_index = 2

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b1lngp6b680es"]
+
+[ext_resource type="Texture2D" uid="uid://dob8b0hkbmuq5" path="res://assets/cue.png" id="1_nqers"]
+[ext_resource type="Script" uid="uid://q8w367b13kh5" path="res://scenes/cue.gd" id="2_lreqr"]
+
+[node name="Cue" type="Sprite2D" unique_id=352717907]
+texture_filter = 1
+texture = ExtResource("1_nqers")
+script = ExtResource("2_lreqr")

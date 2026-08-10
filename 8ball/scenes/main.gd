@@ -15,6 +15,7 @@ func _ready() -> void:
 func new_game() -> void:
 	generate_balls()
 	reset_cue_ball()
+	show_cue()
 	
 func load_images()->void:
 	for i in range(1,17,1):
@@ -41,7 +42,10 @@ func reset_cue_ball()->void:
 	cue_ball = ball_scene.instantiate()
 	add_child(cue_ball)
 	cue_ball.position = START_POS
-	cue_ball.get_node("Sprite2D").texture = ball_images[15]
+	cue_ball.get_node("Sprite2D").texture = ball_images.back() # back() gets the last item of an array
+
+func show_cue()->void:
+	$Cue.position = cue_ball.position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
