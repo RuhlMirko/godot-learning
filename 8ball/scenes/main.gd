@@ -6,6 +6,7 @@ extends Node
 var ball_images := []
 var cue_ball 
 const START_POS := Vector2(890, 340)
+const MAX_POWER := 8.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,6 +50,7 @@ func show_cue()->void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	#show_cue()
 	pass
 
 
