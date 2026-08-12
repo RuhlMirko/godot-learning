@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://buh4uoajw4qb4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnf51"]
+bg_color = Color(0.8784314, 0.8784314, 0.8784314, 0.3254902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2i8g1"]
+bg_color = Color(0.9607843, 0.1764706, 0.34117648, 1)
+
+[node name="PowerBar" type="ProgressBar" unique_id=1089211105]
+z_index = 1
+offset_right = 100.0
+offset_bottom = 15.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tnf51")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2i8g1")
+max_value = 8.0
+show_percentage = false

@@ -3,6 +3,7 @@ extends Sprite2D
 signal shoot
 var power : float = 0.0
 var power_dir : int = 1
+@onready var power_bar: ProgressBar = $PowerBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +17,7 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) :
 		power += 0.1 * power_dir
+		power_bar.value = power
 		if power >= get_parent().MAX_POWER:
 			power_dir = -1
 		elif power <= 0:
@@ -27,3 +29,4 @@ func _process(_delta: float) -> void:
 			shoot.emit(power * direction)
 			print(power)
 			power = 0
+			power_bar.value = power

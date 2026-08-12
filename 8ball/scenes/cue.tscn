@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dob8b0hkbmuq5" path="res://assets/cue.png" id="1_nqers"]
 [ext_resource type="Script" uid="uid://q8w367b13kh5" path="res://scenes/cue.gd" id="2_lreqr"]
 [ext_resource type="Texture2D" uid="uid://18uid32mgish" path="res://assets/dashed-line.png" id="3_qdt3q"]
+[ext_resource type="PackedScene" uid="uid://buh4uoajw4qb4" path="res://scenes/power_bar.tscn" id="4_bit5d"]
 
 [node name="Cue" type="Sprite2D" unique_id=352717907]
 texture_filter = 1
@@ -14,3 +15,9 @@ self_modulate = Color(1, 1, 1, 0.25882354)
 position = Vector2(221, 0)
 scale = Vector2(0.2625962, 1.3333334)
 texture = ExtResource("3_qdt3q")
+
+[node name="PowerBar" parent="." unique_id=1089211105 instance=ExtResource("4_bit5d")]
+offset_left = -50.0
+offset_top = 26.0
+offset_right = 50.0
+offset_bottom = 41.0
