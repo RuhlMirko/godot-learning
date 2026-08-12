@@ -2,6 +2,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnf51"]
 bg_color = Color(0.8784314, 0.8784314, 0.8784314, 0.3254902)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_color = Color(0, 0, 0, 0.09411765)
+shadow_size = 8
+shadow_offset = Vector2(0, -3.165)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2i8g1"]
 bg_color = Color(0.9607843, 0.1764706, 0.34117648, 1)
@@ -9,7 +14,7 @@ bg_color = Color(0.9607843, 0.1764706, 0.34117648, 1)
 [node name="PowerBar" type="ProgressBar" unique_id=1089211105]
 z_index = 1
 offset_right = 100.0
-offset_bottom = 15.0
+offset_bottom = 5.0
 theme_override_styles/background = SubResource("StyleBoxFlat_tnf51")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2i8g1")
 max_value = 8.0

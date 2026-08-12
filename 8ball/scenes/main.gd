@@ -10,6 +10,7 @@ const MAX_POWER := 8.0
 var taking_shot: bool
 const MOVE_THRESHOLD := 7.0
 var cue_ball_potted : bool
+var non_cue_potted : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,7 +27,6 @@ func load_images()->void:
 		var filename = str("res://assets/ball_",i,".png")
 		var ball_image = load(filename)
 		ball_images.append(ball_image)
-		
 func generate_balls()->void:
 	var count : int = 0
 	var rows : int = 5
@@ -49,24 +49,23 @@ func reset_cue_ball()->void:
 	cue_ball.position = START_POS
 	cue_ball.get_node("Sprite2D").texture = ball_images.back() # back() gets the last item of an array
 	taking_shot = false
-	
 func remove_cue_ball()->void:
 	var old_b = cue_ball
 	remove_child(old_b)
 	old_b.queue_free()
-	reset_cue_ball()
+	call_deferred("reset_cue_ball")
 
 func show_cue()->void:
 	$Cue.set_process(true)
 	$Cue.show()
 	$Cue.position = cue_ball.position
-
 func hide_cue()->void:
 	$Cue.set_process(false)
 	$Cue.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	$Crosshair.position = get_viewport().get_mouse_position()
 	var moving := false
 	for b: RigidBody2D in get_tree().get_nodes_in_group("balls"):
 		var linVel = b.linear_velocity.length()
@@ -88,9 +87,13 @@ func _on_cue_shoot(vec2) -> void:
 	cue_ball.apply_central_impulse(vec2)
 
 func _on_pockets_body_entered(body: Node2D) -> void:
-	print(body)
 	if body == cue_ball:
 		cue_ball_potted = true
 		remove_cue_ball()
 	else:
+		non_cue_potted += 1
+		var b = Sprite2D.new()
+		add_child(b)
+		b.texture = body.get_node("Sprite2D").texture
+		b.position = Vector2(40.0 * non_cue_potted, 730.0)
 		body.queue_free()

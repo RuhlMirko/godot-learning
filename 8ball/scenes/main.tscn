@@ -4,6 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dqojq41fwpr3j" path="res://scenes/table.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://fkuvcu806u28" path="res://scenes/pool_ball.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://b1lngp6b680es" path="res://scenes/cue.tscn" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://cn4h0ljrtj8bj" path="res://assets/crosshair.png" id="5_tbgi4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7724"]
+bg_color = Color(0.17388001, 0.1494, 0.18, 1)
 
 [node name="Main" type="Node" unique_id=1146171074]
 script = ExtResource("1_0wfyh")
@@ -11,8 +15,24 @@ ball_scene = ExtResource("2_sugp2")
 
 [node name="Table" parent="." unique_id=1902031071 instance=ExtResource("1_o5qli")]
 
+[node name="PottedPanel" type="Panel" parent="." unique_id=1515874252]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 289.0
+offset_bottom = 389.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7724")
+
 [node name="Cue" parent="." unique_id=352717907 instance=ExtResource("4_jyhfs")]
 z_index = 2
+
+[node name="Crosshair" type="Sprite2D" parent="." unique_id=1494533698]
+self_modulate = Color(1, 1, 1, 0.39607844)
+z_index = 2
+texture = ExtResource("5_tbgi4")
 
 [connection signal="body_entered" from="Table/Pockets" to="." method="_on_pockets_body_entered"]
 [connection signal="shoot" from="Cue" to="." method="_on_cue_shoot"]

@@ -13,6 +13,7 @@ texture = ExtResource("1_02ppr")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1902985465]
+visible = false
 
 [node name="TopLeft" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1373528598]
 polygon = PackedVector2Array(90, 57, 109, 77, 555, 78, 565, 57, 565, -130, 90, -131)
@@ -47,6 +48,7 @@ scale = Vector2(0.99172044, 1)
 polygon = PackedVector2Array(84, 58, 94, 78, 544, 78, 565, 57, 565, -130, 84, -130)
 
 [node name="Pockets" type="Area2D" parent="." unique_id=1273643987]
+visible = false
 
 [node name="TopLeft" type="CollisionShape2D" parent="Pockets" unique_id=619393843]
 position = Vector2(-2, 5)
