@@ -9,6 +9,7 @@ const START_POS := Vector2(890, 340)
 const MAX_POWER := 8.0
 var taking_shot: bool
 const MOVE_THRESHOLD := 7.0
+var cue_ball_potted : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,11 +43,18 @@ func generate_balls()->void:
 		rows -= 1
 
 func reset_cue_ball()->void:
+	cue_ball_potted = false
 	cue_ball = ball_scene.instantiate()
 	add_child(cue_ball)
 	cue_ball.position = START_POS
 	cue_ball.get_node("Sprite2D").texture = ball_images.back() # back() gets the last item of an array
 	taking_shot = false
+	
+func remove_cue_ball()->void:
+	var old_b = cue_ball
+	remove_child(old_b)
+	old_b.queue_free()
+	reset_cue_ball()
 
 func show_cue()->void:
 	$Cue.set_process(true)
@@ -79,9 +87,10 @@ func _process(_delta: float) -> void:
 func _on_cue_shoot(vec2) -> void:
 	cue_ball.apply_central_impulse(vec2)
 
-
-
-
 func _on_pockets_body_entered(body: Node2D) -> void:
 	print(body)
-	body.queue_free()
+	if body == cue_ball:
+		cue_ball_potted = true
+		remove_cue_ball()
+	else:
+		body.queue_free()
