@@ -78,3 +78,10 @@ func _process(_delta: float) -> void:
 
 func _on_cue_shoot(vec2) -> void:
 	cue_ball.apply_central_impulse(vec2)
+
+
+
+
+func _on_pockets_body_entered(body: Node2D) -> void:
+	print(body)
+	body.queue_free()
