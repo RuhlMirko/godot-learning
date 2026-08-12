@@ -8,6 +8,7 @@ var cue_ball
 const START_POS := Vector2(890, 340)
 const MAX_POWER := 8.0
 var taking_shot: bool
+const MOVE_THRESHOLD := 7.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -60,7 +61,11 @@ func hide_cue()->void:
 func _process(_delta: float) -> void:
 	var moving := false
 	for b: RigidBody2D in get_tree().get_nodes_in_group("balls"):
-		if b.linear_velocity.length()>=1:
+		var linVel = b.linear_velocity.length()
+		if (linVel > 0.0 and linVel < MOVE_THRESHOLD):
+			b.sleeping = true
+		
+		if linVel>=MOVE_THRESHOLD:
 			moving = true
 	if not moving:
 		if not taking_shot:
