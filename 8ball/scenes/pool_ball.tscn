@@ -6,7 +6,7 @@ bounce = 0.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_p7724"]
 radius = 18.0
 
-[node name="PoolBall" type="RigidBody2D" unique_id=1206003427]
+[node name="PoolBall" type="RigidBody2D" unique_id=1206003427 groups=["balls"]]
 mass = 1.2
 physics_material_override = SubResource("PhysicsMaterial_jyhfs")
 

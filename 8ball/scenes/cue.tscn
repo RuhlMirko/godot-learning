@@ -2,8 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://dob8b0hkbmuq5" path="res://assets/cue.png" id="1_nqers"]
 [ext_resource type="Script" uid="uid://q8w367b13kh5" path="res://scenes/cue.gd" id="2_lreqr"]
+[ext_resource type="Texture2D" uid="uid://18uid32mgish" path="res://assets/dashed-line.png" id="3_qdt3q"]
 
 [node name="Cue" type="Sprite2D" unique_id=352717907]
 texture_filter = 1
 texture = ExtResource("1_nqers")
 script = ExtResource("2_lreqr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1409145295]
+self_modulate = Color(1, 1, 1, 0.25882354)
+position = Vector2(168.375, -0.9999999)
+scale = Vector2(0.2625962, 1.3333334)
+texture = ExtResource("3_qdt3q")
