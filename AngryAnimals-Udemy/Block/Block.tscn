@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d4uscsqh4i4k"]
+
+[ext_resource type="Texture2D" uid="uid://kbgru5hrq3hl" path="res://Assets/env/elementStone025.png" id="1_svn48"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_svn48"]
+bounce = 0.28
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxpis"]
+size = Vector2(40, 175)
+
+[node name="Block" type="StaticBody2D" unique_id=317719582]
+physics_material_override = SubResource("PhysicsMaterial_svn48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1058668963]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_dxpis")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1979849644]
+scale = Vector2(0.62857145, 0.82272726)
+texture = ExtResource("1_svn48")

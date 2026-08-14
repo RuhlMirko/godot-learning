@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b83l4bypmd5mr"]
+
+[ext_resource type="PackedScene" uid="uid://drs4m30vl1cgr" path="res://Scenes/LevelBase/LevelBase.tscn" id="1_qm008"]
+[ext_resource type="PackedScene" uid="uid://3c4kd2h2nlll" path="res://Scenes/Cup/Cup.tscn" id="2_w3qls"]
+[ext_resource type="PackedScene" uid="uid://d4uscsqh4i4k" path="res://Block/Block.tscn" id="3_q1xli"]
+
+[node name="Level2" unique_id=544884783 instance=ExtResource("1_qm008")]
+
+[node name="Cup" parent="." index="4" unique_id=1120503765 instance=ExtResource("2_w3qls")]
+position = Vector2(712, 492)
+
+[node name="Cup3" parent="." index="5" unique_id=367682358 instance=ExtResource("2_w3qls")]
+position = Vector2(408, 198)
+
+[node name="Cup2" parent="." index="6" unique_id=1010135949 instance=ExtResource("2_w3qls")]
+position = Vector2(340, 438)
+
+[node name="Cup4" parent="." index="7" unique_id=1177613903 instance=ExtResource("2_w3qls")]
+position = Vector2(895, 511)
+
+[node name="Block" parent="." index="8" unique_id=317719582 instance=ExtResource("3_q1xli")]
+position = Vector2(998, 117)
+
+[node name="Block2" parent="." index="9" unique_id=1279038907 instance=ExtResource("3_q1xli")]
+position = Vector2(616, 319.99994)
+rotation = 2.3866062
+
+[node name="Block3" parent="." index="10" unique_id=973158012 instance=ExtResource("3_q1xli")]
+position = Vector2(789, 230.99995)
+rotation = 0.84139025

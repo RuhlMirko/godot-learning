@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://75n835kwk0wx"]
+
+[ext_resource type="LabelSettings" uid="uid://cbqwu3nlefmos" path="res://Resources/LightLabel32.tres" id="1_mb7aw"]
+[ext_resource type="Script" uid="uid://dfc4xqx4jq1h2" path="res://Scenes/GameUi/GameUi.gd" id="1_tt7lr"]
+[ext_resource type="FontFile" uid="uid://bq8hxrtndtogd" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="2_anb74"]
+[ext_resource type="LabelSettings" uid="uid://btwch84n5bytd" path="res://Resources/LightBlueLabel96.tres" id="2_anolp"]
+[ext_resource type="AudioStream" uid="uid://cdlgke4snakb4" path="res://Assets/audio/jazzyfrenchy.mp3" id="5_5hvfd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tt7lr"]
+font = ExtResource("2_anb74")
+font_size = 64
+font_color = Color(0.9688087, 0.8615383, 0.8467299, 1)
+outline_size = 6
+outline_color = Color(0, 0.156391, 0.15680605, 1)
+
+[node name="GameUi" type="Control" unique_id=119285522]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_tt7lr")
+
+[node name="MC" type="MarginContainer" parent="." unique_id=324735015]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+
+[node name="VB" type="VBoxContainer" parent="MC" unique_id=1060880918]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+
+[node name="HBLevel" type="HBoxContainer" parent="MC/VB" unique_id=1716323379]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MC/VB/HBLevel" unique_id=264535160]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level"
+label_settings = ExtResource("1_mb7aw")
+
+[node name="LevelLabel" type="Label" parent="MC/VB/HBLevel" unique_id=1510121943]
+layout_mode = 2
+text = "000"
+label_settings = ExtResource("1_mb7aw")
+
+[node name="HBAttempts2" type="HBoxContainer" parent="MC/VB" unique_id=1555159346]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MC/VB/HBAttempts2" unique_id=1695162275]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attempts"
+label_settings = ExtResource("1_mb7aw")
+
+[node name="AttemptsLabel" type="Label" parent="MC/VB/HBAttempts2" unique_id=2081626089]
+layout_mode = 2
+text = "000"
+label_settings = ExtResource("1_mb7aw")
+
+[node name="VbComplete" type="VBoxContainer" parent="." unique_id=445980274]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VbComplete" unique_id=1423112942]
+layout_mode = 2
+text = "Level Complete"
+label_settings = ExtResource("2_anolp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VbComplete" unique_id=1084792002]
+layout_mode = 2
+text = "Press ESCAPE"
+label_settings = SubResource("LabelSettings_tt7lr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1286245742]
+stream = ExtResource("5_5hvfd")
+parameters/looping = true
