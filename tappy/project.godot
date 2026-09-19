@@ -14,6 +14,7 @@ config/name="Tappy"
 run/main_scene="uid://cg0767yigyres"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="uid://ba7abb8soymoa"
+config/tags=PackedStringArray("learning", "udemy")
 
 [autoload]
 
