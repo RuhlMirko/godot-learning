@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dl33r346r32iw"]
+
+[ext_resource type="Texture2D" uid="uid://cescdq8yvdgyd" path="res://icon.svg" id="1_nnsk1"]
+
+[node name="World" type="Node2D" unique_id=637093023]
+
+[node name="Button" type="Button" parent="." unique_id=400474286]
+offset_left = 538.0
+offset_top = 256.0
+offset_right = 674.0
+offset_bottom = 392.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("1_nnsk1")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1864923775]
+offset_left = 531.0
+offset_top = 30.0
+offset_right = 659.0
+offset_bottom = 72.0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.78039217)
+theme_override_font_sizes/font_size = 30
+text = "SCORE: 0"
+horizontal_alignment = 1
+
+[node name="CountDownLBL" type="Label" parent="." unique_id=388996640]
+offset_left = 531.0
+offset_top = 60.0
+offset_right = 659.0
+offset_bottom = 102.0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1.0845727, 1.0845727, 0.466126, 0.6117647)
+theme_override_font_sizes/font_size = 30
+text = "Time: 0"
+horizontal_alignment = 1
