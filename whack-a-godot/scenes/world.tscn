@@ -1,23 +1,90 @@
 [gd_scene format=3 uid="uid://dl33r346r32iw"]
 
 [ext_resource type="Texture2D" uid="uid://cescdq8yvdgyd" path="res://icon.svg" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://b7a7ly8d71coh" path="res://scenes/world.gd" id="1_rwgxs"]
+
+[sub_resource type="Animation" id="Animation_rwgxs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.865, 0.865)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4wyf3"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.18456206, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.865, 0.865), Vector2(1.345, 1.345), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.6392157), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k0juu"]
+_data = {
+&"RESET": SubResource("Animation_rwgxs"),
+&"hit": SubResource("Animation_4wyf3")
+}
 
 [node name="World" type="Node2D" unique_id=637093023]
+script = ExtResource("1_rwgxs")
 
 [node name="Button" type="Button" parent="." unique_id=400474286]
-offset_left = 538.0
-offset_top = 256.0
-offset_right = 674.0
-offset_bottom = 392.0
+offset_left = 526.0
+offset_top = 254.0
+offset_right = 662.0
+offset_bottom = 390.0
+scale = Vector2(0.865, 0.865)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 icon = ExtResource("1_nnsk1")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button" unique_id=1922231459]
+libraries/ = SubResource("AnimationLibrary_k0juu")
+
 [node name="ScoreLabel" type="Label" parent="." unique_id=1864923775]
-offset_left = 531.0
-offset_top = 30.0
-offset_right = 659.0
-offset_bottom = 72.0
+offset_left = 18.0
+offset_top = 28.0
+offset_right = 146.0
+offset_bottom = 70.0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 0.78039217)
 theme_override_font_sizes/font_size = 30
@@ -25,12 +92,20 @@ text = "SCORE: 0"
 horizontal_alignment = 1
 
 [node name="CountDownLBL" type="Label" parent="." unique_id=388996640]
-offset_left = 531.0
-offset_top = 60.0
-offset_right = 659.0
-offset_bottom = 102.0
+offset_left = 4.0
+offset_top = 82.0
+offset_right = 132.0
+offset_bottom = 124.0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1.0845727, 1.0845727, 0.466126, 0.6117647)
 theme_override_font_sizes/font_size = 30
 text = "Time: 0"
 horizontal_alignment = 1
+
+[node name="CountdownTimer" type="Timer" parent="." unique_id=756354397]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
