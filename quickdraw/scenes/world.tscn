@@ -6,6 +6,5 @@
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1821949084]
 texture_filter = 1
-position = Vector2(579, 360.5)
-scale = Vector2(4.795833, 6.0083323)
+position = Vector2(120, 60)
 texture = ExtResource("1_nnsk1")
