@@ -9,14 +9,14 @@ func plus_score():
 	#if $CountdownTimer.time_left != 0:
 	score += 1
 	$ScoreLabel.text = "SCORE: %d" % score
-
+	
 func minus_score():
 	score -= 1
 
 func _on_countdown_timer_timeout() -> void:
 	$ScoreLabel.text = "FINAL SCORE: %d" % score
 	$Button.visible = false
+	$CountDownLBL.visible = false
 
 func _on_button_pressed() -> void:
 	plus_score()
-	#$Button/AnimationPlayer.play("hit")
