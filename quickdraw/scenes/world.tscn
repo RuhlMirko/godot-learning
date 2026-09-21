@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://brh32dhhpy40f"]
 
+[ext_resource type="Script" uid="uid://djg68xseu8ryf" path="res://scenes/world.gd" id="1_i7141"]
 [ext_resource type="Texture2D" uid="uid://8381wum2lfj2" path="res://assets/textures/background.png" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://c2pynwxoy8ltp" path="res://assets/textures/tumbleweed.png" id="2_rwgxs"]
 [ext_resource type="Texture2D" uid="uid://cdjbtk1rdu71e" path="res://assets/textures/plank.png" id="3_4wyf3"]
@@ -114,6 +115,7 @@ _data = {
 }
 
 [node name="World" type="Node2D" unique_id=2035803966]
+script = ExtResource("1_i7141")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1821949084]
@@ -140,9 +142,7 @@ label_settings = SubResource("LabelSettings_ogn6l")
 horizontal_alignment = 1
 
 [node name="Player" parent="." unique_id=2025910684 instance=ExtResource("5_71j4m")]
-
-[node name="Sprite2D" parent="Player" index="0" unique_id=1233731350]
-position = Vector2(72, 75)
+position = Vector2(72, 85)
 
 [node name="Player2" parent="." unique_id=906910912 instance=ExtResource("5_71j4m")]
 
@@ -159,5 +159,4 @@ texture = ExtResource("2_rwgxs")
 libraries/ = SubResource("AnimationLibrary_71j4m")
 autoplay = &"tumble"
 
-[editable path="Player"]
 [editable path="Player2"]
