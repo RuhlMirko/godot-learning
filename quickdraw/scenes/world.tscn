@@ -1,10 +1,150 @@
 [gd_scene format=3 uid="uid://brh32dhhpy40f"]
 
 [ext_resource type="Texture2D" uid="uid://8381wum2lfj2" path="res://assets/textures/background.png" id="1_nnsk1"]
+[ext_resource type="Texture2D" uid="uid://c2pynwxoy8ltp" path="res://assets/textures/tumbleweed.png" id="2_rwgxs"]
+[ext_resource type="Texture2D" uid="uid://cdjbtk1rdu71e" path="res://assets/textures/plank.png" id="3_4wyf3"]
+[ext_resource type="FontFile" uid="uid://4yjg0s27dqvk" path="res://assets/fonts/PrStart.ttf" id="4_k0juu"]
+
+[sub_resource type="Animation" id="Animation_4wyf3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 108)]
+}
+
+[sub_resource type="Animation" id="Animation_k0juu"]
+resource_name = "tumble"
+length = 6.0
+loop_mode = 1
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.65711397, 1, 1.5333334, 1.8333334, 2.1904473, 2.5333333, 3.2, 3.5, 3.8571138, 4.2, 4.9666667, 5.266667, 5.6237807, 5.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5707964, 3.141592653589793, 6.283185307179586, 0.0, 1.5707964, 3.141592653589793, 6.283185307179586, 0.0, 1.5707964, 3.141592653589793, 6.283185307179586, 0.0, 1.5707964, 3.141592653589793, 6.283185307179586]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.73814535, 1.2653921, 2.2378693, 3.4446783, 4.2531233, 5.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-13, 108), Vector2(26, 101), Vector2(57, 110), Vector2(105, 99), Vector2(154, 108), Vector2(185, 96), Vector2(256, 109)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_71j4m"]
+_data = {
+&"RESET": SubResource("Animation_4wyf3"),
+&"tumble": SubResource("Animation_k0juu")
+}
+
+[sub_resource type="Animation" id="Animation_71j4m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120, -13)]
+}
+
+[sub_resource type="Animation" id="Animation_qfnet"]
+resource_name = "qta"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(120, -13), Vector2(122, 58), Vector2(123, 51), Vector2(123, 66)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i7141"]
+_data = {
+&"RESET": SubResource("Animation_71j4m"),
+&"qta": SubResource("Animation_qfnet")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_ogn6l"]
+font = ExtResource("4_k0juu")
+font_size = 8
+font_color = Color(0.69803923, 1, 0.11372549, 1)
+outline_size = 1
+outline_color = Color(0.26826668, 0.64, 0.095999986, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.4392157)
+shadow_offset = Vector2(-1.02, 0.89)
 
 [node name="World" type="Node2D" unique_id=2035803966]
+metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1821949084]
 texture_filter = 1
 position = Vector2(120, 60)
 texture = ExtResource("1_nnsk1")
+metadata/_edit_lock_ = true
+
+[node name="Tumbleweed" type="Sprite2D" parent="." unique_id=356492987]
+position = Vector2(-13, 108)
+texture = ExtResource("2_rwgxs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tumbleweed" unique_id=132940495]
+libraries/ = SubResource("AnimationLibrary_71j4m")
+autoplay = &"tumble"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1671915266]
+position = Vector2(120, -13)
+texture = ExtResource("3_4wyf3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=1144711830]
+libraries/ = SubResource("AnimationLibrary_i7141")
+autoplay = &"qta"
+
+[node name="Label" type="Label" parent="Sprite2D" unique_id=1026320648]
+offset_left = -21.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 19.0
+text = "SHOOT!"
+label_settings = SubResource("LabelSettings_ogn6l")
