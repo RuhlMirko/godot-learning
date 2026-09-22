@@ -1,7 +1,7 @@
 extends Node2D
 
-var p1_can_shoot: bool = true
-var p2_can_shoot: bool = true
+var p1_can_shoot: bool = false
+var p2_can_shoot: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 	pass
 
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("p1shoot") and p1_can_shoot:
 		$Player/AnimationPlayer.play("shoot")
@@ -22,3 +23,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		$Player2/AnimationPlayer.play("shoot")
 		$Player/AnimationPlayer.play("die")
 		p1_can_shoot = true
+
+
+func _on_timer_timeout() -> void:
+	p1_can_shoot = true
+	p2_can_shoot = true
+	$Plank/Label.text = "SHOOT!"
+	$Plank/Label.label_settings.font_color = "#05ee01"
