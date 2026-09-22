@@ -7,25 +7,14 @@
 [ext_resource type="FontFile" uid="uid://4yjg0s27dqvk" path="res://assets/fonts/PrStart.ttf" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://c7edaltino3fj" path="res://scenes/player.tscn" id="5_71j4m"]
 [ext_resource type="Texture2D" uid="uid://deffkyiily5gy" path="res://assets/textures/cowboy-2.png" id="7_4mrxx"]
+[ext_resource type="AudioStream" uid="uid://cui3qudv8uadx" path="res://assets/music/farwest.mp3" id="8_4mrxx"]
 
 [sub_resource type="Animation" id="Animation_71j4m"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(120, -13)]
-}
 
 [sub_resource type="Animation" id="Animation_qfnet"]
 resource_name = "qta"
-length = 0.7
+length = 3.2
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -39,6 +28,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(120, -13), Vector2(122, 58), Vector2(123, 51), Vector2(123, 66)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartRound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_4mrxx")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i7141"]
 _data = {
@@ -49,7 +53,6 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_ogn6l"]
 font = ExtResource("4_k0juu")
 font_size = 8
-font_color = Color(0.021099998, 0.03, 0.0033000004, 1)
 shadow_color = Color(0, 0, 0, 0.6862745)
 shadow_offset = Vector2(-0.595, 1)
 
@@ -116,6 +119,50 @@ _data = {
 &"tumble": SubResource("Animation_k0juu")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_ipuy6"]
+font = ExtResource("4_k0juu")
+font_size = 7
+outline_size = 2
+outline_color = Color(0.17, 0.17, 0.17, 0.27058825)
+
+[sub_resource type="Animation" id="Animation_i7141"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4mrxx"]
+resource_name = "blinking"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.4666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.54901963), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7r4gi"]
+_data = {
+&"RESET": SubResource("Animation_i7141"),
+&"blinking": SubResource("Animation_4mrxx")
+}
+
 [node name="World" type="Node2D" unique_id=2035803966]
 script = ExtResource("1_i7141")
 metadata/_edit_lock_ = true
@@ -130,6 +177,9 @@ metadata/_edit_lock_ = true
 position = Vector2(120, -13)
 texture = ExtResource("3_4wyf3")
 
+[node name="StartRound" type="AudioStreamPlayer2D" parent="Plank" unique_id=973539016]
+position = Vector2(-120, 13)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Plank" unique_id=1144711830]
 libraries/ = SubResource("AnimationLibrary_i7141")
 autoplay = &"qta"
@@ -139,9 +189,10 @@ offset_left = -26.0
 offset_top = -3.0
 offset_right = 29.0
 offset_bottom = 20.0
-text = "STEADY"
+text = "STEADY!"
 label_settings = SubResource("LabelSettings_ogn6l")
 horizontal_alignment = 1
+uppercase = true
 
 [node name="Player" parent="." unique_id=2025910684 instance=ExtResource("5_71j4m")]
 position = Vector2(72, 85)
@@ -162,8 +213,20 @@ libraries/ = SubResource("AnimationLibrary_71j4m")
 autoplay = &"tumble"
 
 [node name="Timer" type="Timer" parent="." unique_id=1494150230]
-wait_time = 6.0
-autostart = true
+one_shot = true
+
+[node name="NewGameLBL" type="Label" parent="." unique_id=1648387761]
+offset_left = -42.0
+offset_top = 102.0
+offset_right = 294.0
+offset_bottom = 125.0
+text = "Press R for new round"
+label_settings = SubResource("LabelSettings_ipuy6")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NewGameLBL" unique_id=141497570]
+libraries/ = SubResource("AnimationLibrary_7r4gi")
+autoplay = &"blinking"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
