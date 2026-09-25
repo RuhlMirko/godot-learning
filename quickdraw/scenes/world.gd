@@ -20,22 +20,22 @@ func randomize_timer()->void:
 	$Timer.wait_time = randf_range(4.0,8.0)
 	$Timer.start()
 	
-func start_round()->void:
-	
-	randomize_timer()
-	p1_can_shoot = false
-	p2_can_shoot = false
-	plank_label.text = "STEADY"
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("p1shoot") and p1_can_shoot:
-		$Player/AnimationPlayer.play("shoot")
-		$Player2/AnimationPlayer.play("die")
-		p2_can_shoot = false
-	if event.is_action_pressed("p2shoot") and p2_can_shoot:
-		$Player2/AnimationPlayer.play("shoot")
-		$Player/AnimationPlayer.play("die")
-		p1_can_shoot = true
+#func start_round()->void:
+	#
+	#randomize_timer()
+	#p1_can_shoot = false
+	#p2_can_shoot = false
+	#plank_label.text = "STEADY"
+#
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("p1shoot") and p1_can_shoot:
+		#$Player/AnimationPlayer.play("shoot")
+		#$Player2/AnimationPlayer.play("die")
+		#p2_can_shoot = false
+	#if event.is_action_pressed("p2shoot") and p2_can_shoot:
+		#$Player2/AnimationPlayer.play("shoot")
+		#$Player/AnimationPlayer.play("die")
+		#p1_can_shoot = true
 
 
 func _on_timer_timeout() -> void:

@@ -8,53 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c7edaltino3fj" path="res://scenes/player.tscn" id="5_71j4m"]
 [ext_resource type="Texture2D" uid="uid://deffkyiily5gy" path="res://assets/textures/cowboy-2.png" id="7_4mrxx"]
 [ext_resource type="AudioStream" uid="uid://cui3qudv8uadx" path="res://assets/music/farwest.mp3" id="8_4mrxx"]
-
-[sub_resource type="Animation" id="Animation_71j4m"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_qfnet"]
-resource_name = "qta"
-length = 3.2
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 0.5, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(120, -13), Vector2(122, 58), Vector2(123, 51), Vector2(123, 66)]
-}
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("StartRound")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("8_4mrxx")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/1/use_blend = true
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_i7141"]
-_data = {
-&"RESET": SubResource("Animation_71j4m"),
-&"qta": SubResource("Animation_qfnet")
-}
-
-[sub_resource type="LabelSettings" id="LabelSettings_ogn6l"]
-font = ExtResource("4_k0juu")
-font_size = 8
-shadow_color = Color(0, 0, 0, 0.6862745)
-shadow_offset = Vector2(-0.595, 1)
+[ext_resource type="Texture2D" uid="uid://bjsv05yiekiw2" path="res://assets/textures/p-key.png" id="8_7r4gi"]
 
 [sub_resource type="Animation" id="Animation_4wyf3"]
 length = 0.001
@@ -119,6 +73,53 @@ _data = {
 &"tumble": SubResource("Animation_k0juu")
 }
 
+[sub_resource type="Animation" id="Animation_71j4m"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_qfnet"]
+resource_name = "qta"
+length = 3.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(120, -13), Vector2(122, 58), Vector2(123, 51), Vector2(123, 66)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartRound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_4mrxx")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i7141"]
+_data = {
+&"RESET": SubResource("Animation_71j4m"),
+&"qta": SubResource("Animation_qfnet")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_ogn6l"]
+font = ExtResource("4_k0juu")
+font_size = 8
+shadow_color = Color(0, 0, 0, 0.6862745)
+shadow_offset = Vector2(-0.595, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_ipuy6"]
 font = ExtResource("4_k0juu")
 font_size = 7
@@ -173,6 +174,14 @@ position = Vector2(120, 60)
 texture = ExtResource("1_nnsk1")
 metadata/_edit_lock_ = true
 
+[node name="Tumbleweed" type="Sprite2D" parent="." unique_id=356492987]
+position = Vector2(-13, 108)
+texture = ExtResource("2_rwgxs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tumbleweed" unique_id=132940495]
+libraries/ = SubResource("AnimationLibrary_71j4m")
+autoplay = &"tumble"
+
 [node name="Plank" type="Sprite2D" parent="." unique_id=1671915266]
 position = Vector2(120, -13)
 texture = ExtResource("3_4wyf3")
@@ -195,31 +204,26 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="Player" parent="." unique_id=2025910684 instance=ExtResource("5_71j4m")]
-position = Vector2(72, 85)
+position = Vector2(75, 76)
 
 [node name="Player2" parent="." unique_id=906910912 instance=ExtResource("5_71j4m")]
+position = Vector2(169, 75)
 
 [node name="Sprite2D" parent="Player2" index="0" unique_id=1233731350]
-position = Vector2(174, 75)
 texture = ExtResource("7_4mrxx")
 flip_h = true
 
-[node name="Tumbleweed" type="Sprite2D" parent="." unique_id=356492987]
-position = Vector2(-13, 108)
-texture = ExtResource("2_rwgxs")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Tumbleweed" unique_id=132940495]
-libraries/ = SubResource("AnimationLibrary_71j4m")
-autoplay = &"tumble"
+[node name="Sprite2D2" parent="Player2" index="3" unique_id=1728208887]
+texture = ExtResource("8_7r4gi")
 
 [node name="Timer" type="Timer" parent="." unique_id=1494150230]
 one_shot = true
 
 [node name="NewGameLBL" type="Label" parent="." unique_id=1648387761]
-offset_left = -42.0
-offset_top = 102.0
-offset_right = 294.0
-offset_bottom = 125.0
+offset_left = -45.0
+offset_top = 53.0
+offset_right = 291.0
+offset_bottom = 76.0
 text = "Press R for new round"
 label_settings = SubResource("LabelSettings_ipuy6")
 horizontal_alignment = 1
