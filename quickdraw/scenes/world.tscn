@@ -208,12 +208,13 @@ position = Vector2(75, 76)
 
 [node name="Player2" parent="." unique_id=906910912 instance=ExtResource("5_71j4m")]
 position = Vector2(169, 75)
+action_name = "p2shoot"
 
 [node name="Sprite2D" parent="Player2" index="0" unique_id=1233731350]
 texture = ExtResource("7_4mrxx")
 flip_h = true
 
-[node name="Sprite2D2" parent="Player2" index="3" unique_id=1728208887]
+[node name="KeyboardSpriite" parent="Player2" index="3" unique_id=1728208887]
 texture = ExtResource("8_7r4gi")
 
 [node name="Timer" type="Timer" parent="." unique_id=1494150230]
