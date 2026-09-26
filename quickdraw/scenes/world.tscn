@@ -90,7 +90,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.33333334, 0.5, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(120, -13), Vector2(122, 58), Vector2(123, 51), Vector2(123, 66)]
+"values": [Vector2(120, -13), Vector2(122, 58), Vector2(123, 51), Vector2(123, 53.785)]
 }
 tracks/1/type = "audio"
 tracks/1/imported = false
@@ -183,7 +183,7 @@ libraries/ = SubResource("AnimationLibrary_71j4m")
 autoplay = &"tumble"
 
 [node name="Plank" type="Sprite2D" parent="." unique_id=1671915266]
-position = Vector2(120, -13)
+position = Vector2(123, 53.785)
 texture = ExtResource("3_4wyf3")
 
 [node name="StartRound" type="AudioStreamPlayer2D" parent="Plank" unique_id=973539016]
@@ -222,9 +222,9 @@ one_shot = true
 
 [node name="NewGameLBL" type="Label" parent="." unique_id=1648387761]
 offset_left = -45.0
-offset_top = 53.0
+offset_top = 93.0
 offset_right = 291.0
-offset_bottom = 76.0
+offset_bottom = 116.0
 text = "Press R for new round"
 label_settings = SubResource("LabelSettings_ipuy6")
 horizontal_alignment = 1

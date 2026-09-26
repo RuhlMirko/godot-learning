@@ -37,3 +37,6 @@ func kill():
 func wait():
 	current_state = State.Waiting
 	$AnimationPlayer.play("idle")
+
+func holster():
+	$AnimationPlayer.play("holster")
