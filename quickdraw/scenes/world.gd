@@ -17,7 +17,11 @@ func randomize_timer()->void:
 func _on_timer_timeout() -> void:
 	plank_label.text = "SHOOT!"
 	plank_label.label_settings.font_color = "#05ee01"
+	start_duel()
 
+func start_duel():
+	$Player.can_shoot = true
+	$Player2.can_shoot = true
 
 func resolve_duel(action):
 	print(action)
