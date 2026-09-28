@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cijmafanrpqjq" path="res://assets/Sunny-land-files/environment/Background/back.png" id="1_rx0t3"]
 [ext_resource type="Texture2D" uid="uid://b52o3ipex6csh" path="res://assets/Sunny-land-files/environment/Background/middle.png" id="2_ceqwd"]
 
-[node name="Parallax2D" type="Node2D" unique_id=1376612993]
+[node name="Parallax" type="Node2D" unique_id=1376612993]
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=297504893]
 texture_filter = 2
