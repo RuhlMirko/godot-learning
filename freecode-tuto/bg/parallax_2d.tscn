@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://rxl2v6jrsilf"]
+
+[ext_resource type="Texture2D" uid="uid://cijmafanrpqjq" path="res://assets/Sunny-land-files/environment/Background/back.png" id="1_rx0t3"]
+[ext_resource type="Texture2D" uid="uid://b52o3ipex6csh" path="res://assets/Sunny-land-files/environment/Background/middle.png" id="2_ceqwd"]
+
+[node name="Parallax2D" type="Node2D" unique_id=1376612993]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=297504893]
+texture_filter = 2
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1152, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=675144619]
+position = Vector2(574.00006, 344)
+scale = Vector2(3, 2.8666666)
+texture = ExtResource("1_rx0t3")
+
+[node name="RockyBg" type="Parallax2D" parent="." unique_id=1347674061]
+scroll_scale = Vector2(0.7, 0.7)
+scroll_offset = Vector2(-1054, 545)
+repeat_size = Vector2(1152, 0)
+repeat_times = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="RockyBg" unique_id=935828183]
+position = Vector2(29.249992, 1.5)
+scale = Vector2(1.3835226, 1.0461956)
+texture = ExtResource("2_ceqwd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="RockyBg" unique_id=1892739940]
+position = Vector2(641, -30)
+scale = Vector2(1.3693182, 1)
+texture = ExtResource("2_ceqwd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="RockyBg" unique_id=281480032]
+position = Vector2(330.75003, 34.999985)
+scale = Vector2(2.2130682, 1.6175272)
+texture = ExtResource("2_ceqwd")
+
+[node name="Sprite2D7" type="Sprite2D" parent="RockyBg" unique_id=1185925499]
+position = Vector2(895.50006, 20)
+scale = Vector2(1.9261363, 1.1875)
+texture = ExtResource("2_ceqwd")
+flip_h = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=718482111]

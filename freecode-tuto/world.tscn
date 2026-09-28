@@ -1,13 +1,24 @@
 [gd_scene format=3 uid="uid://blfy2o7kdwahj"]
 
+[ext_resource type="PackedScene" uid="uid://rxl2v6jrsilf" path="res://bg/parallax_2d.tscn" id="1_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://2cnf0ieisilm" path="res://Player/player.tscn" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://dbbav4k3abuf1" path="res://assets/Sunny-land-files/environment/Props/platform-long.png" id="1_fj7yv"]
+[ext_resource type="Texture2D" uid="uid://dao1o51yrh5kr" path="res://assets/Sunny-land-files/environment/Props/block.png" id="2_tlwt5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ogn6l"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fj7yv"]
 normal = Vector2(0.9999529, 0.009708281)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogn6l"]
+size = Vector2(16, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqk2v"]
+size = Vector2(40, 14)
+
 [node name="World" type="Node2D" unique_id=1031573981]
+
+[node name="Parallax2D" parent="." unique_id=822799879 instance=ExtResource("1_aqk2v")]
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1302821565]
 
@@ -30,3 +41,25 @@ offset_left = 4.0
 offset_top = 528.0
 offset_right = 1151.0
 offset_bottom = 648.0
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=1341842346]
+position = Vector2(663, 472)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=376267491]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ogn6l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=916735505]
+texture = ExtResource("2_tlwt5")
+
+[node name="Area2D2" type="StaticBody2D" parent="." unique_id=157230332]
+position = Vector2(663, 472)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=970207969]
+position = Vector2(103, -4)
+shape = SubResource("RectangleShape2D_aqk2v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1295504780]
+position = Vector2(103.5, -4)
+scale = Vector2(1.28125, 1)
+texture = ExtResource("1_fj7yv")

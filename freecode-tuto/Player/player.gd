@@ -1,20 +1,23 @@
 extends CharacterBody2D
 
-enum State {Idle, Run, Jump}
+enum State {Idle, Run, Jump, Falling}
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var curr_state = State.Idle
-@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var anim: AnimationPlayer = $AnimationPlayer
+
 
 func _process(_delta: float) -> void:
 	if curr_state == State.Idle:
-		anim_sprite.play("Idle")
+		anim.play("idle")
 	if curr_state == State.Run:
-		anim_sprite.play("Run")
+		anim.play("run")
 	if curr_state == State.Jump:
-		anim_sprite.play("Jump")
-
+		anim.play("jump")
+	if curr_state== State.Falling:
+		anim.play("fall")
+		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -30,13 +33,18 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
-		curr_state = State.Run
+		
+		if velocity.y == 0:
+			curr_state = State.Run
 		if direction < 0:
-			anim_sprite.flip_h = true
+			$AnimatedSprite2D.flip_h = true
 		else: 
-			anim_sprite.flip_h = false
+			$AnimatedSprite2D.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		curr_state = State.Idle
+		if velocity.y == 0:
+			curr_state = State.Idle
+	if velocity.y > 0:
+		curr_state = State.Falling
 
 	move_and_slide()

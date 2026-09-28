@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://blfy2o7kdwahj"]
+
+[ext_resource type="PackedScene" uid="uid://2cnf0ieisilm" path="res://Player/player.tscn" id="1_f3sb7"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ogn6l"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fj7yv"]
+normal = Vector2(0.9999529, 0.009708281)
+
+[node name="World" type="Node2D" unique_id=1031573981]
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1302821565]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=363467215]
+position = Vector2(596, 528)
+shape = SubResource("WorldBoundaryShape2D_ogn6l")
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=1734377361]
+position = Vector2(-584, -159)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1066343115]
+position = Vector2(596, 528)
+shape = SubResource("WorldBoundaryShape2D_fj7yv")
+
+[node name="Player" parent="." unique_id=729264232 instance=ExtResource("1_f3sb7")]
+position = Vector2(560, 470)
+
+[node name="Panel" type="Panel" parent="." unique_id=294456744]
+offset_left = 4.0
+offset_top = 528.0
+offset_right = 1151.0
+offset_bottom = 648.0
