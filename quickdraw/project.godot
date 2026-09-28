@@ -14,6 +14,7 @@ config/name="quickdraw"
 run/main_scene="uid://brh32dhhpy40f"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+config/tags=PackedStringArray("learning")
 
 [display]
 

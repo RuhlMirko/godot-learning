@@ -14,6 +14,7 @@ config/name="DiceCatcher"
 run/main_scene="uid://bhytlmcyhr7lk"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
+config/tags=PackedStringArray("learning", "udemy")
 
 [display]
 
