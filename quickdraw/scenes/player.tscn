@@ -258,8 +258,6 @@ vframes = 5
 libraries/ = SubResource("AnimationLibrary_dqkch")
 autoplay = &"idle"
 
-[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=134822403]
-
 [node name="KeyboardSprite" type="Sprite2D" parent="." unique_id=1728208887]
 visible = false
 position = Vector2(-7.999999, 16.000004)
@@ -275,3 +273,5 @@ offset_bottom = -21.0
 text = "P1 WINS"
 label_settings = SubResource("LabelSettings_ogn6l")
 uppercase = true
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=134822403]

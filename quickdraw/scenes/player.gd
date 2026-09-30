@@ -3,6 +3,7 @@ extends Node2D
 enum State {Waiting, Shooting, Dying, Fumbling}
 
 signal shot_gun(action)
+signal gun_holstered
 @export var action_name = "p1shoot"
 var current_state = State.Waiting
 var can_shoot = false
@@ -45,5 +46,6 @@ func wait():
 
 func holster():
 	$AnimationPlayer.play("holster")
+	gun_holstered.emit()
 	$WinLbl.visible = true
 	$KeyboardSprite.visible = false
