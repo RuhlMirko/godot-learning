@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c6fygf5ikn1rh" path="res://assets/sounds/hit.wav" id="2_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://drffkj6hta270" path="res://assets/sounds/shot.wav" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://crghdh10u8boy" path="res://assets/textures/q-key.png" id="4_dqkch"]
+[ext_resource type="FontFile" uid="uid://4kt8brx2t38k" path="res://assets/fonts/prstartk.ttf" id="7_fjrip"]
 
 [sub_resource type="Animation" id="Animation_g2els"]
 length = 0.001
@@ -36,7 +37,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("KeyboardSpriite:scale")
+tracks/2/path = NodePath("KeyboardSprite:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -173,7 +174,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("KeyboardSpriite:scale")
+tracks/1/path = NodePath("KeyboardSprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -238,6 +239,12 @@ _data = {
 &"shoot": SubResource("Animation_qlg0r")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_ogn6l"]
+font = ExtResource("7_fjrip")
+font_size = 6
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="Node2D" unique_id=2025910684]
 script = ExtResource("1_tuyoq")
 
@@ -253,8 +260,18 @@ autoplay = &"idle"
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=134822403]
 
-[node name="KeyboardSpriite" type="Sprite2D" parent="." unique_id=1728208887]
-modulate = Color(1, 1, 1, 0)
+[node name="KeyboardSprite" type="Sprite2D" parent="." unique_id=1728208887]
+visible = false
 position = Vector2(-7.999999, 16.000004)
 texture = ExtResource("4_dqkch")
 centered = false
+
+[node name="WinLbl" type="Label" parent="." unique_id=437824394]
+visible = false
+offset_left = -21.0
+offset_top = -29.0
+offset_right = 22.0
+offset_bottom = -21.0
+text = "P1 WINS"
+label_settings = SubResource("LabelSettings_ogn6l")
+uppercase = true

@@ -9,11 +9,15 @@ var can_shoot = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if action_name != "p1shoot":
+		$WinLbl.text = "p2 wins"
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if can_shoot:
+		$KeyboardSprite.visible = true
 	if current_state == State.Waiting and Input.is_action_just_pressed(action_name):
 		if can_shoot:
 			shoot()
@@ -40,3 +44,4 @@ func wait():
 
 func holster():
 	$AnimationPlayer.play("holster")
+	$WinLbl.visible = true

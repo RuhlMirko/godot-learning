@@ -11,10 +11,10 @@ config_version=5
 [application]
 
 config/name="quickdraw"
+config/tags=PackedStringArray("learning")
 run/main_scene="uid://brh32dhhpy40f"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
-config/tags=PackedStringArray("learning")
 
 [display]
 
