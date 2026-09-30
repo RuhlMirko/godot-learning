@@ -16,7 +16,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if can_shoot:
+	if can_shoot and current_state == State.Waiting:
 		$KeyboardSprite.visible = true
 	if current_state == State.Waiting and Input.is_action_just_pressed(action_name):
 		if can_shoot:
@@ -37,6 +37,7 @@ func fumble():
 func kill():
 	current_state = State.Dying
 	$AnimationPlayer.play("die")
+	$KeyboardSprite.visible = false
 
 func wait():
 	current_state = State.Waiting
@@ -45,3 +46,4 @@ func wait():
 func holster():
 	$AnimationPlayer.play("holster")
 	$WinLbl.visible = true
+	$KeyboardSprite.visible = false

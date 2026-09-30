@@ -123,8 +123,8 @@ shadow_offset = Vector2(-0.595, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_ipuy6"]
 font = ExtResource("4_k0juu")
 font_size = 7
-outline_size = 2
-outline_color = Color(0.17, 0.17, 0.17, 0.27058825)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_i7141"]
 length = 0.001
@@ -214,7 +214,7 @@ action_name = "p2shoot"
 texture = ExtResource("7_4mrxx")
 flip_h = true
 
-[node name="KeyboardSpriite" parent="Player2" index="3" unique_id=1728208887]
+[node name="KeyboardSprite" parent="Player2" index="3" unique_id=1728208887]
 texture = ExtResource("8_7r4gi")
 
 [node name="Timer" type="Timer" parent="." unique_id=1494150230]
