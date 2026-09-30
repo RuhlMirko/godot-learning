@@ -3,6 +3,8 @@ extends Node2D
 signal round_over
 @onready var plank_label: Label = $Plank/Label
 var have_winner = false
+var p1_score : int
+var p2_score : int
 
 func _ready() -> void:
 	$NewGameLBL.visible = false
