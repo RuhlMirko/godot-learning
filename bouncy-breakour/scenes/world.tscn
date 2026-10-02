@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://bnu6gtgc27amg"]
 
 [ext_resource type="Texture2D" uid="uid://k4gq1riorwe6" path="res://assets/textures/background.png" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://cpyq4b55p2rrb" path="res://scenes/paddle.tscn" id="2_rwgxs"]
 
 [node name="World" type="Node2D" unique_id=471722870]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=758652146]
 position = Vector2(100, 80)
 texture = ExtResource("1_nnsk1")
+metadata/_edit_lock_ = true
+
+[node name="Paddle" parent="." unique_id=733071254 instance=ExtResource("2_rwgxs")]
+position = Vector2(107, 146)
