@@ -12,5 +12,10 @@ func _physics_process(delta: float) -> void:
 	if position.y >=200:
 		queue_free()
 	if collision != null:
+		var collider := collision.get_collider()
+		if collider is Paddle:
+			print("Paddle hit")
+		if collider is Brick:
+			collider.take_damage()
 		velocity = velocity.bounce(collision.get_normal())
 	

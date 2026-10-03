@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://k4gq1riorwe6" path="res://assets/textures/background.png" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://cpyq4b55p2rrb" path="res://scenes/paddle.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://sd0nlh2c3hw0" path="res://scenes/ball.tscn" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://d228l6in2ubmc" path="res://scenes/brick.tscn" id="4_k0juu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ogn6l"]
 
@@ -23,21 +24,35 @@ position = Vector2(107, 146)
 [node name="Ball" parent="." unique_id=703281238 instance=ExtResource("3_4wyf3")]
 position = Vector2(26, 122)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=127950610]
+[node name="Walls" type="StaticBody2D" parent="." unique_id=127950610]
 visible = false
 position = Vector2(99, 0)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1601505386]
+[node name="top" type="CollisionShape2D" parent="Walls" unique_id=1601505386]
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_ogn6l")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=410130119]
+[node name="left" type="CollisionShape2D" parent="Walls" unique_id=410130119]
 position = Vector2(-99, 83)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_ipuy6")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1941718709]
+[node name="right" type="CollisionShape2D" parent="Walls" unique_id=1941718709]
 position = Vector2(101, 84)
 rotation = 4.712389
 shape = SubResource("WorldBoundaryShape2D_3dgon")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1575440884]
+
+[node name="Brick" parent="Node2D" unique_id=2092093871 instance=ExtResource("4_k0juu")]
+position = Vector2(54, 74)
+
+[node name="Brick2" parent="Node2D" unique_id=780255927 instance=ExtResource("4_k0juu")]
+position = Vector2(135, 55)
+
+[node name="Brick3" parent="Node2D" unique_id=910254049 instance=ExtResource("4_k0juu")]
+position = Vector2(74, 27)
+
+[node name="Brick4" parent="Node2D" unique_id=1420997815 instance=ExtResource("4_k0juu")]
+position = Vector2(163, 105)
