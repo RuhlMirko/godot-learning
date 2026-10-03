@@ -1,9 +1,16 @@
 extends CharacterBody2D
 
-var gravity : float= 200.0
+@export var speed := 100.0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready() -> void:
+	var direction := Vector2(randf_range(-1,1), -1).normalized()
+	velocity = direction * speed
+	
+
 func _physics_process(delta: float) -> void:
-	velocity.y = gravity
-	#move_and_slide()
-	#move_and_collide()
+	var collision:= move_and_collide(velocity * delta)
+	if position.y >=200:
+		queue_free()
+	if collision != null:
+		velocity = velocity.bounce(collision.get_normal())
+	
