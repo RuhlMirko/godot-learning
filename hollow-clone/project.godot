@@ -10,20 +10,14 @@ config_version=5
 
 [application]
 
-config/name="BouncyBreakour"
-run/main_scene="uid://bnu6gtgc27amg"
+config/name="hollow-clone"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
-config/tags=PackedStringArray("learning")
 
 [display]
 
-window/size/viewport_width=200
-window/size/viewport_height=160
-window/size/window_width_override=1200
-window/size/window_height_override=960
 window/stretch/mode="canvas_items"
-window/stretch/scale_mode="integer"
+window/stretch/aspect="expand"
 
 [physics]
 
