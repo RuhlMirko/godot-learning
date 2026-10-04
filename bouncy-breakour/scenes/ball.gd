@@ -14,8 +14,15 @@ func _physics_process(delta: float) -> void:
 	if collision != null:
 		var collider := collision.get_collider()
 		if collider is Paddle:
-			print("Paddle hit")
-		if collider is Brick:
-			collider.take_damage()
-		velocity = velocity.bounce(collision.get_normal())
+			velocity = get_velocity_from_paddle(collider)
+		else:
+			if collider is Brick:
+				collider.take_damage()
+			velocity = velocity.bounce(collision.get_normal())
+
+func get_velocity_from_paddle(paddle: Paddle)-> Vector2:
+	var paddle_half_width := 16
+	var offset := (position.x - paddle.position.x) / paddle_half_width
+	offset = clamp(offset, -1, 1)
+	return Vector2(offset, -1).normalized() * speed
 	
