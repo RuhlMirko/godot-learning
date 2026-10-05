@@ -1,27 +1,32 @@
 extends CharacterBody2D
 
 @export var speed := 100.0
+var bag : Array[String] = []
 
-
-func report(bag:Array[String])->void:
-	if bag.size():
-		print("# of items: ",bag.size())
+func loot(item:String, bag:Array[String]) -> void:
+	if bag.has(item):
+		print("Already in bag")
 	else:
-		print("Empty bag")
-	for i: String in bag:
-		print(i)
+		bag.append(item)
+		print(bag, " Call from loot")
+
+func drop(item:String, bag:Array[String]) -> void:
+	if !bag.has(item):
+		print("Not in the bag")
+	else:
+		bag.erase(item)
+		print(bag)
 	
-
-
-
 func _ready() -> void:
 	var direction := Vector2(randf_range(-1,1), -1).normalized()
 	velocity = direction * speed
 	
-	var bag : Array[String]= ["key","potion","map","gem"]
-	report(bag)
-	report([])
 	
+	loot("map", bag)
+	loot("key", bag)
+	loot("map", bag)
+	drop("map", bag)
+	drop("gem", bag)
 
 func _physics_process(delta: float) -> void:
 	var collision:= move_and_collide(velocity * delta)
