@@ -2,9 +2,25 @@ extends CharacterBody2D
 
 @export var speed := 100.0
 
+
+func report(bag:Array[String])->void:
+	if bag.size():
+		print("# of items: ",bag.size())
+	else:
+		print("Empty bag")
+	for i: String in bag:
+		print(i)
+	
+
+
+
 func _ready() -> void:
 	var direction := Vector2(randf_range(-1,1), -1).normalized()
 	velocity = direction * speed
+	
+	var bag : Array[String]= ["key","potion","map","gem"]
+	report(bag)
+	report([])
 	
 
 func _physics_process(delta: float) -> void:
@@ -19,6 +35,7 @@ func _physics_process(delta: float) -> void:
 			if collider is Brick:
 				collider.take_damage()
 			velocity = velocity.bounce(collision.get_normal())
+
 
 func get_velocity_from_paddle(paddle: Paddle)-> Vector2:
 	var paddle_half_width := 16

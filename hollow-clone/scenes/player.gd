@@ -7,6 +7,8 @@ var curr_state := State.Idle
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+var accel = 400.0
+var decel = 1200.0
 
 func _process(_delta: float) -> void:
 	if curr_state == State.Idle:
@@ -23,6 +25,8 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		curr_state = State.Fall
+		if Input.is_action_just_pressed("dash"):
+			velocity.x = 600.0
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -30,7 +34,7 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = move_toward(velocity.x, direction * SPEED, accel * delta)
 		curr_state = State.Run
 		if direction >= 0:
 			$Sprite.flip_h = false
@@ -38,7 +42,7 @@ func _physics_process(delta: float) -> void:
 			$Sprite.flip_h = true
 	
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, decel * delta)
 		curr_state = State.Idle
 
 	move_and_slide()
