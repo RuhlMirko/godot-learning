@@ -3,18 +3,18 @@ extends CharacterBody2D
 @export var speed := 100.0
 var bag : Array[String] = []
 
-func loot(item:String, bag:Array[String]) -> void:
-	if bag.has(item):
+func loot(item:String, curr_bag:Array[String]) -> void:
+	if curr_bag.has(item):
 		print("Already in bag")
 	else:
-		bag.append(item)
+		curr_bag.append(item)
 		print(bag, " Call from loot")
 
-func drop(item:String, bag:Array[String]) -> void:
-	if !bag.has(item):
+func drop(item: String, curr_bag: Array[String]) -> void:
+	if !curr_bag.has(item):
 		print("Not in the bag")
 	else:
-		bag.erase(item)
+		curr_bag.erase(item)
 		print(bag)
 	
 func _ready() -> void:

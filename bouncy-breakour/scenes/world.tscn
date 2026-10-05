@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bnu6gtgc27amg"]
 
+[ext_resource type="Script" uid="uid://1tigxifhmbgg" path="res://scenes/world.gd" id="1_71j4m"]
 [ext_resource type="Texture2D" uid="uid://k4gq1riorwe6" path="res://assets/textures/background.png" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://cpyq4b55p2rrb" path="res://scenes/paddle.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://sd0nlh2c3hw0" path="res://scenes/ball.tscn" id="3_4wyf3"]
@@ -12,6 +13,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3dgon"]
 
 [node name="World" type="Node2D" unique_id=471722870]
+script = ExtResource("1_71j4m")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=758652146]
 position = Vector2(100, 80)
