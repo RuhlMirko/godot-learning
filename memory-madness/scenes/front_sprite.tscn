@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dmdfyu0ukjk2a"]
+
+[ext_resource type="Texture2D" uid="uid://7ph3bbwcocma" path="res://assets/unfinished.png" id="1_kik5l"]
+
+[node name="FrontSprite" type="TextureRect" unique_id=14106363]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_kik5l")
