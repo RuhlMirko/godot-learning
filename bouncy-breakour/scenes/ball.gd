@@ -1,32 +1,11 @@
 extends CharacterBody2D
 
 @export var speed := 100.0
-var bag : Array[String] = []
 
-func loot(item:String, curr_bag:Array[String]) -> void:
-	if curr_bag.has(item):
-		print("Already in bag")
-	else:
-		curr_bag.append(item)
-		print(bag, " Call from loot")
 
-func drop(item: String, curr_bag: Array[String]) -> void:
-	if !curr_bag.has(item):
-		print("Not in the bag")
-	else:
-		curr_bag.erase(item)
-		print(bag)
-	
 func _ready() -> void:
 	var direction := Vector2(randf_range(-1,1), -1).normalized()
 	velocity = direction * speed
-	
-	
-	loot("map", bag)
-	loot("key", bag)
-	loot("map", bag)
-	drop("map", bag)
-	drop("gem", bag)
 
 func _physics_process(delta: float) -> void:
 	var collision:= move_and_collide(velocity * delta)
