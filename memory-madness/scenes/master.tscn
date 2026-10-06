@@ -1,7 +1,24 @@
 [gd_scene format=3 uid="uid://dtphlit87s0av"]
 
+[ext_resource type="Texture2D" uid="uid://dy0r4a1lgmimm" path="res://assets/back.png" id="1_aynem"]
+[ext_resource type="PackedScene" uid="uid://b63borl0i72hp" path="res://scenes/main.tscn" id="2_jooxx"]
+
 [node name="Master" type="Control" unique_id=1312990194]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1126353508]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_aynem")
+
+[node name="Main" parent="." unique_id=1727387391 instance=ExtResource("2_jooxx")]
+layout_mode = 1
