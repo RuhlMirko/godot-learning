@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dtphlit87s0av"]
 
 [ext_resource type="Texture2D" uid="uid://dy0r4a1lgmimm" path="res://assets/back.png" id="1_aynem"]
+[ext_resource type="Script" uid="uid://1umk41fccjuv" path="res://scenes/master.gd" id="1_h2qy3"]
 [ext_resource type="PackedScene" uid="uid://b63borl0i72hp" path="res://scenes/main.tscn" id="2_jooxx"]
 [ext_resource type="PackedScene" uid="uid://bx61cud7ifqg1" path="res://scenes/game.tscn" id="3_rnotf"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_h2qy3")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1126353508]
 modulate = Color(0.76, 0.76, 0.76, 1)
