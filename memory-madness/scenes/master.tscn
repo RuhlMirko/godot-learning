@@ -13,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1126353508]
+modulate = Color(0.76, 0.76, 0.76, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,8 +23,8 @@ grow_vertical = 2
 texture = ExtResource("1_aynem")
 
 [node name="Main" parent="." unique_id=1727387391 instance=ExtResource("2_jooxx")]
-visible = false
 layout_mode = 1
 
 [node name="Game" parent="." unique_id=6740344 instance=ExtResource("3_rnotf")]
+visible = false
 layout_mode = 1
