@@ -75,14 +75,14 @@ custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="TextureButton" type="TextureButton" parent="HB/VBoxContainer" unique_id=53584555]
+[node name="ExitButton" type="TextureButton" parent="HB/VBoxContainer" unique_id=53584555]
 layout_mode = 2
 texture_normal = ExtResource("2_lbhrr")
 texture_pressed = ExtResource("3_iywne")
 texture_hover = ExtResource("4_p57ef")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="HB/VBoxContainer/TextureButton" unique_id=571457839]
+[node name="Label" type="Label" parent="HB/VBoxContainer/ExitButton" unique_id=571457839]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -100,3 +100,5 @@ text = "Exit"
 [node name="WhiteSpace3" type="Control" parent="HB" unique_id=1649885311]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[connection signal="pressed" from="HB/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
