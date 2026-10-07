@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cff6b5tvehowi"]
+
+[ext_resource type="Texture2D" uid="uid://xgq1a7jsa1hu" path="res://assets/focus.png" id="1_ih3ta"]
+
+[node name="MemoryTile" type="TextureButton" unique_id=1243620876]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_ih3ta")

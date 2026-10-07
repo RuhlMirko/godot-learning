@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://b63borl0i72hp"]
 
+[ext_resource type="LabelSettings" uid="uid://cxfnc6gxyflw6" path="res://assets/new_label_settings.tres" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c4260vosiljim" path="res://scenes/level_button.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dmdfyu0ukjk2a" path="res://scenes/front_sprite.tscn" id="3_tbgi4"]
+
 [node name="Main" type="Control" unique_id=1727387391]
 layout_mode = 3
 anchors_preset = 15
@@ -16,3 +20,65 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.12959999, 0.19383994, 0.48, 0.16862746)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1689583067]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -87.0
+offset_right = 154.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1517617094]
+layout_mode = 2
+theme_override_constants/separation = 39
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1278323257]
+layout_mode = 2
+text = "Memory Madness"
+label_settings = ExtResource("1_sugp2")
+horizontal_alignment = 1
+
+[node name="LevelsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=877773428]
+layout_mode = 2
+
+[node name="LevelButton" parent="MarginContainer/VBoxContainer/LevelsContainer" unique_id=1275494099 instance=ExtResource("2_jyhfs")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="MarginContainer/VBoxContainer/LevelsContainer" unique_id=968414083 instance=ExtResource("2_jyhfs")]
+layout_mode = 2
+
+[node name="LevelButton3" parent="MarginContainer/VBoxContainer/LevelsContainer" unique_id=1190333338 instance=ExtResource("2_jyhfs")]
+layout_mode = 2
+
+[node name="LevelButton4" parent="MarginContainer/VBoxContainer/LevelsContainer" unique_id=1034639173 instance=ExtResource("2_jyhfs")]
+layout_mode = 2
+
+[node name="LevelButton5" parent="MarginContainer/VBoxContainer/LevelsContainer" unique_id=1767162164 instance=ExtResource("2_jyhfs")]
+layout_mode = 2
+
+[node name="LevelButton6" parent="MarginContainer/VBoxContainer/LevelsContainer" unique_id=357533015 instance=ExtResource("2_jyhfs")]
+layout_mode = 2
+
+[node name="SpritesContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1414134699]
+layout_mode = 2
+theme_override_constants/separation = 26
+alignment = 1
+
+[node name="FrontSprite" parent="MarginContainer/VBoxContainer/SpritesContainer" unique_id=14106363 instance=ExtResource("3_tbgi4")]
+layout_mode = 2
+
+[node name="FrontSprite2" parent="MarginContainer/VBoxContainer/SpritesContainer" unique_id=961431749 instance=ExtResource("3_tbgi4")]
+layout_mode = 2
+
+[node name="FrontSprite3" parent="MarginContainer/VBoxContainer/SpritesContainer" unique_id=699389250 instance=ExtResource("3_tbgi4")]
+layout_mode = 2
+
+[node name="FrontSprite4" parent="MarginContainer/VBoxContainer/SpritesContainer" unique_id=1237174775 instance=ExtResource("3_tbgi4")]
+layout_mode = 2

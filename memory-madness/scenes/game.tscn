@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://bx61cud7ifqg1"]
+
+[ext_resource type="PackedScene" uid="uid://cff6b5tvehowi" path="res://scenes/memory_tile.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://oy3m2eelgu4w" path="res://assets/unfocus.png" id="2_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://uophcqademxc" path="res://assets/focus-white.png" id="3_iywne"]
+[ext_resource type="Texture2D" uid="uid://xgq1a7jsa1hu" path="res://assets/focus.png" id="4_p57ef"]
+
+[node name="Game" type="Control" unique_id=6740344]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HB" type="HBoxContainer" parent="." unique_id=442922729]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WhiteSpace" type="Control" parent="HB" unique_id=1548677640]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GridContainer" type="GridContainer" parent="HB" unique_id=1900199015]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 4
+
+[node name="MemoryTile" parent="HB/GridContainer" unique_id=1243620876 instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[node name="MemoryTile2" parent="HB/GridContainer" unique_id=61665083 instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[node name="MemoryTile3" parent="HB/GridContainer" unique_id=324347522 instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[node name="MemoryTile4" parent="HB/GridContainer" unique_id=1190379062 instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[node name="MemoryTile5" parent="HB/GridContainer" unique_id=443768245 instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[node name="MemoryTile6" parent="HB/GridContainer" unique_id=299784393 instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[node name="MemoryTile7" parent="HB/GridContainer" unique_id=1783754192 instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[node name="MemoryTile8" parent="HB/GridContainer" unique_id=1000565515 instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[node name="MemoryTile9" parent="HB/GridContainer" unique_id=499213333 instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[node name="MemoryTile10" parent="HB/GridContainer" unique_id=110209596 instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[node name="MemoryTile11" parent="HB/GridContainer" unique_id=1582228970 instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[node name="MemoryTile12" parent="HB/GridContainer" unique_id=1667754494 instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[node name="WhiteSpace2" type="Control" parent="HB" unique_id=367231717]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HB" unique_id=1614591583]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HB/VBoxContainer" unique_id=469673838]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HB/VBoxContainer/HBoxContainer" unique_id=546294980]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Moves"
+
+[node name="Label2" type="Label" parent="HB/VBoxContainer/HBoxContainer" unique_id=235487717]
+layout_mode = 2
+text = "000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HB/VBoxContainer" unique_id=1195816486]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HB/VBoxContainer/HBoxContainer2" unique_id=79645695]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pairs"
+
+[node name="Label2" type="Label" parent="HB/VBoxContainer/HBoxContainer2" unique_id=1681292324]
+layout_mode = 2
+text = "10/10"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Whitespace" type="Control" parent="HB/VBoxContainer" unique_id=1729562858]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="TextureButton" type="TextureButton" parent="HB/VBoxContainer" unique_id=53584555]
+layout_mode = 2
+texture_normal = ExtResource("2_lbhrr")
+texture_pressed = ExtResource("3_iywne")
+texture_hover = ExtResource("4_p57ef")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="HB/VBoxContainer/TextureButton" unique_id=571457839]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+
+[node name="WhiteSpace3" type="Control" parent="HB" unique_id=1649885311]
+layout_mode = 2
+size_flags_horizontal = 3

@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dy0r4a1lgmimm" path="res://assets/back.png" id="1_aynem"]
 [ext_resource type="PackedScene" uid="uid://b63borl0i72hp" path="res://scenes/main.tscn" id="2_jooxx"]
-[ext_resource type="LabelSettings" uid="uid://cxfnc6gxyflw6" path="res://assets/new_label_settings.tres" id="3_h2qy3"]
-[ext_resource type="PackedScene" uid="uid://c4260vosiljim" path="res://scenes/level_button.tscn" id="4_q3f5g"]
-[ext_resource type="PackedScene" uid="uid://dmdfyu0ukjk2a" path="res://scenes/front_sprite.tscn" id="5_q3f5g"]
+[ext_resource type="PackedScene" uid="uid://bx61cud7ifqg1" path="res://scenes/game.tscn" id="3_rnotf"]
 
 [node name="Master" type="Control" unique_id=1312990194]
 layout_mode = 3
@@ -24,66 +22,8 @@ grow_vertical = 2
 texture = ExtResource("1_aynem")
 
 [node name="Main" parent="." unique_id=1727387391 instance=ExtResource("2_jooxx")]
+visible = false
 layout_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2060564559]
+[node name="Game" parent="." unique_id=6740344 instance=ExtResource("3_rnotf")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -154.0
-offset_top = -87.0
-offset_right = 154.0
-offset_bottom = 87.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=235083485]
-layout_mode = 2
-theme_override_constants/separation = 39
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=55449011]
-layout_mode = 2
-text = "Memory Madness"
-label_settings = ExtResource("3_h2qy3")
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1905229790]
-layout_mode = 2
-
-[node name="LevelButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1275494099 instance=ExtResource("4_q3f5g")]
-layout_mode = 2
-
-[node name="LevelButton2" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=253135787 instance=ExtResource("4_q3f5g")]
-layout_mode = 2
-
-[node name="LevelButton3" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=252344579 instance=ExtResource("4_q3f5g")]
-layout_mode = 2
-
-[node name="LevelButton4" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1663565923 instance=ExtResource("4_q3f5g")]
-layout_mode = 2
-
-[node name="LevelButton5" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=750173474 instance=ExtResource("4_q3f5g")]
-layout_mode = 2
-
-[node name="LevelButton6" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1238921195 instance=ExtResource("4_q3f5g")]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1019389272]
-layout_mode = 2
-theme_override_constants/separation = 26
-alignment = 1
-
-[node name="FrontSprite" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=14106363 instance=ExtResource("5_q3f5g")]
-layout_mode = 2
-
-[node name="FrontSprite2" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2050238202 instance=ExtResource("5_q3f5g")]
-layout_mode = 2
-
-[node name="FrontSprite3" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1082032780 instance=ExtResource("5_q3f5g")]
-layout_mode = 2
-
-[node name="FrontSprite4" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1285757716 instance=ExtResource("5_q3f5g")]
-layout_mode = 2
