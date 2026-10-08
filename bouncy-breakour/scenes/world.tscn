@@ -24,7 +24,7 @@ metadata/_edit_lock_ = true
 position = Vector2(107, 146)
 
 [node name="Ball" parent="." unique_id=703281238 instance=ExtResource("3_4wyf3")]
-position = Vector2(26, 122)
+position = Vector2(99, 135)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=127950610]
 visible = false
