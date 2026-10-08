@@ -1,7 +1,9 @@
+class_name Ball
 extends CharacterBody2D
 
 enum State { Docked, Flying }
 @export var speed := 100.0
+@export var paddle: Paddle
 var curr_state := State.Docked
 
 func _ready() -> void:
@@ -10,6 +12,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if curr_state == State.Docked:
+		position = paddle.position + Vector2(0,-8)
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			curr_state = State.Flying
 	if curr_state == State.Flying:
@@ -17,8 +20,8 @@ func _physics_process(delta: float) -> void:
 
 func fly(delta):
 	var collision:= move_and_collide(velocity * delta)
-	if position.y >=200:
-		queue_free()
+	#if position.y >=200:
+		#queue_free()
 	if collision != null:
 		var collider := collision.get_collider()
 		if collider is Paddle:
