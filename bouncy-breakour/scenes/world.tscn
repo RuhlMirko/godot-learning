@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://k4gq1riorwe6" path="res://assets/textures/background.png" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://cpyq4b55p2rrb" path="res://scenes/paddle.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://sd0nlh2c3hw0" path="res://scenes/ball.tscn" id="3_4wyf3"]
-[ext_resource type="PackedScene" uid="uid://d228l6in2ubmc" path="res://scenes/brick.tscn" id="4_k0juu"]
+[ext_resource type="PackedScene" uid="uid://donp5wcp4jhm2" path="res://scenes/level.tscn" id="5_71j4m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ogn6l"]
 
@@ -45,16 +45,4 @@ position = Vector2(101, 84)
 rotation = 4.712389
 shape = SubResource("WorldBoundaryShape2D_3dgon")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1575440884]
-
-[node name="Brick" parent="Node2D" unique_id=2092093871 instance=ExtResource("4_k0juu")]
-position = Vector2(54, 74)
-
-[node name="Brick2" parent="Node2D" unique_id=780255927 instance=ExtResource("4_k0juu")]
-position = Vector2(135, 55)
-
-[node name="Brick3" parent="Node2D" unique_id=910254049 instance=ExtResource("4_k0juu")]
-position = Vector2(74, 27)
-
-[node name="Brick4" parent="Node2D" unique_id=1420997815 instance=ExtResource("4_k0juu")]
-position = Vector2(163, 105)
+[node name="Level" parent="." unique_id=529639672 instance=ExtResource("5_71j4m")]
