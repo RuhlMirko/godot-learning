@@ -24,6 +24,7 @@ func fly(delta):
 		#queue_free()
 	if collision != null:
 		var collider := collision.get_collider()
+		$AnimationPlayer.play("bounce")
 		if collider is Paddle:
 			velocity = get_velocity_from_paddle(collider)
 			$Audio/paddleBounce.play()
