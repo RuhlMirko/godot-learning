@@ -30,11 +30,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(35, -27)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_4mrxx"]
 resource_name = "lose"
 length = 1.5
-step = 0.1
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -42,10 +54,36 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"times": PackedFloat32Array(0, 0.5, 1.25, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(35, -27), Vector2(33, 67), Vector2(33, 67), Vector2(31, 207.98)]
+"values": [Vector2(35, -27), Vector2(33, 67), Vector2(33, 67), Vector2(31, 157.37)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"make_new_ball"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Panel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 1.25, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7r4gi"]
@@ -98,10 +136,15 @@ position = Vector2(100, 175)
 shape = SubResource("RectangleShape2D_ogn6l")
 debug_color = Color(0.8922876, 0.2625991, 0.48785442, 0.41960785)
 
+[node name="Panel" type="Panel" parent="." unique_id=55531645]
+modulate = Color(1, 1, 1, 0)
+offset_right = 200.0
+offset_bottom = 160.0
+
 [node name="LoseLabel" type="Label" parent="." unique_id=722773114]
 offset_left = 35.0
 offset_top = -27.0
-offset_right = 176.0
+offset_right = 176.00018
 offset_bottom = -1.0
 theme_override_colors/font_color = Color(0.85, 0.89750004, 1, 1)
 theme_override_colors/font_outline_color = Color(0.42, 0.147, 0.147, 1)
