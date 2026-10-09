@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://sd0nlh2c3hw0" path="res://scenes/ball.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://donp5wcp4jhm2" path="res://scenes/level.tscn" id="5_71j4m"]
 [ext_resource type="FontFile" uid="uid://y0n4lnxvbtgj" path="res://assets/fonts/boldpixels.ttf" id="6_qfnet"]
+[ext_resource type="AudioStream" uid="uid://dbwxst75shyi7" path="res://assets/music/stage-02.mp3" id="7_i7141"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ogn6l"]
 
@@ -158,5 +159,10 @@ uppercase = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1652029566]
 root_node = NodePath("../LoseLabel")
 libraries/ = SubResource("AnimationLibrary_7r4gi")
+
+[node name="bgMusic" type="AudioStreamPlayer2D" parent="." unique_id=1740774631]
+stream = ExtResource("7_i7141")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="OutBounds" to="." method="_on_out_bounds_body_entered"]

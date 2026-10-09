@@ -31,7 +31,10 @@ func fly(delta):
 			if collider is Brick:
 				collider.take_damage()
 				$Audio/brickBounce.play()
+			else:
+				$Audio/wallBounce.play()
 			velocity = velocity.bounce(collision.get_normal())
+			
 
 func get_velocity_from_paddle(paddle: Paddle)-> Vector2:
 	var paddle_half_width := 16
