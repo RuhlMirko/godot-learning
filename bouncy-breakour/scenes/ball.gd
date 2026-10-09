@@ -26,9 +26,11 @@ func fly(delta):
 		var collider := collision.get_collider()
 		if collider is Paddle:
 			velocity = get_velocity_from_paddle(collider)
+			$Audio/paddleBounce.play()
 		else:
 			if collider is Brick:
 				collider.take_damage()
+				$Audio/brickBounce.play()
 			velocity = velocity.bounce(collision.get_normal())
 
 func get_velocity_from_paddle(paddle: Paddle)-> Vector2:

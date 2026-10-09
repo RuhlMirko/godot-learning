@@ -8,7 +8,7 @@ var tnt_brick_bp : PackedScene = preload("uid://tfk14wbigaq2")
 var level : Array[String] = [
 	"OOOHOOO O",
 	"OHOOTOOOO",
-	"OOOO  OOO",
+	"OTOO  OOO",
 	"OTOOHOOTO",
 	"OO OOOO O",
 	"O  OOTOOO",

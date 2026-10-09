@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b1otef25abats" path="res://assets/textures/ball.png" id="1_7s4qf"]
 [ext_resource type="Script" uid="uid://dgtxx5fcmeql2" path="res://scenes/ball.gd" id="1_cxlvu"]
+[ext_resource type="AudioStream" uid="uid://cak4nh22ignra" path="res://assets/sounds/paddle-bounce.wav" id="3_f7cbr"]
+[ext_resource type="AudioStream" uid="uid://dq52iqhdqh1ig" path="res://assets/sounds/wall-bounce.wav" id="4_eew57"]
+[ext_resource type="AudioStream" uid="uid://bmdabpru7vv7u" path="res://assets/sounds/break.wav" id="5_jj7gd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ogn6l"]
 radius = 3.1622777
@@ -14,3 +17,16 @@ shape = SubResource("CircleShape2D_ogn6l")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=52975557]
 texture = ExtResource("1_7s4qf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1829214026]
+
+[node name="Audio" type="Node2D" parent="." unique_id=1346826676]
+
+[node name="paddleBounce" type="AudioStreamPlayer2D" parent="Audio" unique_id=1861533228]
+stream = ExtResource("3_f7cbr")
+
+[node name="wallBounce" type="AudioStreamPlayer2D" parent="Audio" unique_id=1997423461]
+stream = ExtResource("4_eew57")
+
+[node name="brickBounce" type="AudioStreamPlayer2D" parent="Audio" unique_id=456666434]
+stream = ExtResource("5_jj7gd")

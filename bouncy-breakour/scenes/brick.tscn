@@ -8,10 +8,14 @@ size = Vector2(16, 6)
 
 [node name="Brick" type="StaticBody2D" unique_id=2092093871]
 script = ExtResource("1_0w5h4")
-health = 1
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1374666387]
 texture = ExtResource("1_5l4w1")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1819582945]
 shape = SubResource("RectangleShape2D_ogn6l")
+
+[node name="ExplosionRadius" type="Area2D" parent="." unique_id=1451612164]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionRadius" unique_id=1608993463]
+debug_color = Color(0.96, 0.34079996, 0.09600002, 0.41960785)
