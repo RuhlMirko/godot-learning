@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://tfk14wbigaq2"]
+
+[ext_resource type="PackedScene" uid="uid://d228l6in2ubmc" path="res://scenes/brick.tscn" id="1_g5bxv"]
+[ext_resource type="Texture2D" uid="uid://bdjj5lsvp3mgb" path="res://assets/textures/brick-bomb.png" id="2_lonv4"]
+
+[node name="tntBrick" unique_id=2092093871 instance=ExtResource("1_g5bxv")]
+
+[node name="Sprite" parent="." index="0" unique_id=1374666387]
+texture = ExtResource("2_lonv4")

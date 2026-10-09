@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://c3epd8runs2td" path="res://assets/textures/brick-hard.png" id="2_xac6k"]
 
 [node name="HardBrick" unique_id=2092093871 instance=ExtResource("1_y3yqq")]
-health = 2
 
 [node name="Sprite" parent="." index="0" unique_id=1374666387]
 texture = ExtResource("2_xac6k")
