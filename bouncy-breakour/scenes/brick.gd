@@ -1,6 +1,10 @@
 class_name Brick
 extends StaticBody2D
 
+@export var health : int
 
 func take_damage()->void:
-	queue_free()
+	health -= 1
+	$Sprite.frame += 1
+	if health<=0:
+		queue_free()

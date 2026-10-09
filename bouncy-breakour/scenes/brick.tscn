@@ -8,6 +8,7 @@ size = Vector2(16, 6)
 
 [node name="Brick" type="StaticBody2D" unique_id=2092093871]
 script = ExtResource("1_0w5h4")
+health = 1
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1374666387]
 texture = ExtResource("1_5l4w1")
