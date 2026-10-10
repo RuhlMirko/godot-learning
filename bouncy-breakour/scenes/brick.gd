@@ -5,6 +5,7 @@ extends StaticBody2D
 @onready var explosion_radius: Area2D = $ExplosionRadius
 var health : int
 var is_dying : bool = false
+signal brick_died
 
 func _ready() -> void:
 	health =  sprite.get_vframes()
@@ -16,6 +17,7 @@ func take_damage()->void:
 			sprite.frame += 1
 		else:
 			is_dying = true
+			brick_died.emit()
 			queue_free()
 			explode()
 		

@@ -12,3 +12,7 @@ func make_new_ball():
 	var new_ball : Ball = ball_bp.instantiate()
 	new_ball.paddle = $Paddle
 	add_child(new_ball)
+
+
+func _on_level_cleared() -> void:
+	animation_player.play("level_clear")
