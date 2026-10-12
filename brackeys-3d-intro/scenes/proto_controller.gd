@@ -126,7 +126,6 @@ func _physics_process(delta: float) -> void:
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).
 ## Modifies look_rotation based on rot_input, then resets basis and rotates by look_rotation.
-
 func rotate_look(rot_input: Vector2):
 	target_rotation.x -= rot_input.y * look_speed
 	target_rotation.x = clamp(
@@ -135,6 +134,15 @@ func rotate_look(rot_input: Vector2):
 		deg_to_rad(85)
 	)
 	target_rotation.y -= rot_input.x * look_speed
+
+#func rotate_look(rot_input : Vector2):
+	#look_rotation.x -= rot_input.y * look_speed
+	#look_rotation.x = clamp(look_rotation.x, deg_to_rad(-85), deg_to_rad(85))
+	#look_rotation.y -= rot_input.x * look_speed
+	#transform.basis = Basis()
+	#rotate_y(look_rotation.y)
+	#head.transform.basis = Basis()
+	#head.rotate_x(look_rotation.x)
 
 func _process(delta: float) -> void:
 	look_rotation = look_rotation.lerp(
