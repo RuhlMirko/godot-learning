@@ -4,6 +4,7 @@ extends CharacterBody2D
 enum State { Docked, Flying }
 @export var speed := 100.0
 @export var paddle: Paddle
+@export var min_bounce_angle : float = 0.3
 var curr_state := State.Docked
 
 func _ready() -> void:
@@ -35,7 +36,16 @@ func fly(delta):
 			else:
 				$Audio/wallBounce.play()
 			velocity = velocity.bounce(collision.get_normal())
+			fix_shallow_angle()
 			
+
+func fix_shallow_angle():
+	var direction := velocity.normalized()
+	if direction.y > 0 and direction.y < min_bounce_angle:
+		direction.y = min_bounce_angle
+	elif direction.y < 0 and direction.y > -min_bounce_angle:
+		direction.y = -min_bounce_angle
+	velocity = direction * speed
 
 func get_velocity_from_paddle(paddle: Paddle)-> Vector2:
 	var paddle_half_width := 16

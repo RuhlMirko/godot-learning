@@ -3,13 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://b1otef25abats" path="res://assets/textures/ball.png" id="1_7s4qf"]
 [ext_resource type="Script" uid="uid://dgtxx5fcmeql2" path="res://scenes/ball.gd" id="1_cxlvu"]
 [ext_resource type="AudioStream" uid="uid://cak4nh22ignra" path="res://assets/sounds/paddle-bounce.wav" id="3_f7cbr"]
-[ext_resource type="Texture2D" uid="uid://b63owlt3ust1q" path="res://assets/textures/speed-trail.png" id="3_fwo8l"]
 [ext_resource type="Script" uid="uid://dq4ssn0c6ud22" path="res://scenes/line_2d.gd" id="3_jj7gd"]
 [ext_resource type="AudioStream" uid="uid://dq52iqhdqh1ig" path="res://assets/sounds/wall-bounce.wav" id="4_eew57"]
 [ext_resource type="AudioStream" uid="uid://bmdabpru7vv7u" path="res://assets/sounds/break.wav" id="5_jj7gd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ogn6l"]
 radius = 3.1622777
+
+[sub_resource type="Curve" id="Curve_jj7gd"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0.017500006, 0.00526309), 0.0, 0.0, 0, 0, Vector2(0.98249996, 1.6105262), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Animation" id="Animation_eew57"]
 length = 0.001
@@ -59,11 +63,11 @@ shape = SubResource("CircleShape2D_ogn6l")
 texture = ExtResource("1_7s4qf")
 
 [node name="Line2D" type="Line2D" parent="Sprite2D" unique_id=296863685]
+visible = false
 top_level = true
-width = 4.0
+width = 2.0
+width_curve = SubResource("Curve_jj7gd")
 default_color = Color(0.13725491, 1, 0, 0.73333335)
-texture = ExtResource("3_fwo8l")
-texture_mode = 1
 joint_mode = 2
 script = ExtResource("3_jj7gd")
 
