@@ -3,9 +3,11 @@ extends StaticBody2D
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var explosion_radius: Area2D = $ExplosionRadius
+@export var balls_spawned := 0
 var health : int
 var is_dying : bool = false
-signal brick_died
+signal brick_died(brick: Brick)
+
 
 func _ready() -> void:
 	health =  sprite.get_vframes()
@@ -17,7 +19,7 @@ func take_damage()->void:
 			sprite.frame += 1
 		else:
 			is_dying = true
-			brick_died.emit()
+			brick_died.emit(self)
 			queue_free()
 			explode()
 		

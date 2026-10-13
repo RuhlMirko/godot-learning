@@ -16,3 +16,14 @@ func make_new_ball():
 
 func _on_level_cleared() -> void:
 	animation_player.play("level_clear")
+	
+
+func _on_level_spawn_new_ball(amount: int, pos: Vector2) -> void:
+	for i in amount:
+		spawn_ball(pos)
+
+func spawn_ball(pos):
+	var new_ball : Ball = ball_bp.instantiate()
+	new_ball.paddle = $Paddle
+	add_child(new_ball)
+	new_ball.launch(pos)

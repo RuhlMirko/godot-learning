@@ -206,4 +206,5 @@ root_node = NodePath("../LoseLabel")
 libraries/ = SubResource("AnimationLibrary_7r4gi")
 
 [connection signal="cleared" from="Level" to="." method="_on_level_cleared"]
+[connection signal="spawn_new_ball" from="Level" to="." method="_on_level_spawn_new_ball"]
 [connection signal="body_entered" from="OutBounds" to="." method="_on_out_bounds_body_entered"]
