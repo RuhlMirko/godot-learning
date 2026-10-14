@@ -14,6 +14,7 @@ config/name="Brackeys3d-Intro"
 run/main_scene="uid://cbeb7alt3a826"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+config/tags=PackedStringArray("learning")
 
 [display]
 

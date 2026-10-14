@@ -47,7 +47,7 @@ func _ready() -> void:
 
 func update_score(brick: Brick):
 	total_bricks -= 1
-	if brick.balls_spawned >0:
+	if brick.balls_spawned > 0:
 		spawn_new_ball.emit(brick.balls_spawned, brick.position)
 	if total_bricks == 0:
 		cleared.emit()
