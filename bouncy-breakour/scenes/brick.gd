@@ -4,8 +4,10 @@ extends StaticBody2D
 @onready var sprite: Sprite2D = $Sprite
 @onready var explosion_radius: Area2D = $ExplosionRadius
 @export var balls_spawned := 0
+@export var points : = 10
 var health : int
 var is_dying : bool = false
+
 signal brick_died(brick: Brick)
 
 

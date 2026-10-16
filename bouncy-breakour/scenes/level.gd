@@ -9,7 +9,7 @@ var hard_brick_bp : PackedScene = preload("uid://ckh2eanso6k7x")
 var tnt_brick_bp : PackedScene = preload("uid://tfk14wbigaq2")
 var spawner_brick_bp : PackedScene = preload("uid://rn4dnj1krsi2")
 var total_bricks : int = 0
-
+var score : int = 0
 
 var level : Array[String] = [
 	"OTOHOSO O",
@@ -47,6 +47,7 @@ func _ready() -> void:
 
 func update_score(brick: Brick):
 	total_bricks -= 1
+	score += brick.points
 	if brick.balls_spawned > 0:
 		spawn_new_ball.emit(brick.balls_spawned, brick.position)
 	if total_bricks == 0:

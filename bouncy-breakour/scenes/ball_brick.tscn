@@ -5,6 +5,7 @@
 
 [node name="BallBrick" unique_id=2092093871 instance=ExtResource("1_tn0vg")]
 balls_spawned = 2
+points = 5
 
 [node name="Sprite" parent="." index="0" unique_id=1374666387]
 texture = ExtResource("2_b4fev")
