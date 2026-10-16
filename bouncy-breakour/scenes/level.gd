@@ -48,6 +48,7 @@ func _ready() -> void:
 func update_score(brick: Brick):
 	total_bricks -= 1
 	score += brick.points
+	$"../ScoreLabel".text = str(score)
 	if brick.balls_spawned > 0:
 		spawn_new_ball.emit(brick.balls_spawned, brick.position)
 	if total_bricks == 0:
