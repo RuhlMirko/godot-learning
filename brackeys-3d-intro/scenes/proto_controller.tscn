@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cgadyad3l7ody"]
 
 [ext_resource type="Script" uid="uid://b3d6wdt2rgfyx" path="res://scenes/proto_controller.gd" id="1_ucva2"]
+[ext_resource type="PackedScene" uid="uid://crq4i80mp6qmi" path="res://models/chest_gold/galil.glb" id="2_rji43"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -32,3 +33,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1128289690]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 fov = 65.0
+
+[node name="galil" parent="." unique_id=1030856453 instance=ExtResource("2_rji43")]
+transform = Transform3D(-9.367939e-08, 0, 0.575, 0, 0.575, 0, -0.575, 0, -9.367939e-08, 0.38480735, 1.8, -1.4861482)

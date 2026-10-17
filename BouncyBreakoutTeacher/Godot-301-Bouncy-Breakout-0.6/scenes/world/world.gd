@@ -6,6 +6,7 @@ var ball_blueprint := preload("res://ball/ball.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var paddle: Paddle = $Paddle
 @onready var score_label: Label = $ScoreLabel
+@onready var level: Level = $Level
 
 var nb_balls_in_play := 0
 var current_score := 0
@@ -26,7 +27,21 @@ func create_new_ball() -> void:
 	nb_balls_in_play += 1
 
 func _on_level_cleared() -> void:
-	animation_player.play("win")
+	destroy_all_balls()
+	if level.has_next_level():
+		animation_player.play("win")
+	else:
+		animation_player.play("gameover")
+
+func load_next_level()->void:
+	level.load_next_level()
+	create_new_ball()
+
+func destroy_all_balls()->void:
+	for child : Node in get_children():
+		if child is Ball:
+			child.queue_free()
+	nb_balls_in_play = 0
 
 func _on_level_spawn_requested(amount: int, spawn_position: Vector2) -> void:
 	for i in amount:

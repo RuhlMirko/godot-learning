@@ -11,6 +11,7 @@ signal destroyed(brick: Brick)
 
 var health := 0
 var is_dying := false
+var is_expanded : bool = false
 
 func _ready() -> void:
 	health = brick_sprite.vframes
@@ -22,6 +23,7 @@ func take_damage() -> void:
 			brick_sprite.frame += 1
 		else:
 			is_dying = true
+			is_expanded = true
 			destroyed.emit(self)
 			queue_free()
 			explode_neighbors()

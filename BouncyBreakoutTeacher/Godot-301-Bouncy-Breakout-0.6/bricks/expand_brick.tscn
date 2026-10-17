@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b1ofsx320pv6f"]
+
+[ext_resource type="PackedScene" uid="uid://b6sj28avjofa" path="res://bricks/brick.tscn" id="1_irrbm"]
+[ext_resource type="Texture2D" uid="uid://b8eu56fmmpao6" path="res://assets/textures/expand-brick.png" id="2_iuaco"]
+
+[node name="Brick" unique_id=136605214 instance=ExtResource("1_irrbm")]
+points = 20
+
+[node name="BrickSprite" parent="." index="0" unique_id=999796432]
+texture = ExtResource("2_iuaco")
