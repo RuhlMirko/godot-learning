@@ -16,6 +16,7 @@ height = 2.9
 
 [node name="ProtoController" type="CharacterBody3D" unique_id=1739703923]
 script = ExtResource("1_ucva2")
+bob_fade_speed = 2.0
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=616307344]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0)
@@ -35,4 +36,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 fov = 65.0
 
 [node name="galil" parent="." unique_id=1030856453 instance=ExtResource("2_rji43")]
-transform = Transform3D(-9.367939e-08, 0, 0.575, 0, 0.575, 0, -0.575, 0, -9.367939e-08, 0.38480735, 1.8, -1.4861482)
+transform = Transform3D(-9.367939e-08, 0, 0.575, 0, 0.575, 0, -0.575, 0, -9.367939e-08, 0.38480735, 1.3399999, -1.4861482)

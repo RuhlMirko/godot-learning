@@ -23,7 +23,7 @@ var levels : Array[Array] = [
 	"00H000 00", 
 	"000X00H00",
 	"000H0B000",
-	"0+00B00B0",]
+	"0+00BS0B0",]
 	,
 	[
 	"0B0B000B0",
@@ -73,19 +73,22 @@ func load_next_level()->void:
 					brick = bombbrick_blueprint.instantiate()
 				elif level[y][x] == "+":
 					brick = spawnbrick_blueprint.instantiate()
-				elif level[y][x] == "S":
-					brick = speed_brick_blueprint.instantiate()
+				#elif level[y][x] == "S":
+					#brick = speed_brick_blueprint.instantiate()
 				#elif level[y][x] == "X":
 					#brick = expand_blueprint.instantiate()
 				if brick != null:
 					nb_bricks_left += 1
 					brick.destroyed.connect(on_brick_destroyed)
+					#brick.speed_buff.connect()
 					brick.position = top_left + Vector2(20 * x, 10 * y)
 					add_child(brick)
 				
 func on_brick_destroyed(brick: Brick) -> void:
 	nb_bricks_left -= 1
 	points_scored.emit(brick.points)
+	#if brick.
+	
 	if brick.balls_spawned > 0:
 		spawn_requested.emit(brick.balls_spawned, brick.position)
 	if nb_bricks_left == 0:

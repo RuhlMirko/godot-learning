@@ -1,3 +1,4 @@
+
 extends StaticBody2D
 
 signal speed_buff
