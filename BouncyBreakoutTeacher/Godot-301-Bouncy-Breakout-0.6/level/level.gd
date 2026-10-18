@@ -9,7 +9,8 @@ var brick_blueprint := preload("res://bricks/brick.tscn")
 var bombbrick_blueprint := preload("res://bricks/bomb_brick.tscn")
 var hardbrick_blueprint := preload("res://bricks/hard_brick.tscn")
 var spawnbrick_blueprint := preload("res://bricks/spawn_brick.tscn")
-var expand_blueprint := preload("uid://b1ofsx320pv6f")
+#var expand_blueprint := 
+var speed_brick_blueprint := preload("uid://b4671ejrprayu")
 
 var nb_bricks_left := 0
 
@@ -72,8 +73,10 @@ func load_next_level()->void:
 					brick = bombbrick_blueprint.instantiate()
 				elif level[y][x] == "+":
 					brick = spawnbrick_blueprint.instantiate()
-				elif level[y][x] == "X":
-					brick = expand_blueprint.instantiate()
+				elif level[y][x] == "S":
+					brick = speed_brick_blueprint.instantiate()
+				#elif level[y][x] == "X":
+					#brick = expand_blueprint.instantiate()
 				if brick != null:
 					nb_bricks_left += 1
 					brick.destroyed.connect(on_brick_destroyed)
