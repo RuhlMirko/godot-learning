@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://76cyltuq1856"]
+
+[ext_resource type="Script" uid="uid://cuegatpt0x7wu" path="res://scenes/levels/base_level.gd" id="1_md458"]
+[ext_resource type="MeshLibrary" uid="uid://dmmy8gts8a70a" path="res://assets/meshlibs/walls-tiles.meshlib" id="2_uk53i"]
+
+[node name="BaseLevel" type="Node3D" unique_id=459221681]
+script = ExtResource("1_md458")
+
+[node name="Rooms" type="Node3D" parent="." unique_id=1209313899]
+
+[node name="PlayerSpawner" type="Node3D" parent="." unique_id=581077430]
+unique_name_in_owner = true
+
+[node name="Hallways" type="Node3D" parent="." unique_id=1291142659]
+
+[node name="Floors" type="GridMap" parent="Hallways" unique_id=1509274471]
+mesh_library = ExtResource("2_uk53i")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65523, 65514, 655361)
+}
