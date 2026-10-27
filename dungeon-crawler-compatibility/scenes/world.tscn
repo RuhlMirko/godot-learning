@@ -13,6 +13,15 @@ sky_material = SubResource("ProceduralSkyMaterial_e5uuo")
 [sub_resource type="Environment" id="Environment_rwgxs"]
 background_mode = 2
 sky = SubResource("Sky_nnsk1")
+fog_enabled = true
+fog_light_color = Color(0.36, 0.5, 0.423, 1)
+fog_density = 0.0725
+fog_sky_affect = 0.0
+fog_height_density = 1.2
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_contrast = 1.185
+adjustment_saturation = 0.74
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ogn6l"]
 

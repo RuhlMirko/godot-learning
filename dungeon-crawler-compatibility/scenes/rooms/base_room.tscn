@@ -1,10 +1,20 @@
 [gd_scene format=3 uid="uid://bf12srkwv2qhr"]
 
 [ext_resource type="MeshLibrary" uid="uid://dmmy8gts8a70a" path="res://assets/meshlibs/walls-tiles.meshlib" id="1_43ixu"]
+[ext_resource type="Script" uid="uid://bryw0gearwdra" path="res://scenes/rooms/base_room.gd" id="1_oxyh5"]
+[ext_resource type="MeshLibrary" uid="uid://d28ycn2o0pnuo" path="res://assets/meshlibs/ceiling-tiles.meshlib" id="2_4x8xk"]
 
 [node name="BaseRoom" type="Node3D" unique_id=19265679]
+script = ExtResource("1_oxyh5")
 
 [node name="Floor" type="GridMap" parent="." unique_id=2082923916]
+unique_name_in_owner = true
 mesh_library = ExtResource("1_43ixu")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+
+[node name="Ceilings" type="GridMap" parent="." unique_id=991774407]
+unique_name_in_owner = true
+mesh_library = ExtResource("2_4x8xk")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
