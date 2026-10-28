@@ -5,6 +5,15 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogn6l"]
 height = 1.7
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fj8p3"]
+load_path = "res://.godot/imported/skin-goblin.png-7b85fad20850aa4b245ae1a7c4b6b3bb.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55yry"]
+albedo_texture = SubResource("CompressedTexture2D_fj8p3")
+rim = 0.24
+rim_tint = 1.0
+texture_filter = 0
+
 [node name="Goblin" type="CharacterBody3D" unique_id=1975828726]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1741071469]
@@ -12,5 +21,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 shape = SubResource("CapsuleShape3D_ogn6l")
 
 [node name="character" parent="." unique_id=1360384105 instance=ExtResource("1_fj8p3")]
+
+[node name="Skeleton3D" parent="character/Armature" parent_id_path=PackedInt32Array(1360384105, 194444943) index="0" unique_id=1361573168]
+bones/0/position = Vector3(-0.14351173, -0.64198864, 1.298326e-07)
+bones/0/rotation = Quaternion(-0.03436354, 0.70627135, 0.7062713, -0.034363545)
+bones/1/position = Vector3(0.14284694, -0.6506889, -0.011863711)
+bones/2/position = Vector3(-0.0072802044, 0.033385944, -0.03553658)
+bones/2/rotation = Quaternion(0.035481203, -2.595444e-05, -0.0062551214, 0.9993508)
+bones/3/rotation = Quaternion(-0.18359983, -0.00050824846, -0.017640386, 0.9828427)
+bones/5/position = Vector3(-0.33040935, 0.40408152, 0.014828871)
+bones/5/rotation = Quaternion(-0.04581238, -0.38820985, 0.9060382, 0.16213925)
+bones/6/rotation = Quaternion(-0.35447142, -0.12758173, 0.34635952, 0.8591321)
+bones/8/position = Vector3(0.34810862, 0.38968882, 0.008057777)
+bones/8/rotation = Quaternion(0.032528084, -0.1320213, 0.97835976, -0.15596291)
+bones/9/rotation = Quaternion(-0.4033219, -0.0544505, -0.10476885, 0.9074085)
+bones/11/rotation = Quaternion(0.027039137, -0.07725532, 0.9965911, 0.010327847)
+bones/12/rotation = Quaternion(0.25635883, 0.0023441017, 0.060700063, 0.964671)
+bones/13/rotation = Quaternion(-0.80220336, -5.5304405e-09, -0.00060911017, 0.5970506)
+bones/14/position = Vector3(0.16983332, 0.009937727, 0.034986395)
+bones/14/rotation = Quaternion(-0.02311552, -0.06371763, 0.99757177, -0.016011039)
+bones/15/rotation = Quaternion(0.20591244, -0.0023751175, -0.048755288, 0.9773522)
+
+[node name="Character" parent="character/Armature/Skeleton3D" index="0" unique_id=1685735822]
+surface_material_override/0 = SubResource("StandardMaterial3D_55yry")
+
+[node name="AnimationPlayer" parent="character" index="1" unique_id=529434782]
+autoplay = &"idle"
 
 [editable path="character"]

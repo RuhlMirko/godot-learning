@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b704an1qtk7r3" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://dtm87eux8lpo1" path="res://assets/meshes/character/character.glb" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://6c8ge8fdad0m" path="res://assets/meshes/weapons/shortsword.glb" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogn6l"]
 margin = 0.3
@@ -18,21 +19,31 @@ gravity_force = 0.98
 bones/0/position = Vector3(-0.14351173, -0.64198864, 1.298326e-07)
 bones/0/rotation = Quaternion(-0.03436354, 0.70627135, 0.7062713, -0.034363545)
 bones/1/position = Vector3(0.14284694, -0.6506889, -0.011863711)
-bones/2/position = Vector3(-0.0072802044, 0.033385944, -0.03553658)
+bones/2/position = Vector3(-0.0072802044, -0.026754588, -0.03553658)
 bones/2/rotation = Quaternion(0.035481203, -2.595444e-05, -0.0062551214, 0.9993508)
 bones/3/rotation = Quaternion(-0.18359983, -0.00050824846, -0.017640386, 0.9828427)
-bones/5/position = Vector3(-0.33040935, 0.40408152, 0.014828871)
-bones/5/rotation = Quaternion(-0.04581238, -0.38820985, 0.9060382, 0.16213925)
-bones/6/rotation = Quaternion(-0.35447142, -0.12758173, 0.34635952, 0.8591321)
-bones/8/position = Vector3(0.34810862, 0.38968882, 0.008057777)
+bones/5/position = Vector3(-0.33504736, 0.3692477, 0.012072564)
+bones/5/rotation = Quaternion(-0.067980796, -0.302173, 0.9286965, 0.20394355)
+bones/6/rotation = Quaternion(-0.2501248, -0.10278857, 0.32996088, 0.9044324)
+bones/8/position = Vector3(0.35333443, 0.3336497, 0.00014897808)
 bones/8/rotation = Quaternion(0.032528084, -0.1320213, 0.97835976, -0.15596291)
-bones/9/rotation = Quaternion(-0.4033219, -0.0544505, -0.10476885, 0.9074085)
-bones/11/rotation = Quaternion(0.027039137, -0.07725532, 0.9965911, 0.010327847)
-bones/12/rotation = Quaternion(0.25635883, 0.0023441017, 0.060700063, 0.964671)
+bones/9/rotation = Quaternion(-0.27189898, -0.0585776, -0.12888066, 0.95185584)
+bones/11/rotation = Quaternion(0.026249297, -0.17330703, 0.9839356, 0.033859164)
+bones/12/rotation = Quaternion(0.4660459, 0.002133135, 0.1103492, 0.8778495)
 bones/13/rotation = Quaternion(-0.80220336, -5.5304405e-09, -0.00060911017, 0.5970506)
 bones/14/position = Vector3(0.16983332, 0.009937727, 0.034986395)
-bones/14/rotation = Quaternion(-0.02311552, -0.06371763, 0.99757177, -0.016011039)
-bones/15/rotation = Quaternion(0.20591244, -0.0023751175, -0.048755288, 0.9773522)
+bones/14/rotation = Quaternion(-0.021541446, -0.17202628, 0.9839573, -0.04208388)
+bones/15/rotation = Quaternion(0.44261056, -0.0021641955, -0.10480005, 0.89056623)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="character/Armature/Skeleton3D" index="1" unique_id=332585418]
+transform = Transform3D(-0.95518976, -0.2931547, -0.040918875, -0.15598467, 0.61602044, -0.7721322, 0.2515607, -0.73114914, -0.6341435, 0.40404257, -0.058196887, -0.24911116)
+bone_name = "Hand.R"
+bone_idx = 10
+
+[node name="WeaponPlaceholder" type="Node3D" parent="character/Armature/Skeleton3D/BoneAttachment3D" unique_id=1491273277]
+transform = Transform3D(0.08297974, -0.9767145, 0.19784643, 0.06812048, -0.19250743, -0.97892827, 0.99422026, 0.09470859, 0.050560024, 0.037051123, -0.08971525, -0.0075525567)
+
+[node name="shortsword" parent="character/Armature/Skeleton3D/BoneAttachment3D/WeaponPlaceholder" unique_id=1262782001 instance=ExtResource("3_qhqgy")]
 
 [node name="AnimationPlayer" parent="character" index="1" unique_id=529434782]
 autoplay = &"idle"
