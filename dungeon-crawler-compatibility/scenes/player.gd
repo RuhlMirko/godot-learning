@@ -10,6 +10,7 @@ const ACCELERATION := 30
 @export var jump_force := 12
 @export var gravity_force : float
 @onready var camera: Camera3D = %Camera3D
+@onready var animation_player: AnimationPlayer = $character/AnimationPlayer
 
 
 
@@ -43,6 +44,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, desired_velocity.x, ACCELERATION * delta)
 		velocity.z = move_toward(velocity.z, desired_velocity.z, ACCELERATION * delta)
+		
+	var horizontal_velocity := Vector3(velocity.x, 0, velocity.z)
+	if horizontal_velocity.length_squared()>0.1 and is_on_floor():
+		animation_player.play("run")
+	else:
+		animation_player.play("idle")
 	move_and_slide()
 
 

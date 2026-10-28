@@ -6,11 +6,10 @@
 
 [node name="Level-0-1" unique_id=459221681 instance=ExtResource("1_pyit1")]
 
-[node name="Foyer" parent="Rooms" parent_id_path=PackedInt32Array(1209313899) index="0" unique_id=524538064 instance=ExtResource("3_7nw6i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 0, -13)
-script = null
+[node name="Entrance" parent="Rooms" parent_id_path=PackedInt32Array(1209313899) index="0" unique_id=19265679 instance=ExtResource("2_cs4hx")]
 
-[node name="Entrance" parent="Rooms" parent_id_path=PackedInt32Array(1209313899) index="1" unique_id=19265679 instance=ExtResource("2_cs4hx")]
+[node name="Foyer" parent="Rooms" parent_id_path=PackedInt32Array(1209313899) index="1" unique_id=989882580 instance=ExtResource("3_7nw6i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 0, -13)
 
 [node name="PlayerSpawner" parent="." index="1" unique_id=581077430]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2861285)
