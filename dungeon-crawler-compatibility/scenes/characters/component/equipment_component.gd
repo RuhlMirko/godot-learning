@@ -3,6 +3,7 @@ extends Node3D
 
 const EQUIPED_ITEM_PREFAB := preload("res://scenes/equipment/equiped_item.tscn")
 
+@export var is_always_infront : bool
 @export var weapon_data : WeaponData
 @export var weapon_placeholder : Node3D
 
@@ -15,4 +16,5 @@ func equip_weapon(data: WeaponData)->void:
 	weapon_data = data.duplicate()
 	var weapon := EQUIPED_ITEM_PREFAB.instantiate() as EquipedItem
 	weapon.weapon_data = weapon_data
+	weapon.is_always_infront = is_always_infront
 	weapon_placeholder.add_child(weapon)

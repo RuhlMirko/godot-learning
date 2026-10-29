@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://48smlnalkfw1"]
 
 [ext_resource type="PackedScene" uid="uid://dtm87eux8lpo1" path="res://assets/meshes/character/character.glb" id="1_fj8p3"]
+[ext_resource type="PackedScene" uid="uid://c4xjoj1kb738" path="res://scenes/characters/component/equipment_component.tscn" id="2_a13gh"]
+[ext_resource type="Resource" uid="uid://b51jqhe8c58xa" path="res://data/weapons/shortsword.tres" id="3_a13gh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogn6l"]
 height = 1.7
@@ -50,10 +52,14 @@ transform = Transform3D(-0.94716096, -0.31385672, -0.06619367, -0.22311309, 0.79
 bone_name = "Hand.R"
 bone_idx = 10
 
-[node name="Node3D" type="Node3D" parent="character/Armature/Skeleton3D/BoneAttachment3D" unique_id=1391509332]
-transform = Transform3D(0.8365163, 0.48296294, 0.25881904, 0.087096825, 0.34914386, -0.9330127, -0.5409756, 0.8030226, 0.25, 0, 0, 0)
+[node name="WeaponPlaceholder" type="Node3D" parent="character/Armature/Skeleton3D/BoneAttachment3D" unique_id=1391509332]
+transform = Transform3D(-0.42819723, -0.89339453, 0.13599063, 0.41905135, -0.3296269, -0.84601533, 0.80065167, -0.30527443, 0.5155236, 0.025615714, -0.092341684, 0.024742877)
 
 [node name="AnimationPlayer" parent="character" index="1" unique_id=529434782]
 autoplay = &"idle"
+
+[node name="EquipmentComponent" parent="." unique_id=58287942 node_paths=PackedStringArray("weapon_placeholder") instance=ExtResource("2_a13gh")]
+weapon_data = ExtResource("3_a13gh")
+weapon_placeholder = NodePath("../character/Armature/Skeleton3D/BoneAttachment3D/WeaponPlaceholder")
 
 [editable path="character"]

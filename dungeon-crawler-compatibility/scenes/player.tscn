@@ -61,6 +61,7 @@ near = 0.001
 far = 100.0
 
 [node name="EquipmentComponent" parent="." unique_id=58287942 node_paths=PackedStringArray("weapon_placeholder") instance=ExtResource("3_dqkch")]
+is_always_infront = true
 weapon_data = ExtResource("4_dqkch")
 weapon_placeholder = NodePath("../character/Armature/Skeleton3D/BoneAttachment3D/WeaponPlaceholder")
 
