@@ -2,7 +2,19 @@
 
 [ext_resource type="Script" uid="uid://b704an1qtk7r3" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://dtm87eux8lpo1" path="res://assets/meshes/character/character.glb" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://dnjqsiba0vmko" path="res://assets/meshes/weapons/axe.glb" id="3_dqkch"]
 [ext_resource type="PackedScene" uid="uid://6c8ge8fdad0m" path="res://assets/meshes/weapons/shortsword.glb" id="3_qhqgy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qhqgy"]
+load_path = "res://.godot/imported/shortsword_dungeon-texture.png-4777f8b4970cc8df31a8ebff46b8379c.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqkch"]
+albedo_texture = SubResource("CompressedTexture2D_qhqgy")
+metallic = 0.5
+roughness = 0.28
+texture_filter = 0
+use_z_clip_scale = true
+z_clip_scale = 0.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogn6l"]
 margin = 0.3
@@ -43,7 +55,14 @@ bone_idx = 10
 [node name="WeaponPlaceholder" type="Node3D" parent="character/Armature/Skeleton3D/BoneAttachment3D" unique_id=1491273277]
 transform = Transform3D(0.08297974, -0.9767145, 0.19784643, 0.06812048, -0.19250743, -0.97892827, 0.99422026, 0.09470859, 0.050560024, 0.037051123, -0.08971525, -0.0075525567)
 
+[node name="axe" parent="character/Armature/Skeleton3D/BoneAttachment3D/WeaponPlaceholder" unique_id=1986923967 instance=ExtResource("3_dqkch")]
+transform = Transform3D(0.93165576, -0.362777, -0.020254306, 0.36331117, 0.9308542, 0.03893034, 0.0047307834, -0.043628305, 0.9990366, 0.04594719, 0, 0.11324336)
+
 [node name="shortsword" parent="character/Armature/Skeleton3D/BoneAttachment3D/WeaponPlaceholder" unique_id=1262782001 instance=ExtResource("3_qhqgy")]
+visible = false
+
+[node name="Cylinder" parent="character/Armature/Skeleton3D/BoneAttachment3D/WeaponPlaceholder/shortsword" index="0" unique_id=756463735]
+surface_material_override/0 = SubResource("StandardMaterial3D_dqkch")
 
 [node name="AnimationPlayer" parent="character" index="1" unique_id=529434782]
 autoplay = &"idle"
@@ -61,3 +80,4 @@ near = 0.001
 far = 100.0
 
 [editable path="character"]
+[editable path="character/Armature/Skeleton3D/BoneAttachment3D/WeaponPlaceholder/shortsword"]

@@ -14,6 +14,7 @@ config/name="shaderTestLab"
 run/main_scene="uid://dbg7wy4t12qmc"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+config/tags=PackedStringArray("learning")
 
 [display]
 
