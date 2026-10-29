@@ -5,4 +5,8 @@
 [resource]
 albedo_color = Color(0.52156866, 0.89411765, 0.41568628, 1)
 albedo_texture = ExtResource("1_px12k")
+emission_enabled = true
+emission = Color(0.968, 1, 0.84000003, 1)
+emission_energy_multiplier = 0.5
+rim_enabled = true
 texture_filter = 0

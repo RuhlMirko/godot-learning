@@ -11,9 +11,10 @@ const ACCELERATION := 30
 @export var gravity_force : float
 @onready var camera: Camera3D = %Camera3D
 @onready var animation_player: AnimationPlayer = $character/AnimationPlayer
+@onready var select_raycast: RayCast3D = %SelectRaycast
 
 
-
+var curr_pickup_focus_item : PickableItem = null
 var input_dir := Vector2.ZERO
 
 func _ready() -> void:
@@ -51,7 +52,23 @@ func _physics_process(delta: float) -> void:
 	else:
 		animation_player.play("idle")
 	move_and_slide()
+	check_for_selection()
 
+
+func check_for_selection()->void:
+	var target_node : Node = null
+	
+	if select_raycast.is_colliding():
+		var collider := select_raycast.get_collider()
+		if collider is PickableItem:
+			target_node = collider
+		if target_node != curr_pickup_focus_item:
+			if curr_pickup_focus_item:
+				curr_pickup_focus_item.unhighlight()
+			curr_pickup_focus_item = target_node
+			if curr_pickup_focus_item is PickableItem:
+				curr_pickup_focus_item.highlight()
+			
 
 func check_jump_input()->void:
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
