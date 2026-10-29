@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://48smlnalkfw1"]
 
 [ext_resource type="PackedScene" uid="uid://dtm87eux8lpo1" path="res://assets/meshes/character/character.glb" id="1_fj8p3"]
+[ext_resource type="PackedScene" uid="uid://6c8ge8fdad0m" path="res://assets/meshes/weapons/shortsword.glb" id="2_55yry"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogn6l"]
 height = 1.7
@@ -44,6 +45,16 @@ bones/15/rotation = Quaternion(0.20591244, -0.0023751175, -0.048755288, 0.977352
 
 [node name="Character" parent="character/Armature/Skeleton3D" index="0" unique_id=1685735822]
 surface_material_override/0 = SubResource("StandardMaterial3D_55yry")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="character/Armature/Skeleton3D" index="1" unique_id=687982436]
+transform = Transform3D(-0.94716096, -0.31385672, -0.06619367, -0.22311309, 0.79290235, -0.5670336, 0.23045203, -0.5223026, -0.82103074, 0.39363572, 0.10534314, -0.2683941)
+bone_name = "Hand.R"
+bone_idx = 10
+
+[node name="Node3D" type="Node3D" parent="character/Armature/Skeleton3D/BoneAttachment3D" unique_id=1391509332]
+transform = Transform3D(0.8365163, 0.48296294, 0.25881904, 0.087096825, 0.34914386, -0.9330127, -0.5409756, 0.8030226, 0.25, 0, 0, 0)
+
+[node name="shortsword" parent="character/Armature/Skeleton3D/BoneAttachment3D/Node3D" unique_id=2054837813 instance=ExtResource("2_55yry")]
 
 [node name="AnimationPlayer" parent="character" index="1" unique_id=529434782]
 autoplay = &"idle"

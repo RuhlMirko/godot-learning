@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dbg7wy4t12qmc"]
+
+[ext_resource type="Texture2D" uid="uid://c3bai5qnd2mod" path="res://icon.svg" id="1_fpqvw"]
+
+[node name="FragmentBasics" type="Node2D" unique_id=1509537811]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1916860399]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_fpqvw")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D" unique_id=853979325]
+zoom = Vector2(5, 5)

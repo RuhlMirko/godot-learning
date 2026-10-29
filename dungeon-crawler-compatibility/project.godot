@@ -14,6 +14,7 @@ config/name="DungeonCrawlerCompatibility"
 run/main_scene="uid://b7i0p8ie20orm"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+config/tags=PackedStringArray("learning")
 
 [debug]
 
