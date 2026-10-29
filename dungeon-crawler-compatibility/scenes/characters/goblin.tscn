@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://48smlnalkfw1"]
 
 [ext_resource type="PackedScene" uid="uid://dtm87eux8lpo1" path="res://assets/meshes/character/character.glb" id="1_fj8p3"]
-[ext_resource type="PackedScene" uid="uid://6c8ge8fdad0m" path="res://assets/meshes/weapons/shortsword.glb" id="2_55yry"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogn6l"]
 height = 1.7
@@ -14,14 +13,6 @@ albedo_texture = SubResource("CompressedTexture2D_fj8p3")
 rim = 0.24
 rim_tint = 1.0
 texture_filter = 0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_55yry"]
-load_path = "res://.godot/imported/shortsword_dungeon-texture.png-4777f8b4970cc8df31a8ebff46b8379c.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a13gh"]
-albedo_texture = SubResource("CompressedTexture2D_55yry")
-texture_filter = 0
-z_clip_scale = 0.5
 
 [node name="Goblin" type="CharacterBody3D" unique_id=1975828726]
 
@@ -62,13 +53,7 @@ bone_idx = 10
 [node name="Node3D" type="Node3D" parent="character/Armature/Skeleton3D/BoneAttachment3D" unique_id=1391509332]
 transform = Transform3D(0.8365163, 0.48296294, 0.25881904, 0.087096825, 0.34914386, -0.9330127, -0.5409756, 0.8030226, 0.25, 0, 0, 0)
 
-[node name="shortsword" parent="character/Armature/Skeleton3D/BoneAttachment3D/Node3D" unique_id=2054837813 instance=ExtResource("2_55yry")]
-
-[node name="Cylinder" parent="character/Armature/Skeleton3D/BoneAttachment3D/Node3D/shortsword" index="0" unique_id=756463735]
-surface_material_override/0 = SubResource("StandardMaterial3D_a13gh")
-
 [node name="AnimationPlayer" parent="character" index="1" unique_id=529434782]
 autoplay = &"idle"
 
 [editable path="character"]
-[editable path="character/Armature/Skeleton3D/BoneAttachment3D/Node3D/shortsword"]

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://n8rww7cfc2wp"]
+
+[ext_resource type="Texture2D" uid="uid://ygwd3s1fdqtj" path="res://assets/meshes/weapons/axe_dungeon-texture.png" id="1_2frl6"]
+
+[resource]
+albedo_texture = ExtResource("1_2frl6")
+texture_filter = 0
+use_z_clip_scale = true
+z_clip_scale = 0.5
