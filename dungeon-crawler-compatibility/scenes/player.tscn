@@ -10,6 +10,7 @@ margin = 0.3
 height = 1.7
 
 [node name="Player" type="CharacterBody3D" unique_id=1445235645]
+collision_layer = 2
 script = ExtResource("1_3vyb7")
 mouse_sensitivity = 0.002
 gravity_force = 0.98
@@ -59,6 +60,12 @@ current = true
 fov = 90.0
 near = 0.001
 far = 100.0
+
+[node name="SelectRaycast" type="RayCast3D" parent="Camera3D" unique_id=1347791918]
+target_position = Vector3(0, 0, -2)
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="EquipmentComponent" parent="." unique_id=58287942 node_paths=PackedStringArray("weapon_placeholder") instance=ExtResource("3_dqkch")]
 is_always_infront = true

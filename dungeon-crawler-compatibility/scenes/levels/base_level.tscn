@@ -17,8 +17,6 @@ unique_name_in_owner = true
 mesh_library = ExtResource("2_uk53i")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
-data = {
-"cells": PackedInt32Array(65523, 65514, 655361)
-}
+collision_mask = 0
 
 [node name="Ceiling" type="Node3D" parent="." unique_id=1073837689]

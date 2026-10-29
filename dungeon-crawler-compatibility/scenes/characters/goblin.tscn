@@ -17,6 +17,7 @@ rim_tint = 1.0
 texture_filter = 0
 
 [node name="Goblin" type="CharacterBody3D" unique_id=1975828726]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1741071469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
