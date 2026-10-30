@@ -2,6 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bogi67o8jry8u" path="res://assets/meshes/dice.glb" id="1_5x8g4"]
 [ext_resource type="Script" uid="uid://vl2nkfuo688e" path="res://scenes/die.gd" id="1_hvcds"]
+[ext_resource type="Texture2D" uid="uid://bm7game2oeqoj" path="res://assets/textures/dice.png" id="3_kw4wr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnu2h"]
+albedo_texture = ExtResource("3_kw4wr")
+emission = Color(0.26, 0.26, 0.26, 1)
+rim = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ogn6l"]
 size = Vector3(2, 2, 2)
@@ -12,5 +18,10 @@ script = ExtResource("1_hvcds")
 
 [node name="dice" parent="." unique_id=225259902 instance=ExtResource("1_5x8g4")]
 
+[node name="Dice" parent="dice" index="0" unique_id=2085371136]
+surface_material_override/0 = SubResource("StandardMaterial3D_lnu2h")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=399601682]
 shape = SubResource("BoxShape3D_ogn6l")
+
+[editable path="dice"]
