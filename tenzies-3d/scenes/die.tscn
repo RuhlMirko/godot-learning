@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://b7g6j0vrb304"]
 
 [ext_resource type="PackedScene" uid="uid://bogi67o8jry8u" path="res://assets/meshes/dice.glb" id="1_5x8g4"]
+[ext_resource type="Script" uid="uid://vl2nkfuo688e" path="res://scenes/die.gd" id="1_hvcds"]
 
-[node name="RigidBody3D" type="RigidBody3D" unique_id=617793010]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ogn6l"]
+size = Vector3(2, 2, 2)
+
+[node name="Die" type="RigidBody3D" unique_id=617793010]
+freeze = true
+script = ExtResource("1_hvcds")
 
 [node name="dice" parent="." unique_id=225259902 instance=ExtResource("1_5x8g4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003412664, 1.1920929e-07, -0.0049963593)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=399601682]
+shape = SubResource("BoxShape3D_ogn6l")
