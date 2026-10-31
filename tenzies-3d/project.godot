@@ -37,7 +37,7 @@ ui_accept={
 [physics]
 
 3d/physics_engine="Jolt Physics"
-3d/default_gravity=19.6
+3d/default_gravity=29.4
 
 [rendering]
 

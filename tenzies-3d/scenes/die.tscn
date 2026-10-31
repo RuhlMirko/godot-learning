@@ -13,6 +13,7 @@ rim = 0.0
 size = Vector3(2, 2, 2)
 
 [node name="Die" type="RigidBody3D" unique_id=617793010]
+mass = 2.0
 freeze = true
 script = ExtResource("1_hvcds")
 

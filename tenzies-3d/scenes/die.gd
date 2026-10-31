@@ -17,9 +17,16 @@ signal roll_finished(value)
 func _ready() -> void:
 	start_pos = global_position
 
+func _process(delta: float) -> void:
+	if sleeping:
+		print("Stoped moving")
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
+		
+		
 		roll()
+		
 
 func roll()->void:
 	reset_state()
@@ -44,6 +51,7 @@ func reset_state()->void:
 	linear_velocity = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
 
+# Calculate which dot has the highest Up value
 func get_top_face() -> int:
 	var highest_dot := -INF
 	var top_value := 0
