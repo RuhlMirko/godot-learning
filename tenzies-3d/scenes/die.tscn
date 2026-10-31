@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://vl2nkfuo688e" path="res://scenes/die.gd" id="1_hvcds"]
 [ext_resource type="Texture2D" uid="uid://bm7game2oeqoj" path="res://assets/textures/dice.png" id="3_kw4wr"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lbhrr"]
+bounce = 0.1
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnu2h"]
 albedo_texture = ExtResource("3_kw4wr")
 emission = Color(0.26, 0.26, 0.26, 1)
@@ -14,6 +17,7 @@ size = Vector3(2, 2, 2)
 
 [node name="Die" type="RigidBody3D" unique_id=617793010]
 mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_lbhrr")
 freeze = true
 script = ExtResource("1_hvcds")
 
