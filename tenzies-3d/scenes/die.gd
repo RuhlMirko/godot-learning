@@ -11,7 +11,7 @@ var faces: Dictionary = {
 	Vector3.RIGHT: 3,
 	Vector3.LEFT: 4
 }
-var rolling : bool
+var rolling : bool = false
 
 signal roll_finished(value)
 
@@ -23,11 +23,12 @@ func _ready() -> void:
 func _on_body_sleeping_state_changed() -> void:
 	if sleeping:
 		roll_finished.emit(get_top_face())
+		rolling = false
 	else:
 		print("Die is now awake") 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") and !rolling:
 		roll()
 		
 
@@ -38,6 +39,7 @@ func roll()->void:
 	var throw_vector = Vector3(randf_range(-1, 1), 0, randf_range(-1,1)).normalized()
 	angular_velocity = throw_vector * roll_strength / 2
 	apply_central_impulse(throw_vector * roll_strength)
+	rolling = true
 
 ## Generates random rotation from angle in radians to degrees - up to 360 deg in all axis
 func random_rotate_die()->void:

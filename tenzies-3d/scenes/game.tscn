@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://chrgesd1appd5" path="res://assets/textures/table-texture.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://b7g6j0vrb304" path="res://scenes/die.tscn" id="2_yqjtg"]
 [ext_resource type="Script" uid="uid://bs4b3l3dpj14m" path="res://scenes/camera_3d.gd" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c87s106rjcj2v" path="res://assets/meshes/book.glb" id="5_iywne"]
+[ext_resource type="Script" uid="uid://ysg51c5of81h" path="res://assets/meshes/book.gd" id="6_p57ef"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,6 +18,12 @@ sky_material = SubResource("ProceduralSkyMaterial_uwrxv")
 background_mode = 2
 sky = SubResource("Sky_yqjtg")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lbhrr"]
+bounce = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ogn6l"]
+size = Vector3(0.8465576, 6.2699585, 8.847168)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqjtg"]
 albedo_texture = ExtResource("2_lnu2h")
 emission = Color(0, 0.7607843, 0, 1)
@@ -24,13 +32,15 @@ texture_filter = 0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yqjtg"]
 data = PackedVector3Array(-1.0001, 0, 1, -1.2498, 0.0997, -0.987, -1.0001, 0, -1, -1.0001, 0, 1, -1.2414, 0.0962, 0.9478, -1.2498, 0.0997, -0.987, -1.0001, 0, 1, 0, 0, -1, 0, 0, 1, -1.0001, 0, 1, -1.0001, 0, -1, 0, 0, -1, 1, 0, 1, 0, 0, 1, 0, 0, -1, 1, 0, 1, 0, 0, -1, 1, 0, -1, -1.2414, 0.0962, 0.9478, -1.3672999, 0.21239999, -0.9723, -1.2498, 0.0997, -0.987, -1.2414, 0.0962, 0.9478, -1.3672999, 0.21239999, 0.8825, -1.3672999, 0.21239999, -0.9723, -1.3672999, 0.21239999, 0.8825, -1.37, 0.47, -1.01, -1.3672999, 0.21239999, -0.9723, -1.3672999, 0.21239999, 0.8825, -1.37, 0.47, 0.88, -1.37, 0.47, -1.01, 0, 0, -1, -1.0001, 0.21, -1.27, 0, 0.21599999, -1.226, 0, 0, -1, -1.0001, 0, -1, -1.0001, 0.21, -1.27, -1.0001, 0, -1, -1.2498, 0.0997, -0.987, -1.0001, 0.21, -1.27, -1.3672999, 0.21239999, -0.9723, -1.0001, 0.47, -1.27, -1.0001, 0.21, -1.27, -1.3672999, 0.21239999, -0.9723, -1.37, 0.47, -1.01, -1.0001, 0.47, -1.27, -1.0001, 0.21, -1.27, 0, 0.47, -1.3399999, 0, 0.21599999, -1.226, -1.0001, 0.21, -1.27, -1.0001, 0.47, -1.27, 0, 0.47, -1.3399999, -1.2498, 0.0997, -0.987, -1.3672999, 0.21239999, -0.9723, -1.0001, 0.21, -1.27, -1.3672999, 0.21239999, 0.8825, -2.0399, 0.47, 0.88, -1.37, 0.47, 0.88, -1.3672999, 0.21239999, 0.8825, -2.0372, 0.21239999, 0.8825, -2.0399, 0.47, 0.88, -1.2414, 0.0962, 0.9478, -2.0372, 0.21239999, 0.8825, -1.3672999, 0.21239999, 0.8825, -1.2414, 0.0962, 0.9478, -1.9113, 0.0962, 0.9478, -2.0372, 0.21239999, 0.8825, -1.0001, 0, 1, -1.9113, 0.0962, 0.9478, -1.2414, 0.0962, 0.9478, -1.0001, 0, 1, -1.6699, 0, 1, -1.9113, 0.0962, 0.9478, -1.37, 0.47, -1.01, -2.0399, 0.47, -1.5837, -1.37, 0.47, -1.6034, -1.37, 0.47, -1.01, -1.37, 0.47, 0.88, -2.0399, 0.47, -1.5837, -2.0399, 0.47, -1.5837, -1.37, 0.47, 0.88, -2.0399, 0.47, 0.88, -1.0001, 0.47, -1.27, -1.37, 0.47, -1.01, -1.37, 0.47, -1.6034, -1.0001, 0.47, -1.27, -1.37, 0.47, -1.6034, -1.0126, 0.47, -1.6025, 0, 0.47, -1.3399999, -1.0001, 0.47, -1.27, -1.0126, 0.47, -1.6025, 0, 0.47, -1.3399999, -1.0126, 0.47, -1.6025, 0, 0.47, -1.5999999, 0, 0.47, -1.3399999, 0, 0.47, -1.5999999, 1.0126, 0.47, -1.6025, 0, 0.47, -1.3399999, 1.0126, 0.47, -1.6025, 1, 0.47, -1.27, 1, 0.47, -1.27, 1.0126, 0.47, -1.6025, 1.37, 0.47, -1.6034, 1, 0.47, -1.27, 1.37, 0.47, -1.6034, 1.37, 0.47, -1.01, 1.37, 0.47, -1.01, 1.37, 0.47, -1.6034, 2.0399, 0.47, 0.88, 2.0399, 0.47, 0.88, 1.37, 0.47, -1.6034, 2.0399, 0.47, -1.5837, 1.37, 0.47, -1.01, 2.0399, 0.47, 0.88, 1.37, 0.47, 0.88, 1, 0, 1, 1.2497, 0.0997, -0.987, 1.2413, 0.0962, 0.9478, 1, 0, 1, 1, 0, -1, 1.2497, 0.0997, -0.987, 1.2413, 0.0962, 0.9478, 1.3672999, 0.21239999, -0.9723, 1.3672999, 0.21239999, 0.8825, 1.2413, 0.0962, 0.9478, 1.2497, 0.0997, -0.987, 1.3672999, 0.21239999, -0.9723, 1.3672999, 0.21239999, 0.8825, 1.37, 0.47, -1.01, 1.37, 0.47, 0.88, 1.3672999, 0.21239999, 0.8825, 1.3672999, 0.21239999, -0.9723, 1.37, 0.47, -1.01, 0, 0, -1, 1, 0.21, -1.27, 1, 0, -1, 0, 0, -1, 0, 0.21599999, -1.226, 1, 0.21, -1.27, 1, 0, -1, 1, 0.21, -1.27, 1.2497, 0.0997, -0.987, 1.3672999, 0.21239999, -0.9723, 1, 0.47, -1.27, 1.37, 0.47, -1.01, 1.3672999, 0.21239999, -0.9723, 1, 0.21, -1.27, 1, 0.47, -1.27, 1, 0.21, -1.27, 0, 0.47, -1.3399999, 1, 0.47, -1.27, 1, 0.21, -1.27, 0, 0.21599999, -1.226, 0, 0.47, -1.3399999, 1.2497, 0.0997, -0.987, 1, 0.21, -1.27, 1.3672999, 0.21239999, -0.9723, 1.3672999, 0.21239999, 0.8825, 2.0399, 0.47, 0.88, 2.0370998, 0.21239999, 0.8825, 1.3672999, 0.21239999, 0.8825, 1.37, 0.47, 0.88, 2.0399, 0.47, 0.88, 1.2413, 0.0962, 0.9478, 2.0370998, 0.21239999, 0.8825, 1.9111999, 0.0962, 0.9478, 1.2413, 0.0962, 0.9478, 1.3672999, 0.21239999, 0.8825, 2.0370998, 0.21239999, 0.8825, 1, 0, 1, 1.9111999, 0.0962, 0.9478, 1.6697999, 0, 1, 1, 0, 1, 1.2413, 0.0962, 0.9478, 1.9111999, 0.0962, 0.9478)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lbhrr"]
-bounce = 1.0
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ogn6l"]
-size = Vector3(0.8465576, 6.2699585, 8.847168)
+[sub_resource type="BoxShape3D" id="BoxShape3D_iywne"]
+size = Vector3(2, 2.7741075, 2)
 
 [node name="Game" type="Node3D" unique_id=699036569]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1020994465]
+transform = Transform3D(1, 0, 0, 0, 0.77382857, 0.6333951, 0, -0.6333951, 0.77382857, 0.042608738, 21.572182, 21.126047)
+fov = 63.6
+script = ExtResource("3_lbhrr")
 
 [node name="Lights" type="Node3D" parent="." unique_id=488611825]
 
@@ -53,43 +63,6 @@ light_energy = 10.609
 shadow_enabled = true
 omni_range = 20.0
 omni_attenuation = 1.74
-
-[node name="table" parent="." unique_id=1736134315 instance=ExtResource("1_uwrxv")]
-transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
-
-[node name="Plane" parent="table" index="0" unique_id=245616703]
-surface_material_override/0 = SubResource("StandardMaterial3D_yqjtg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="table" unique_id=948642166]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="table/StaticBody3D" unique_id=727687104]
-shape = SubResource("ConcavePolygonShape3D_yqjtg")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1020994465]
-transform = Transform3D(1, 0, 0, 0, 0.77382857, 0.6333951, 0, -0.6333951, 0.77382857, 0.042608738, 21.572182, 21.126047)
-fov = 63.6
-script = ExtResource("3_lbhrr")
-
-[node name="Dices" type="Node3D" parent="." unique_id=1160531637]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.931217, 9.48427)
-
-[node name="Die" parent="Dices" unique_id=617793010 instance=ExtResource("2_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4026318, -19.939404)
-
-[node name="Die2" parent="Dices" unique_id=1129967696 instance=ExtResource("2_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.212288, 3.6961231, -14.081017)
-
-[node name="Die3" parent="Dices" unique_id=82943692 instance=ExtResource("2_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.340763, -0.24574852, -13.977709)
-
-[node name="Die4" parent="Dices" unique_id=538179694 instance=ExtResource("2_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1976767, -1.0828686, -8.91737)
-
-[node name="Die5" parent="Dices" unique_id=240936412 instance=ExtResource("2_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.432871, 3.4277925, -14.370179)
-
-[node name="Die6" parent="Dices" unique_id=2070567497 instance=ExtResource("2_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99986184, -4.6232023, 1.0325756, -8.291723)
 
 [node name="InvisWalls" type="StaticBody3D" parent="." unique_id=107396200]
 physics_material_override = SubResource("PhysicsMaterial_lbhrr")
@@ -114,4 +87,76 @@ transform = Transform3D(-2.019466e-07, 0, 4.62, 0, 4.62, 0, -4.62, 0, -2.019466e
 shape = SubResource("BoxShape3D_ogn6l")
 debug_color = Color(0.6832107, 0.50119287, 0.08620962, 0.41960785)
 
+[node name="Dices" type="Node3D" parent="." unique_id=1160531637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.931217, 9.48427)
+
+[node name="Die" parent="Dices" unique_id=617793010 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4026318, -19.939404)
+
+[node name="Die2" parent="Dices" unique_id=1129967696 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.212288, 3.6961231, -14.081017)
+
+[node name="Die3" parent="Dices" unique_id=82943692 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.340763, -0.24574852, -13.977709)
+
+[node name="Die4" parent="Dices" unique_id=538179694 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1976767, -1.0828686, -8.91737)
+
+[node name="Die5" parent="Dices" unique_id=240936412 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.432871, 3.4277925, -14.370179)
+
+[node name="Die6" parent="Dices" unique_id=2070567497 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99986184, -4.6232023, 1.0325756, -8.291723)
+
+[node name="table" parent="." unique_id=1736134315 instance=ExtResource("1_uwrxv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="Plane" parent="table" index="0" unique_id=245616703]
+surface_material_override/0 = SubResource("StandardMaterial3D_yqjtg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="table" unique_id=948642166]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="table/StaticBody3D" unique_id=727687104]
+shape = SubResource("ConcavePolygonShape3D_yqjtg")
+
+[node name="RuleBook" parent="." unique_id=1630576376 instance=ExtResource("5_iywne")]
+transform = Transform3D(0.99690384, 0.07769816, -0.012069258, -0.07839296, 0.9940301, -0.07588877, 0.006100787, 0.07659995, 0.99704355, -24.612364, 8.404303, -12.264461)
+script = ExtResource("6_p57ef")
+
+[node name="StaticBody3D" type="Area3D" parent="RuleBook/Cube" parent_id_path=PackedInt32Array(1630576376, 1977539932) index="0" unique_id=1963705123]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RuleBook/Cube/StaticBody3D" unique_id=676299728]
+transform = Transform3D(1.0000001, -2.910383e-10, 0, 3.678724e-08, 0.99999994, 0, 4.656613e-10, 1.8626451e-09, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_iywne")
+
+[node name="ColorRect" type="ColorRect" parent="RuleBook" unique_id=1349323021]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13, 0.13, 0.13, 0.44313726)
+
+[node name="TextEdit" type="TextEdit" parent="RuleBook" unique_id=107246051]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 39.0
+offset_right = -39.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tenzi is a fast-paced dice game where the objective is to get all of your dice to show the same number.
+
+Tips:
+In your first roll identify the number that appears more often and commit to it, the timer starts when you select your first die
+
+"
+wrap_mode = 1
+autowrap_mode = 2
+
+[connection signal="mouse_entered" from="RuleBook/Cube/StaticBody3D" to="RuleBook" method="_on_static_body_3d_mouse_entered"]
+
 [editable path="table"]
+[editable path="RuleBook"]
