@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bykfvvy5ahyem" path="res://assets/meshes/table.glb" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://chrgesd1appd5" path="res://assets/textures/table-texture.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://b7g6j0vrb304" path="res://scenes/die.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://bs4b3l3dpj14m" path="res://scenes/camera_3d.gd" id="3_lbhrr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -52,12 +53,14 @@ shape = SubResource("ConcavePolygonShape3D_yqjtg")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1020994465]
 transform = Transform3D(1, 0, 0, 0, 0.7099494, 0.7042528, 0, -0.7042528, 0.7099494, 0.042608738, 21.572182, 21.126047)
-fov = 45.0
+fov = 63.6
+script = ExtResource("3_lbhrr")
 
 [node name="Die" parent="." unique_id=617793010 instance=ExtResource("2_yqjtg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.379014, 0)
 
 [node name="Area3D" type="StaticBody3D" parent="." unique_id=107396200]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=843824374]
 transform = Transform3D(4.62, 0, 0, 0, 4.62, 0, 0, 0, 4.62, 19.396309, 9.62, -2.31)
