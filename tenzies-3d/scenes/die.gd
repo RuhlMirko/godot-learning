@@ -1,5 +1,10 @@
 extends RigidBody3D
 
+# TODO: When clicking on die pass value to game scene
+# TODO: Make selected dice be displayed on the right side of table
+# TODO: Add background
+# TODO: Update table model and texture with higher poly
+
 
 var start_pos
 var roll_strength = 30
@@ -13,7 +18,7 @@ var faces: Dictionary = {
 }
 var rolling : bool = false
 
-signal roll_finished(value)
+
 
 func _ready() -> void:
 	start_pos = global_position
@@ -22,10 +27,7 @@ func _ready() -> void:
 
 func _on_body_sleeping_state_changed() -> void:
 	if sleeping:
-		roll_finished.emit(get_top_face())
 		rolling = false
-	else:
-		print("Die is now awake") 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") and !rolling:
@@ -67,3 +69,10 @@ func get_top_face() -> int:
 			highest_dot = dot
 			top_value = faces[normal]
 	return top_value
+
+
+func _on_area_mouse_entered() -> void:
+	print(get_top_face())
+	
+func _on_area_mouse_exit() -> void:
+	pass

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c3c2ntquunpqd"]
+
+[ext_resource type="Texture2D" uid="uid://tfv3p2ulsfpj" path="res://assets/meshes/book_book.png" id="1_kfte5"]
+
+[resource]
+albedo_texture = ExtResource("1_kfte5")
+emission = Color(0.34774193, 0.44057682, 0.118758224, 1)
+texture_filter = 0
