@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cvoqnjcqscha0"]
+
+[ext_resource type="Texture2D" uid="uid://bm7game2oeqoj" path="res://assets/textures/dice.png" id="1_5r7gh"]
+
+[resource]
+albedo_texture = ExtResource("1_5r7gh")
+emission_enabled = true
+emission = Color(0, 0.56, 0.16799997, 1)
+rim = 0.0

@@ -1,10 +1,15 @@
+class_name Die
 extends RigidBody3D
 
 # TODO: When clicking on die pass value to game scene
 # TODO: Make selected dice be displayed on the right side of table
 # TODO: Add background
 # TODO: Update table model and texture with higher poly
+signal selected_value(value)
 
+@onready var dice_mesh: MeshInstance3D = $dice/Dice
+const DICE_HIGHLIGHT_MAT = preload("uid://cvoqnjcqscha0")
+const DICE_OG_MAT = preload("uid://b5k8kggox4mij")
 
 var start_pos
 var roll_strength = 30
@@ -71,8 +76,16 @@ func get_top_face() -> int:
 	return top_value
 
 
+# Hover effects
 func _on_area_mouse_entered() -> void:
-	print(get_top_face())
-	
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	dice_mesh.material_override = DICE_HIGHLIGHT_MAT
 func _on_area_mouse_exit() -> void:
-	pass
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	dice_mesh.material_override = DICE_OG_MAT
+
+func _on_area_input_event(camera: Node,event: InputEvent,event_position: Vector3,normal: Vector3,shape_idx: int) -> void:
+	if event.is_action_pressed("select"):
+		
+		selected_value.emit(get_top_face())
+		
