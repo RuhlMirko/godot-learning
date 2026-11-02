@@ -97,7 +97,4 @@ func _on_area_input_event(camera: Node,event: InputEvent,event_position: Vector3
 		was_chosen = true
 		sleeping = true
 		freeze = true
-		print(get_top_face())
-		
 		selected_value.emit(get_top_face())
-		

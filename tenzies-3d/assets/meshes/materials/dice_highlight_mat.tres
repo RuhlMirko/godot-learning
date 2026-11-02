@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bm7game2oeqoj" path="res://assets/textures/dice.png" id="1_5r7gh"]
 
 [resource]
+diffuse_mode = 3
 albedo_texture = ExtResource("1_5r7gh")
 emission_enabled = true
 emission = Color(0, 0.56, 0.16799997, 1)

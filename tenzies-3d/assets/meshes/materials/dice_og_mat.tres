@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bm7game2oeqoj" path="res://assets/textures/dice.png" id="1_omri6"]
 
 [resource]
+diffuse_mode = 3
 albedo_texture = ExtResource("1_omri6")
 emission = Color(0.26, 0.26, 0.26, 1)
 rim = 0.0
