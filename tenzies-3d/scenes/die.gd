@@ -9,6 +9,7 @@ signal selected_value(value)
 
 @onready var dice_mesh: MeshInstance3D = $dice/Dice
 const DICE_HIGHLIGHT_MAT = preload("uid://cvoqnjcqscha0")
+const DICE_ANCHOR_MAT = preload("uid://dj2an4ci2faui")
 const DICE_OG_MAT = preload("uid://b5k8kggox4mij")
 
 var start_pos
@@ -22,7 +23,7 @@ var faces: Dictionary = {
 	Vector3.LEFT: 4
 }
 var rolling : bool = false
-
+var was_chosen = false
 
 
 func _ready() -> void:
@@ -35,7 +36,7 @@ func _on_body_sleeping_state_changed() -> void:
 		rolling = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept") and !rolling:
+	if event.is_action_pressed("ui_accept") and !rolling and !was_chosen:
 		roll()
 		
 
@@ -79,13 +80,24 @@ func get_top_face() -> int:
 # Hover effects
 func _on_area_mouse_entered() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-	dice_mesh.material_override = DICE_HIGHLIGHT_MAT
+	if was_chosen:
+		dice_mesh.material_override = DICE_ANCHOR_MAT
+	else:
+		dice_mesh.material_override = DICE_HIGHLIGHT_MAT
 func _on_area_mouse_exit() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-	dice_mesh.material_override = DICE_OG_MAT
+	
+	if was_chosen:
+		dice_mesh.material_override = DICE_ANCHOR_MAT
+	else:
+		dice_mesh.material_override = DICE_OG_MAT
 
 func _on_area_input_event(camera: Node,event: InputEvent,event_position: Vector3,normal: Vector3,shape_idx: int) -> void:
-	if event.is_action_pressed("select"):
+	if event.is_action_pressed("select") and !was_chosen:
+		was_chosen = true
+		sleeping = true
+		freeze = true
+		print(get_top_face())
 		
 		selected_value.emit(get_top_face())
 		
