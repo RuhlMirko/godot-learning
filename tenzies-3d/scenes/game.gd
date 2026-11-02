@@ -10,7 +10,7 @@ var timer_running : bool = false
 func _on_die_selected_value(value: Variant) -> void:
 	selected_dice.push_back(value)
 	print(selected_dice)
-	if selected_dice.size() > 0:
+	if selected_dice.size() > 0 and !timer_running:
 		timer_running = true
 		print("Timer start")
 	if selected_dice.size() == 10:
@@ -20,7 +20,8 @@ func _on_die_selected_value(value: Variant) -> void:
 
 # Check if dices are the same number, multiply by remaining time left
 func check_dices()->void:
-	pass
+	var all_same_face : bool = selected_dice.all(func(e): return e == selected_dice[0])  
+	print("All same face: ",all_same_face) 
 
 # Game stopwatch
 func _process(delta):
