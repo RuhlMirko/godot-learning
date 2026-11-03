@@ -13,7 +13,7 @@ config_version=5
 config/name="Tenzies-3d"
 run/main_scene="uid://dogsvm7m1bato"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://1lb3nsr3o8la"
 
 [display]
 
