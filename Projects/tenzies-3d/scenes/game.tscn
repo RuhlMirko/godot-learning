@@ -1,0 +1,393 @@
+[gd_scene format=3 uid="uid://b4tl3ajq62es1"]
+
+[ext_resource type="PackedScene" uid="uid://bykfvvy5ahyem" path="res://assets/meshes/table.glb" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://tiih0vu031s7" path="res://scenes/game.gd" id="1_vtaks"]
+[ext_resource type="Texture2D" uid="uid://chrgesd1appd5" path="res://assets/textures/table-texture.png" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://b7g6j0vrb304" path="res://scenes/die.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://bs4b3l3dpj14m" path="res://scenes/camera_3d.gd" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c87s106rjcj2v" path="res://assets/meshes/book.glb" id="5_iywne"]
+[ext_resource type="Script" uid="uid://sqrqhity1tg3" path="res://scenes/book.gd" id="6_p57ef"]
+[ext_resource type="FontFile" uid="uid://bi8pcnv0buqy0" path="res://assets/fonts/prstartk.ttf" id="7_gee14"]
+[ext_resource type="FontFile" uid="uid://lfuwrldc1jop" path="res://assets/fonts/PrStart.ttf" id="8_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://j15le6wlq45p" path="res://assets/textures/keybinds.png" id="9_0tnpc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_yqjtg"]
+sky_material = SubResource("ProceduralSkyMaterial_uwrxv")
+
+[sub_resource type="Environment" id="Environment_lnu2h"]
+background_mode = 2
+sky = SubResource("Sky_yqjtg")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lbhrr"]
+bounce = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ogn6l"]
+size = Vector3(0.8465576, 6.2699585, 8.847168)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqjtg"]
+albedo_texture = ExtResource("2_lnu2h")
+emission = Color(0, 0.7607843, 0, 1)
+texture_filter = 0
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yqjtg"]
+data = PackedVector3Array(-1.0001, 0, 1, -1.2498, 0.0997, -0.987, -1.0001, 0, -1, -1.0001, 0, 1, -1.2414, 0.0962, 0.9478, -1.2498, 0.0997, -0.987, -1.0001, 0, 1, 0, 0, -1, 0, 0, 1, -1.0001, 0, 1, -1.0001, 0, -1, 0, 0, -1, 1, 0, 1, 0, 0, 1, 0, 0, -1, 1, 0, 1, 0, 0, -1, 1, 0, -1, -1.2414, 0.0962, 0.9478, -1.3672999, 0.21239999, -0.9723, -1.2498, 0.0997, -0.987, -1.2414, 0.0962, 0.9478, -1.3672999, 0.21239999, 0.8825, -1.3672999, 0.21239999, -0.9723, -1.3672999, 0.21239999, 0.8825, -1.37, 0.47, -1.01, -1.3672999, 0.21239999, -0.9723, -1.3672999, 0.21239999, 0.8825, -1.37, 0.47, 0.88, -1.37, 0.47, -1.01, 0, 0, -1, -1.0001, 0.21, -1.27, 0, 0.21599999, -1.226, 0, 0, -1, -1.0001, 0, -1, -1.0001, 0.21, -1.27, -1.0001, 0, -1, -1.2498, 0.0997, -0.987, -1.0001, 0.21, -1.27, -1.3672999, 0.21239999, -0.9723, -1.0001, 0.47, -1.27, -1.0001, 0.21, -1.27, -1.3672999, 0.21239999, -0.9723, -1.37, 0.47, -1.01, -1.0001, 0.47, -1.27, -1.0001, 0.21, -1.27, 0, 0.47, -1.3399999, 0, 0.21599999, -1.226, -1.0001, 0.21, -1.27, -1.0001, 0.47, -1.27, 0, 0.47, -1.3399999, -1.2498, 0.0997, -0.987, -1.3672999, 0.21239999, -0.9723, -1.0001, 0.21, -1.27, -1.3672999, 0.21239999, 0.8825, -2.0399, 0.47, 0.88, -1.37, 0.47, 0.88, -1.3672999, 0.21239999, 0.8825, -2.0372, 0.21239999, 0.8825, -2.0399, 0.47, 0.88, -1.2414, 0.0962, 0.9478, -2.0372, 0.21239999, 0.8825, -1.3672999, 0.21239999, 0.8825, -1.2414, 0.0962, 0.9478, -1.9113, 0.0962, 0.9478, -2.0372, 0.21239999, 0.8825, -1.0001, 0, 1, -1.9113, 0.0962, 0.9478, -1.2414, 0.0962, 0.9478, -1.0001, 0, 1, -1.6699, 0, 1, -1.9113, 0.0962, 0.9478, -1.37, 0.47, -1.01, -2.0399, 0.47, -1.5837, -1.37, 0.47, -1.6034, -1.37, 0.47, -1.01, -1.37, 0.47, 0.88, -2.0399, 0.47, -1.5837, -2.0399, 0.47, -1.5837, -1.37, 0.47, 0.88, -2.0399, 0.47, 0.88, -1.0001, 0.47, -1.27, -1.37, 0.47, -1.01, -1.37, 0.47, -1.6034, -1.0001, 0.47, -1.27, -1.37, 0.47, -1.6034, -1.0126, 0.47, -1.6025, 0, 0.47, -1.3399999, -1.0001, 0.47, -1.27, -1.0126, 0.47, -1.6025, 0, 0.47, -1.3399999, -1.0126, 0.47, -1.6025, 0, 0.47, -1.5999999, 0, 0.47, -1.3399999, 0, 0.47, -1.5999999, 1.0126, 0.47, -1.6025, 0, 0.47, -1.3399999, 1.0126, 0.47, -1.6025, 1, 0.47, -1.27, 1, 0.47, -1.27, 1.0126, 0.47, -1.6025, 1.37, 0.47, -1.6034, 1, 0.47, -1.27, 1.37, 0.47, -1.6034, 1.37, 0.47, -1.01, 1.37, 0.47, -1.01, 1.37, 0.47, -1.6034, 2.0399, 0.47, 0.88, 2.0399, 0.47, 0.88, 1.37, 0.47, -1.6034, 2.0399, 0.47, -1.5837, 1.37, 0.47, -1.01, 2.0399, 0.47, 0.88, 1.37, 0.47, 0.88, 1, 0, 1, 1.2497, 0.0997, -0.987, 1.2413, 0.0962, 0.9478, 1, 0, 1, 1, 0, -1, 1.2497, 0.0997, -0.987, 1.2413, 0.0962, 0.9478, 1.3672999, 0.21239999, -0.9723, 1.3672999, 0.21239999, 0.8825, 1.2413, 0.0962, 0.9478, 1.2497, 0.0997, -0.987, 1.3672999, 0.21239999, -0.9723, 1.3672999, 0.21239999, 0.8825, 1.37, 0.47, -1.01, 1.37, 0.47, 0.88, 1.3672999, 0.21239999, 0.8825, 1.3672999, 0.21239999, -0.9723, 1.37, 0.47, -1.01, 0, 0, -1, 1, 0.21, -1.27, 1, 0, -1, 0, 0, -1, 0, 0.21599999, -1.226, 1, 0.21, -1.27, 1, 0, -1, 1, 0.21, -1.27, 1.2497, 0.0997, -0.987, 1.3672999, 0.21239999, -0.9723, 1, 0.47, -1.27, 1.37, 0.47, -1.01, 1.3672999, 0.21239999, -0.9723, 1, 0.21, -1.27, 1, 0.47, -1.27, 1, 0.21, -1.27, 0, 0.47, -1.3399999, 1, 0.47, -1.27, 1, 0.21, -1.27, 0, 0.21599999, -1.226, 0, 0.47, -1.3399999, 1.2497, 0.0997, -0.987, 1, 0.21, -1.27, 1.3672999, 0.21239999, -0.9723, 1.3672999, 0.21239999, 0.8825, 2.0399, 0.47, 0.88, 2.0370998, 0.21239999, 0.8825, 1.3672999, 0.21239999, 0.8825, 1.37, 0.47, 0.88, 2.0399, 0.47, 0.88, 1.2413, 0.0962, 0.9478, 2.0370998, 0.21239999, 0.8825, 1.9111999, 0.0962, 0.9478, 1.2413, 0.0962, 0.9478, 1.3672999, 0.21239999, 0.8825, 2.0370998, 0.21239999, 0.8825, 1, 0, 1, 1.9111999, 0.0962, 0.9478, 1.6697999, 0, 1, 1, 0, 1, 1.2413, 0.0962, 0.9478, 1.9111999, 0.0962, 0.9478)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gee14"]
+size = Vector3(12, 2, 16)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipuy6"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ogn6l"]
+font = ExtResource("7_gee14")
+font_size = 12
+outline_size = 3
+outline_color = Color(0, 0, 0, 0.7372549)
+
+[sub_resource type="FontVariation" id="FontVariation_3dgon"]
+base_font = ExtResource("8_0tnpc")
+variation_transform = Transform2D(1, 0.43, 0, 1, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ipuy6"]
+font = SubResource("FontVariation_3dgon")
+font_size = 24
+outline_size = 5
+outline_color = Color(0.20690002, 0.3, 0.186, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtaks"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.020999998, 0.020999998, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Restart:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kvpfn"]
+resource_name = "round_over"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Restart:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 8.282119, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.39607844), Color(1, 1, 1, 0.39607844), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dinhu"]
+_data = {
+&"RESET": SubResource("Animation_vtaks"),
+&"round_over": SubResource("Animation_kvpfn")
+}
+
+[node name="Game" type="Node3D" unique_id=699036569]
+script = ExtResource("1_vtaks")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1020994465]
+transform = Transform3D(1, 0, 0, 0, 0.77382857, 0.6333951, 0, -0.6333951, 0.77382857, 0.042608738, 21.572182, 21.126047)
+fov = 63.6
+script = ExtResource("3_lbhrr")
+
+[node name="Lights" type="Node3D" parent="." unique_id=488611825]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lights" unique_id=1048763709]
+environment = SubResource("Environment_lnu2h")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" unique_id=1937671560]
+transform = Transform3D(-0.9396926, -0.32139385, 0.11697781, 0, 0.34202015, 0.9396926, -0.3420202, 0.8830222, -0.32139382, 0, 39.796944, -379.32867)
+light_color = Color(0.57254905, 1, 0.5921569, 1)
+light_energy = 0.1
+light_bake_mode = 1
+shadow_enabled = true
+directional_shadow_fade_start = 0.316
+sky_mode = 1
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=729567200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8702097, 1.8433018)
+light_color = Color(0.9788044, 0.983048, 0.7571235, 1)
+light_energy = 10.609
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 20.0
+omni_attenuation = 1.74
+
+[node name="InvisWalls" type="StaticBody3D" parent="." unique_id=107396200]
+visible = false
+physics_material_override = SubResource("PhysicsMaterial_lbhrr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisWalls" unique_id=843824374]
+transform = Transform3D(4.62, 0, 0, 0, 4.62, 0, 0, 0, 4.62, 18.443026, 15.655151, -2.31)
+shape = SubResource("BoxShape3D_ogn6l")
+debug_color = Color(0.6832107, 0.50119287, 0.08620962, 0.41960785)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="InvisWalls" unique_id=1478300]
+transform = Transform3D(4.62, 0, 0, 0, 4.62, 0, 0, 0, 4.62, -18.569063, 15.74735, -1.669179)
+shape = SubResource("BoxShape3D_ogn6l")
+debug_color = Color(0.6832107, 0.50119287, 0.08620962, 0.41960785)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="InvisWalls" unique_id=697966564]
+transform = Transform3D(-2.019466e-07, 0, 4.62, 0, 4.62, 0, -4.62, 0, -2.019466e-07, 1.2987814, 15.74735, -17.44604)
+shape = SubResource("BoxShape3D_ogn6l")
+debug_color = Color(0.6832107, 0.50119287, 0.08620962, 0.41960785)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="InvisWalls" unique_id=1407236772]
+transform = Transform3D(-2.019466e-07, 0, 4.62, 0, 4.62, 0, -4.62, 0, -2.019466e-07, -0.5585209, 15.237866, 13.865908)
+shape = SubResource("BoxShape3D_ogn6l")
+debug_color = Color(0.6832107, 0.50119287, 0.08620962, 0.41960785)
+
+[node name="Dices" type="Node3D" parent="." unique_id=1160531637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.931217, 9.48427)
+
+[node name="Die" parent="Dices" unique_id=617793010 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4026318, -19.939404)
+
+[node name="Die2" parent="Dices" unique_id=1129967696 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.212288, 3.6961231, -14.081017)
+
+[node name="Die3" parent="Dices" unique_id=82943692 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.340763, -0.24574852, -13.977709)
+
+[node name="Die4" parent="Dices" unique_id=538179694 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.381691, -1.0828686, -7.1072874)
+
+[node name="Die5" parent="Dices" unique_id=240936412 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.432871, 3.4277925, -14.370179)
+
+[node name="Die6" parent="Dices" unique_id=2070567497 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99986184, -4.6232023, 1.0325756, -8.291723)
+
+[node name="Die7" parent="Dices" unique_id=1326426908 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99986184, -9.585787, 2.9406815, -5.451741)
+
+[node name="Die8" parent="Dices" unique_id=1546412487 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99986184, -2.6357074, 2.9406815, -13.234004)
+
+[node name="Die9" parent="Dices" unique_id=1512270122 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99986184, 6.503705, 1.1612501, -20.106422)
+
+[node name="Die10" parent="Dices" unique_id=851970860 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99986184, -7.448942, 1.1612501, -20.460064)
+
+[node name="table" parent="." unique_id=1736134315 instance=ExtResource("1_uwrxv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="Plane" parent="table" index="0" unique_id=245616703]
+surface_material_override/0 = SubResource("StandardMaterial3D_yqjtg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="table" unique_id=948642166]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="table/StaticBody3D" unique_id=727687104]
+shape = SubResource("ConcavePolygonShape3D_yqjtg")
+
+[node name="RuleBook" parent="." unique_id=1630576376 instance=ExtResource("5_iywne")]
+transform = Transform3D(0.99690384, 0.07769816, -0.012069258, -0.07839296, 0.9940301, -0.07588877, 0.006100787, 0.07659995, 0.99704355, -24.612364, 8.404303, -12.264461)
+
+[node name="Area3D" type="Area3D" parent="RuleBook" unique_id=1422871756]
+transform = Transform3D(1, -2.4612314e-09, 8.560805e-10, 2.4612314e-09, 1, 4.6508408e-18, -8.560805e-10, -2.5438285e-18, 1, 0, 0, 0)
+script = ExtResource("6_p57ef")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RuleBook/Area3D" unique_id=1652049176]
+transform = Transform3D(0.99999994, -2.1827873e-09, 0, 6.9849193e-09, 1.0000001, -2.9802322e-08, 0, -1.8626451e-09, 1, -4.7683716e-07, -0.0012540817, 0.004046917)
+shape = SubResource("BoxShape3D_gee14")
+
+[node name="RulesOverlay" type="CanvasLayer" parent="." unique_id=1279178896]
+
+[node name="Panel" type="Panel" parent="RulesOverlay" unique_id=1400290504]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="RulesOverlay/Panel" unique_id=1349323021]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.11, 0.09826667, 0.0396, 0.8352941)
+
+[node name="Label" type="Label" parent="RulesOverlay/Panel" unique_id=1579008433]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ipuy6")
+text = "This is a fast-paced dice game where the objective is to get all of your dice to show the same number.
+
+Tips:
+In your first roll identify the number that appears more often and commit to it, the timer starts when you select your first die.
+
+"
+label_settings = SubResource("LabelSettings_ogn6l")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="RulesOverlay/Panel" unique_id=1954496407]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = 49.0
+offset_right = 248.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "¡¡Good Luck rolling!!"
+label_settings = SubResource("LabelSettings_ipuy6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="RulesOverlay/Panel" unique_id=194063180]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 55.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("8_0tnpc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vtaks")
+text = "EXIT"
+
+[node name="ControlsHints" type="CanvasLayer" parent="." unique_id=723400222]
+
+[node name="TextureRect" type="TextureRect" parent="ControlsHints" unique_id=1255041140]
+offset_left = 434.0
+offset_top = 288.0
+offset_right = 572.0
+offset_bottom = 320.0
+texture = ExtResource("9_0tnpc")
+stretch_mode = 2
+
+[node name="RoundTimerLabel" type="Label" parent="ControlsHints" unique_id=604187238]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.0
+offset_top = 22.0
+offset_right = 21.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_0tnpc")
+text = "00:00"
+
+[node name="RoundOver" type="Control" parent="ControlsHints" unique_id=884536116]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="ControlsHints/RoundOver" unique_id=685572041]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 14.409
+anchor_bottom = 8.190001
+offset_left = 99.0
+offset_top = 100.0
+offset_right = -98.359985
+offset_bottom = -57.600037
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Score" type="Label" parent="ControlsHints/RoundOver" unique_id=1756828288]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 210.5
+offset_top = 116.5
+offset_right = 325.5
+offset_bottom = 167.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("8_0tnpc")
+theme_override_font_sizes/font_size = 23
+text = "SCORE
+0000"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Restart" type="Label" parent="ControlsHints/RoundOver" unique_id=132702705]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 214.0
+offset_right = 455.0
+offset_bottom = 237.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("8_0tnpc")
+text = "Press \"R\" to restart"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlsHints/RoundOver" unique_id=739027324]
+libraries/ = SubResource("AnimationLibrary_dinhu")
+autoplay = &"round_over"
+
+[connection signal="selected_value" from="Dices/Die" to="." method="_on_die_selected_value"]
+[connection signal="selected_value" from="Dices/Die2" to="." method="_on_die_selected_value"]
+[connection signal="selected_value" from="Dices/Die3" to="." method="_on_die_selected_value"]
+[connection signal="selected_value" from="Dices/Die4" to="." method="_on_die_selected_value"]
+[connection signal="selected_value" from="Dices/Die5" to="." method="_on_die_selected_value"]
+[connection signal="selected_value" from="Dices/Die6" to="." method="_on_die_selected_value"]
+[connection signal="selected_value" from="Dices/Die7" to="." method="_on_die_selected_value"]
+[connection signal="selected_value" from="Dices/Die8" to="." method="_on_die_selected_value"]
+[connection signal="selected_value" from="Dices/Die9" to="." method="_on_die_selected_value"]
+[connection signal="selected_value" from="Dices/Die10" to="." method="_on_die_selected_value"]
+[connection signal="mouse_entered" from="RuleBook/Area3D" to="RuleBook/Area3D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="RuleBook/Area3D" to="RuleBook/Area3D" method="_on_mouse_exited"]
+[connection signal="pressed" from="RulesOverlay/Panel/Button" to="." method="_on_book_overlay_close_pressed"]
+
+[editable path="table"]
+[editable path="RuleBook"]
