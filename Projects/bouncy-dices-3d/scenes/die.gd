@@ -106,5 +106,6 @@ func _on_area_input_event(_camera: Node,event: InputEvent,_event_position: Vecto
 		selected_value.emit(get_top_face())
 
 
-func _on_body_collision(_body: Node) -> void:
-	die_hit.play()
+func _on_body_collision(body: Node) -> void:
+	if body != Die:
+		die_hit.play()
