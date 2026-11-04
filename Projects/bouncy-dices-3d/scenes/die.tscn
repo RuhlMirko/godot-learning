@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bogi67o8jry8u" path="res://assets/meshes/dice.glb" id="1_5x8g4"]
 [ext_resource type="Script" uid="uid://vl2nkfuo688e" path="res://scenes/die.gd" id="1_hvcds"]
 [ext_resource type="Material" uid="uid://b5k8kggox4mij" path="res://assets/meshes/materials/dice_og_mat.tres" id="3_kw4wr"]
+[ext_resource type="AudioStream" uid="uid://bjipqy7sbiek" path="res://assets/audio/die-hit.ogg" id="4_e5bsa"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lbhrr"]
 bounce = 0.1
@@ -32,6 +33,12 @@ debug_color = Color(0.89180905, 0.30024874, 0.3248853, 0.41960785)
 
 [node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=399601682]
 shape = SubResource("BoxShape3D_ogn6l")
+
+[node name="DieHit" type="AudioStreamPlayer3D" parent="." unique_id=1243847209]
+stream = ExtResource("4_e5bsa")
+volume_db = -9.73
+pitch_scale = 0.64
+autoplay = true
 
 [connection signal="input_event" from="Area3D" to="." method="_on_area_input_event"]
 [connection signal="mouse_entered" from="Area3D" to="." method="_on_area_mouse_entered"]

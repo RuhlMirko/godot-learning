@@ -7,6 +7,7 @@ extends RigidBody3D
 # TODO: Update table model and texture with higher poly
 signal selected_value(value)
 
+@onready var die_hit: AudioStreamPlayer3D = $DieHit
 @onready var dice_mesh: MeshInstance3D = $dice/Dice
 const DICE_HIGHLIGHT_MAT = preload("uid://cvoqnjcqscha0")
 const DICE_ANCHOR_MAT = preload("uid://dj2an4ci2faui")
@@ -30,6 +31,11 @@ func _ready() -> void:
 	start_pos = global_position
 	sleeping_state_changed.connect(_on_body_sleeping_state_changed)
 	roll()
+	# Enable collision monitoring
+	contact_monitor = true
+	max_contacts_reported = 10
+	# Connect the signal
+	body_entered.connect(_on_body_collision)
 
 func _on_body_sleeping_state_changed() -> void:
 	if sleeping:
@@ -92,9 +98,13 @@ func _on_area_mouse_exit() -> void:
 	else:
 		dice_mesh.material_override = DICE_OG_MAT
 
-func _on_area_input_event(camera: Node,event: InputEvent,event_position: Vector3,normal: Vector3,shape_idx: int) -> void:
-	if event.is_action_pressed("select") and !was_chosen:
+func _on_area_input_event(_camera: Node,event: InputEvent,_event_position: Vector3,_normal: Vector3,_shape_idx: int) -> void:
+	if event.is_action_pressed("select") and !was_chosen and !rolling:
 		was_chosen = true
 		sleeping = true
 		freeze = true
 		selected_value.emit(get_top_face())
+
+
+func _on_body_collision(_body: Node) -> void:
+	die_hit.play()
