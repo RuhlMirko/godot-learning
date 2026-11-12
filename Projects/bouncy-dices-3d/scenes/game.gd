@@ -43,7 +43,7 @@ func check_dices()->void:
 			high_score_lbl.text = "High Score:\n" + str(high_score)
 		round_over_score_lbl.text = "Score:\n" + str(curr_score)
 	else:
-		round_over_score_lbl.text = "Score:\n " + str(int(0))
+		round_over_score_lbl.text = "All Faces\nmust match"
 		
 
 # Game stopwatch
