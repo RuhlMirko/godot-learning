@@ -10,11 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://cjjdp73x1kumt" path="res://assets/meshes/table_table-texture.png" id="5_trtic"]
 [ext_resource type="PackedScene" uid="uid://cgihr8kb6gy24" path="res://assets/meshes/receipt.glb" id="6_ir15t"]
 [ext_resource type="Script" uid="uid://sqrqhity1tg3" path="res://scenes/book.gd" id="6_p57ef"]
-[ext_resource type="Script" uid="uid://dtgl3adrr2fxc" path="res://scenes/receipt.gd" id="7_ca42v"]
+[ext_resource type="Script" uid="uid://cnpohryqtamvt" path="res://scenes/receipt.gd" id="7_ca42v"]
 [ext_resource type="FontFile" uid="uid://bi8pcnv0buqy0" path="res://assets/fonts/prstartk.ttf" id="7_gee14"]
 [ext_resource type="Material" uid="uid://c3c2ntquunpqd" path="res://assets/meshes/materials/book_og_mat.tres" id="7_kvuet"]
 [ext_resource type="FontFile" uid="uid://lfuwrldc1jop" path="res://assets/fonts/PrStart.ttf" id="8_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://j15le6wlq45p" path="res://assets/textures/keybinds.png" id="9_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://b6utehfkgw5gi" path="res://assets/audio/uncork.wav" id="9_5newe"]
 [ext_resource type="LabelSettings" uid="uid://cgjfdiv8ne6r0" path="res://assets/fonts/new_label_settings.tres" id="9_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dpcxdcqqmdk43" path="res://assets/textures/casino-border.png" id="12_dinhu"]
 [ext_resource type="AudioStream" uid="uid://dsdyp8jkmxtc7" path="res://assets/audio/card-fan-1.ogg" id="13_5newe"]
@@ -172,7 +173,7 @@ shadow_offset = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ipuy6"]
 font = ExtResource("7_gee14")
-font_size = 12
+font_size = 9
 outline_size = 12
 outline_color = Color(0.05332891, 4.9902563e-05, 0.11013126, 1)
 
@@ -320,6 +321,9 @@ script = ExtResource("7_ca42v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/receipt/Area3D" unique_id=675259756]
 transform = Transform3D(0.45398718, 0, -0.4949432, 0, 1, 0, 0.25859272, 0, 0.86892533, -0.3637433, 1.7320364, 0.008802414)
 shape = SubResource("BoxShape3D_rysoc")
+
+[node name="ReceiptAudio" type="AudioStreamPlayer2D" parent="Enviroment/receipt" unique_id=112682137]
+stream = ExtResource("9_5newe")
 
 [node name="RuleBook" parent="." unique_id=1630576376 instance=ExtResource("5_iywne")]
 transform = Transform3D(0.99690384, 0.07769816, -0.012069258, -0.07839296, 0.9940301, -0.07588877, 0.006100787, 0.07659995, 0.99704355, -23.008907, 7.1536026, -12.264461)
@@ -548,34 +552,54 @@ offset_bottom = 327.0
 texture = ExtResource("14_trtic")
 
 [node name="Label" type="Label" parent="Credits" unique_id=1210864162]
-offset_left = 47.0
-offset_top = 94.0
-offset_right = 527.0
-offset_bottom = 299.0
+offset_left = 27.0
+offset_top = 47.0
+offset_right = 507.0
+offset_bottom = 252.0
 text = "Assets and textures:
-Mirko Ruhl
+Mirko Ruhl (CC-BY 4.0)
 
 Music:
 Matthew Pablo (CC-BY 3.0)
-https://opengameart.org/content/
-a-cloudy-morning-jazz
+https://opengameart.org/content/a-cloudy-morning-jazz
 
+Sound Effects:
+Kenney (CC0)
+https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips
 
 
 For more information check out the repo 
 on github:
 Read LICENCE.md and CREDITS.md"
 label_settings = SubResource("LabelSettings_ipuy6")
+autowrap_mode = 2
 
 [node name="Title" type="Label" parent="Credits" unique_id=138711262]
-offset_left = 63.0
-offset_top = 27.0
-offset_right = 496.0
-offset_bottom = 66.0
+offset_left = 70.0
+offset_top = 6.0
+offset_right = 503.0
+offset_bottom = 45.0
 text = "CREDITS"
 label_settings = SubResource("LabelSettings_3dgon")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Credits" unique_id=838321332]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -41.0
+offset_right = 58.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("20_1kice")
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("8_0tnpc")
+text = "EXIT"
 
 [connection signal="selected_value" from="Dices/Die" to="." method="_on_die_selected_value"]
 [connection signal="selected_value" from="Dices/Die2" to="." method="_on_die_selected_value"]
@@ -592,6 +616,7 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="RuleBook/Area3D" to="RuleBook/Area3D" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="RuleBook/Area3D" to="RuleBook/Area3D" method="_on_mouse_exited"]
 [connection signal="pressed" from="RulesOverlay/Panel/Button" to="." method="_on_book_overlay_close_pressed"]
+[connection signal="pressed" from="Credits/Button" to="." method="_on_credit_exit_pressed"]
 
 [editable path="Enviroment/bg"]
 [editable path="Enviroment/table"]

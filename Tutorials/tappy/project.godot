@@ -11,10 +11,10 @@ config_version=5
 [application]
 
 config/name="Tappy"
+config/tags=PackedStringArray("learning", "udemy")
 run/main_scene="uid://cg0767yigyres"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="uid://ba7abb8soymoa"
-config/tags=PackedStringArray("learning", "udemy")
 
 [autoload]
 

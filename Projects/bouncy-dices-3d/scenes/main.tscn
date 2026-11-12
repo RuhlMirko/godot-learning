@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://dogsvm7m1bato"]
 
-[ext_resource type="PackedScene" uid="uid://b4tl3ajq62es1" path="res://scenes/game.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://dt000kku54m5b" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="AudioStream" uid="uid://ce5wul55mq0v4" path="res://assets/audio/A Cloudy Morning (2012).mp3" id="2_0wfyh"]
 
 [node name="Main" type="Node3D" unique_id=2114891557]
-
-[node name="Game" parent="." unique_id=699036569 instance=ExtResource("1_o5qli")]
+script = ExtResource("1_sugp2")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=964331537]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.700096, 15.351128, 27.805279)
