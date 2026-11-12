@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b18bohru2i57k"]
+
+[ext_resource type="Texture2D" uid="uid://covuyloi63fb4" path="res://assets/meshes/receipt_receipt.png" id="1_1jxbr"]
+
+[resource]
+albedo_texture = ExtResource("1_1jxbr")
+texture_filter = 0

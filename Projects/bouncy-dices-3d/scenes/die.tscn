@@ -35,6 +35,7 @@ debug_color = Color(0.89180905, 0.30024874, 0.3248853, 0.41960785)
 shape = SubResource("BoxShape3D_ogn6l")
 
 [node name="DieHit" type="AudioStreamPlayer3D" parent="." unique_id=1243847209]
+visible = false
 stream = ExtResource("4_e5bsa")
 volume_db = -9.73
 pitch_scale = 0.64

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://fpqw2kp3n3uj"]
+
+[ext_resource type="Texture2D" uid="uid://covuyloi63fb4" path="res://assets/meshes/receipt_receipt.png" id="1_yvjaw"]
+
+[resource]
+albedo_texture = ExtResource("1_yvjaw")
+emission_enabled = true
+emission = Color(0.42, 0.287, 0, 1)
+texture_filter = 0

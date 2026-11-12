@@ -5,6 +5,7 @@ extends Area3D
 
 @onready var book_mesh : MeshInstance3D = $"../Book"
 @onready var controls_hints: CanvasLayer = $"../../ControlsHints"
+@onready var book_audio: AudioStreamPlayer2D = $"../BookAudio"
 const BOOK_OG_MAT = preload("uid://c3c2ntquunpqd")
 const HIGHLIGHT_MAT = preload("uid://bqp25x12cdnel")
 
@@ -13,6 +14,7 @@ func _input_event(_camera, event, _pos, _normal, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		panel.visible = !panel.visible
 		controls_hints.visible = false
+		book_audio.play()
 
 func _on_mouse_entered():
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)

@@ -4,17 +4,23 @@
 [ext_resource type="Script" uid="uid://tiih0vu031s7" path="res://scenes/game.gd" id="1_vtaks"]
 [ext_resource type="PackedScene" uid="uid://b7g6j0vrb304" path="res://scenes/die.tscn" id="2_yqjtg"]
 [ext_resource type="Script" uid="uid://bs4b3l3dpj14m" path="res://scenes/camera_3d.gd" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c65tecng5att0" path="res://assets/meshes/bg.glb" id="4_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://j87xlo2ts4nr" path="res://assets/meshes/bg_bg-low.png" id="5_264po"]
 [ext_resource type="PackedScene" uid="uid://c87s106rjcj2v" path="res://assets/meshes/book.glb" id="5_iywne"]
 [ext_resource type="Texture2D" uid="uid://cjjdp73x1kumt" path="res://assets/meshes/table_table-texture.png" id="5_trtic"]
 [ext_resource type="PackedScene" uid="uid://cgihr8kb6gy24" path="res://assets/meshes/receipt.glb" id="6_ir15t"]
 [ext_resource type="Script" uid="uid://sqrqhity1tg3" path="res://scenes/book.gd" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://dtgl3adrr2fxc" path="res://scenes/receipt.gd" id="7_ca42v"]
 [ext_resource type="FontFile" uid="uid://bi8pcnv0buqy0" path="res://assets/fonts/prstartk.ttf" id="7_gee14"]
 [ext_resource type="Material" uid="uid://c3c2ntquunpqd" path="res://assets/meshes/materials/book_og_mat.tres" id="7_kvuet"]
 [ext_resource type="FontFile" uid="uid://lfuwrldc1jop" path="res://assets/fonts/PrStart.ttf" id="8_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://j15le6wlq45p" path="res://assets/textures/keybinds.png" id="9_0tnpc"]
 [ext_resource type="LabelSettings" uid="uid://cgjfdiv8ne6r0" path="res://assets/fonts/new_label_settings.tres" id="9_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dpcxdcqqmdk43" path="res://assets/textures/casino-border.png" id="12_dinhu"]
+[ext_resource type="AudioStream" uid="uid://dsdyp8jkmxtc7" path="res://assets/audio/card-fan-1.ogg" id="13_5newe"]
 [ext_resource type="Texture2D" uid="uid://d05hxmo0pgdml" path="res://assets/textures/casino-unfocus.png" id="14_trtic"]
+[ext_resource type="AudioStream" uid="uid://cyoiafwvq0wwj" path="res://assets/audio/chips-handle-6.ogg" id="17_264po"]
+[ext_resource type="Theme" uid="uid://c07s6vgkurqxm" path="res://assets/main_gold.tres" id="20_1kice"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
 sky_horizon_color = Color(0.048, 0.04876667, 0.05, 1)
@@ -33,12 +39,19 @@ bounce = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_ogn6l"]
 size = Vector3(0.8465576, 6.2699585, 8.847168)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kice"]
+albedo_texture = ExtResource("5_264po")
+texture_filter = 0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p51ra"]
 albedo_texture = ExtResource("5_trtic")
 texture_filter = 0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yqjtg"]
 data = PackedVector3Array(-1.0001, 0, 1, -1.2498, 0.0997, -0.987, -1.0001, 0, -1, -1.0001, 0, 1, -1.2414, 0.0962, 0.9478, -1.2498, 0.0997, -0.987, -1.0001, 0, 1, 0, 0, -1, 0, 0, 1, -1.0001, 0, 1, -1.0001, 0, -1, 0, 0, -1, 1, 0, 1, 0, 0, 1, 0, 0, -1, 1, 0, 1, 0, 0, -1, 1, 0, -1, -1.2414, 0.0962, 0.9478, -1.3672999, 0.21239999, -0.9723, -1.2498, 0.0997, -0.987, -1.2414, 0.0962, 0.9478, -1.3672999, 0.21239999, 0.8825, -1.3672999, 0.21239999, -0.9723, -1.3672999, 0.21239999, 0.8825, -1.37, 0.47, -1.01, -1.3672999, 0.21239999, -0.9723, -1.3672999, 0.21239999, 0.8825, -1.37, 0.47, 0.88, -1.37, 0.47, -1.01, 0, 0, -1, -1.0001, 0.21, -1.27, 0, 0.21599999, -1.226, 0, 0, -1, -1.0001, 0, -1, -1.0001, 0.21, -1.27, -1.0001, 0, -1, -1.2498, 0.0997, -0.987, -1.0001, 0.21, -1.27, -1.3672999, 0.21239999, -0.9723, -1.0001, 0.47, -1.27, -1.0001, 0.21, -1.27, -1.3672999, 0.21239999, -0.9723, -1.37, 0.47, -1.01, -1.0001, 0.47, -1.27, -1.0001, 0.21, -1.27, 0, 0.47, -1.3399999, 0, 0.21599999, -1.226, -1.0001, 0.21, -1.27, -1.0001, 0.47, -1.27, 0, 0.47, -1.3399999, -1.2498, 0.0997, -0.987, -1.3672999, 0.21239999, -0.9723, -1.0001, 0.21, -1.27, -1.3672999, 0.21239999, 0.8825, -2.0399, 0.47, 0.88, -1.37, 0.47, 0.88, -1.3672999, 0.21239999, 0.8825, -2.0372, 0.21239999, 0.8825, -2.0399, 0.47, 0.88, -1.2414, 0.0962, 0.9478, -2.0372, 0.21239999, 0.8825, -1.3672999, 0.21239999, 0.8825, -1.2414, 0.0962, 0.9478, -1.9113, 0.0962, 0.9478, -2.0372, 0.21239999, 0.8825, -1.0001, 0, 1, -1.9113, 0.0962, 0.9478, -1.2414, 0.0962, 0.9478, -1.0001, 0, 1, -1.6699, 0, 1, -1.9113, 0.0962, 0.9478, -1.37, 0.47, -1.01, -2.0399, 0.47, -1.5837, -1.37, 0.47, -1.6034, -1.37, 0.47, -1.01, -1.37, 0.47, 0.88, -2.0399, 0.47, -1.5837, -2.0399, 0.47, -1.5837, -1.37, 0.47, 0.88, -2.0399, 0.47, 0.88, -1.0001, 0.47, -1.27, -1.37, 0.47, -1.01, -1.37, 0.47, -1.6034, -1.0001, 0.47, -1.27, -1.37, 0.47, -1.6034, -1.0126, 0.47, -1.6025, 0, 0.47, -1.3399999, -1.0001, 0.47, -1.27, -1.0126, 0.47, -1.6025, 0, 0.47, -1.3399999, -1.0126, 0.47, -1.6025, 0, 0.47, -1.5999999, 0, 0.47, -1.3399999, 0, 0.47, -1.5999999, 1.0126, 0.47, -1.6025, 0, 0.47, -1.3399999, 1.0126, 0.47, -1.6025, 1, 0.47, -1.27, 1, 0.47, -1.27, 1.0126, 0.47, -1.6025, 1.37, 0.47, -1.6034, 1, 0.47, -1.27, 1.37, 0.47, -1.6034, 1.37, 0.47, -1.01, 1.37, 0.47, -1.01, 1.37, 0.47, -1.6034, 2.0399, 0.47, 0.88, 2.0399, 0.47, 0.88, 1.37, 0.47, -1.6034, 2.0399, 0.47, -1.5837, 1.37, 0.47, -1.01, 2.0399, 0.47, 0.88, 1.37, 0.47, 0.88, 1, 0, 1, 1.2497, 0.0997, -0.987, 1.2413, 0.0962, 0.9478, 1, 0, 1, 1, 0, -1, 1.2497, 0.0997, -0.987, 1.2413, 0.0962, 0.9478, 1.3672999, 0.21239999, -0.9723, 1.3672999, 0.21239999, 0.8825, 1.2413, 0.0962, 0.9478, 1.2497, 0.0997, -0.987, 1.3672999, 0.21239999, -0.9723, 1.3672999, 0.21239999, 0.8825, 1.37, 0.47, -1.01, 1.37, 0.47, 0.88, 1.3672999, 0.21239999, 0.8825, 1.3672999, 0.21239999, -0.9723, 1.37, 0.47, -1.01, 0, 0, -1, 1, 0.21, -1.27, 1, 0, -1, 0, 0, -1, 0, 0.21599999, -1.226, 1, 0.21, -1.27, 1, 0, -1, 1, 0.21, -1.27, 1.2497, 0.0997, -0.987, 1.3672999, 0.21239999, -0.9723, 1, 0.47, -1.27, 1.37, 0.47, -1.01, 1.3672999, 0.21239999, -0.9723, 1, 0.21, -1.27, 1, 0.47, -1.27, 1, 0.21, -1.27, 0, 0.47, -1.3399999, 1, 0.47, -1.27, 1, 0.21, -1.27, 0, 0.21599999, -1.226, 0, 0.47, -1.3399999, 1.2497, 0.0997, -0.987, 1, 0.21, -1.27, 1.3672999, 0.21239999, -0.9723, 1.3672999, 0.21239999, 0.8825, 2.0399, 0.47, 0.88, 2.0370998, 0.21239999, 0.8825, 1.3672999, 0.21239999, 0.8825, 1.37, 0.47, 0.88, 2.0399, 0.47, 0.88, 1.2413, 0.0962, 0.9478, 2.0370998, 0.21239999, 0.8825, 1.9111999, 0.0962, 0.9478, 1.2413, 0.0962, 0.9478, 1.3672999, 0.21239999, 0.8825, 2.0370998, 0.21239999, 0.8825, 1, 0, 1, 1.9111999, 0.0962, 0.9478, 1.6697999, 0, 1, 1, 0, 1, 1.2413, 0.0962, 0.9478, 1.9111999, 0.0962, 0.9478)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rysoc"]
+size = Vector3(6.861846, 3.4360895, 2.1288443)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gee14"]
 size = Vector3(12, 2, 16)
@@ -95,6 +108,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, -300.42)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_dinhu"]
 resource_name = "show_score"
@@ -110,6 +135,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, -300.42), Vector2(0, -20), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dinhu"]
@@ -133,17 +170,17 @@ shadow_size = 14
 shadow_color = Color(0.04, 0.04, 0.04, 1)
 shadow_offset = Vector2(0, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtaks"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.58, 0.12179998, 0.12179998, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="LabelSettings" id="LabelSettings_ipuy6"]
+font = ExtResource("7_gee14")
+font_size = 12
+outline_size = 12
+outline_color = Color(0.05332891, 4.9902563e-05, 0.11013126, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3dgon"]
+font = ExtResource("7_gee14")
+font_size = 32
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Node3D" unique_id=699036569]
 script = ExtResource("1_vtaks")
@@ -168,7 +205,7 @@ directional_shadow_fade_start = 0.316
 sky_mode = 1
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=729567200]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8702097, 1.8433018)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8702097, -2.0940552)
 light_color = Color(0.98, 0.81095, 0.7546, 1)
 light_energy = 10.609
 light_bake_mode = 1
@@ -222,7 +259,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.432871, 3.4277925, -14.370
 transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99986184, -4.6232023, 1.0325756, -8.291723)
 
 [node name="Die7" parent="Dices" unique_id=1326426908 instance=ExtResource("2_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99986184, -9.585787, 2.9406815, -5.451741)
+transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99986184, 2.5102768, -0.9438648, -5.9151497)
 
 [node name="Die8" parent="Dices" unique_id=1546412487 instance=ExtResource("2_yqjtg")]
 transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99986184, -2.6357074, 2.9406815, -13.234004)
@@ -235,10 +272,31 @@ transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99
 
 [node name="Enviroment" type="Node3D" parent="." unique_id=1840027597]
 
+[node name="bg" parent="Enviroment" unique_id=195778158 instance=ExtResource("4_ssvqc")]
+transform = Transform3D(12.91, 0, 0, 0, 16.76, 0, 0, 0, 12.515, -2.3026376, -23.208025, -96.62273)
+
+[node name="Background" parent="Enviroment/bg" index="0" unique_id=316717230]
+transform = Transform3D(5.3348174, 0, 0, 0, 0, -1.0000004, 0, 1, 0, 0, -0.38456482, -5.117173)
+surface_material_override/0 = SubResource("StandardMaterial3D_1kice")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Enviroment/bg" unique_id=662852440]
+transform = Transform3D(0.0934143, 0, 0, 0, 0.059661105, 0.00075477926, 0, -0.001010795, 0.079897724, 0.10694695, 1.0675547, -2.7863894)
+light_color = Color(0.9607843, 0.9607843, 0.5764706, 1)
+light_energy = 2.915
+omni_range = 40.417
+omni_attenuation = -0.172
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Enviroment/bg" unique_id=378726889]
+transform = Transform3D(0.0934143, 0, 0, 0, 0.05963976, 0.0017653207, 0, -0.0023641048, 0.079869136, -3.7459304, 1.1568627, -1.5204794)
+light_color = Color(0.9788491, 0.7994722, 0.66009927, 1)
+light_energy = 2.915
+omni_range = 40.417
+omni_attenuation = -0.172
+
 [node name="table" parent="Enviroment" unique_id=1736134315 instance=ExtResource("1_uwrxv")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
 
-[node name="Table" parent="Enviroment/table" index="0" unique_id=1357177905]
+[node name="Table" parent="Enviroment/table" index="0" unique_id=1494780489]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.023408493, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_p51ra")
 
@@ -251,13 +309,23 @@ shape = SubResource("ConcavePolygonShape3D_yqjtg")
 transform = Transform3D(3.8836517, 0, -2.7175064, 0, 4.7399993, 0, 2.7175064, 0, 3.8836517, 26.198467, 5.3352985, -10.394846)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Enviroment/receipt" unique_id=2066974069]
-transform = Transform3D(0.21097046, 0, 3.7252903e-09, 0, 0.2109705, 0, -3.7252903e-09, 0, 0.21097046, 0.17671204, 1.7511181, 0.7801292)
+transform = Transform3D(1, 0, 1.7657877e-08, 0, 1, 0, -1.7657877e-08, 0, 1, 0.17671204, 1.7511181, 0.7801292)
 light_color = Color(1, 0.85150003, 0.66999996, 1)
 omni_range = 8.946
 omni_attenuation = -0.208
 
+[node name="Area3D" type="Area3D" parent="Enviroment/receipt" unique_id=699472148]
+script = ExtResource("7_ca42v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/receipt/Area3D" unique_id=675259756]
+transform = Transform3D(0.45398718, 0, -0.4949432, 0, 1, 0, 0.25859272, 0, 0.86892533, -0.3637433, 1.7320364, 0.008802414)
+shape = SubResource("BoxShape3D_rysoc")
+
 [node name="RuleBook" parent="." unique_id=1630576376 instance=ExtResource("5_iywne")]
 transform = Transform3D(0.99690384, 0.07769816, -0.012069258, -0.07839296, 0.9940301, -0.07588877, 0.006100787, 0.07659995, 0.99704355, -23.008907, 7.1536026, -12.264461)
+
+[node name="Book" parent="RuleBook" index="0" unique_id=1029137282]
+surface_material_override/0 = ExtResource("7_kvuet")
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="RuleBook" unique_id=333852615]
 transform = Transform3D(0.9969039, -0.07839292, 0.006100793, 0.07769818, 0.9940297, 0.07659991, -0.012069264, -0.07588872, 0.99704295, -1.6691017, 8.8876705, -1.5800886)
@@ -267,9 +335,6 @@ light_bake_mode = 1
 omni_range = 15.217
 omni_attenuation = 1.07
 
-[node name="Book" parent="RuleBook" index="1" unique_id=1029137282]
-surface_material_override/0 = ExtResource("7_kvuet")
-
 [node name="Area3D" type="Area3D" parent="RuleBook" unique_id=1422871756]
 transform = Transform3D(1, -2.4612314e-09, 8.560805e-10, 2.4612314e-09, 1, 4.6508408e-18, -8.560805e-10, -2.5438285e-18, 1, 0, 0, 0)
 script = ExtResource("6_p57ef")
@@ -277,6 +342,9 @@ script = ExtResource("6_p57ef")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RuleBook/Area3D" unique_id=1652049176]
 transform = Transform3D(0.99999994, -2.1827873e-09, 0, 6.9849193e-09, 1.0000001, -2.9802322e-08, 0, -1.8626451e-09, 1, -4.7683716e-07, -0.0012540817, 0.004046917)
 shape = SubResource("BoxShape3D_gee14")
+
+[node name="BookAudio" type="AudioStreamPlayer2D" parent="RuleBook" unique_id=555234096]
+stream = ExtResource("13_5newe")
 
 [node name="ControlsHints" type="CanvasLayer" parent="." unique_id=723400222]
 
@@ -388,6 +456,9 @@ label_settings = ExtResource("9_kvpfn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ControlsHints/RoundOver" unique_id=440461918]
+stream = ExtResource("17_264po")
+
 [node name="RulesOverlay" type="CanvasLayer" parent="." unique_id=1279178896]
 
 [node name="Panel" type="Panel" parent="RulesOverlay" unique_id=1400290504]
@@ -460,9 +531,51 @@ offset_right = 55.0
 offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("20_1kice")
+theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("8_0tnpc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vtaks")
 text = "EXIT"
+
+[node name="Credits" type="CanvasLayer" parent="." unique_id=1742316552]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Credits" unique_id=737937745]
+modulate = Color(0.62, 0.62, 0.62, 1)
+offset_left = -15.0
+offset_top = -9.0
+offset_right = 598.0
+offset_bottom = 327.0
+texture = ExtResource("14_trtic")
+
+[node name="Label" type="Label" parent="Credits" unique_id=1210864162]
+offset_left = 47.0
+offset_top = 94.0
+offset_right = 527.0
+offset_bottom = 299.0
+text = "Assets and textures:
+Mirko Ruhl
+
+Music:
+Matthew Pablo (CC-BY 3.0)
+https://opengameart.org/content/
+a-cloudy-morning-jazz
+
+
+
+For more information check out the repo 
+on github:
+Read LICENCE.md and CREDITS.md"
+label_settings = SubResource("LabelSettings_ipuy6")
+
+[node name="Title" type="Label" parent="Credits" unique_id=138711262]
+offset_left = 63.0
+offset_top = 27.0
+offset_right = 496.0
+offset_bottom = 66.0
+text = "CREDITS"
+label_settings = SubResource("LabelSettings_3dgon")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="selected_value" from="Dices/Die" to="." method="_on_die_selected_value"]
 [connection signal="selected_value" from="Dices/Die2" to="." method="_on_die_selected_value"]
@@ -474,9 +587,13 @@ text = "EXIT"
 [connection signal="selected_value" from="Dices/Die8" to="." method="_on_die_selected_value"]
 [connection signal="selected_value" from="Dices/Die9" to="." method="_on_die_selected_value"]
 [connection signal="selected_value" from="Dices/Die10" to="." method="_on_die_selected_value"]
+[connection signal="mouse_entered" from="Enviroment/receipt/Area3D" to="Enviroment/receipt/Area3D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Enviroment/receipt/Area3D" to="Enviroment/receipt/Area3D" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="RuleBook/Area3D" to="RuleBook/Area3D" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="RuleBook/Area3D" to="RuleBook/Area3D" method="_on_mouse_exited"]
 [connection signal="pressed" from="RulesOverlay/Panel/Button" to="." method="_on_book_overlay_close_pressed"]
 
+[editable path="Enviroment/bg"]
 [editable path="Enviroment/table"]
+[editable path="Enviroment/receipt"]
 [editable path="RuleBook"]

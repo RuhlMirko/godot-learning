@@ -1,0 +1,46 @@
+[gd_resource type="Theme" format=3 uid="uid://c07s6vgkurqxm"]
+
+[ext_resource type="Texture2D" uid="uid://cubbrpuwktuen" path="res://assets/textures/gold-btn-border.png" id="1_3dg18"]
+[ext_resource type="Texture2D" uid="uid://yg80gipa43l0" path="res://assets/textures/gold-btn-border-focus.png" id="1_5j82m"]
+[ext_resource type="Texture2D" uid="uid://cd6u0oq8qtb1s" path="res://assets/textures/gold-btn-border-pressed.png" id="3_45uea"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqq2e"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3dg18"]
+texture = ExtResource("1_5j82m")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uqq2e"]
+texture = ExtResource("1_3dg18")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0.07261276, -0.09539223, 47.927387, 48.09539)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kice"]
+texture = ExtResource("3_45uea")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxFlat_uqq2e")
+Button/styles/hover = SubResource("StyleBoxTexture_3dg18")
+Button/styles/normal = SubResource("StyleBoxTexture_uqq2e")
+Button/styles/pressed = SubResource("StyleBoxTexture_1kice")
