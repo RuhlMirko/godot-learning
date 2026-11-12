@@ -4,5 +4,5 @@
 
 [resource]
 albedo_texture = ExtResource("1_kfte5")
-emission = Color(0.34774193, 0.44057682, 0.118758224, 1)
+emission_enabled = true
 texture_filter = 0

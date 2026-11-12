@@ -8,10 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://c87s106rjcj2v" path="res://assets/meshes/book.glb" id="5_iywne"]
 [ext_resource type="Script" uid="uid://sqrqhity1tg3" path="res://scenes/book.gd" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://bi8pcnv0buqy0" path="res://assets/fonts/prstartk.ttf" id="7_gee14"]
+[ext_resource type="Material" uid="uid://c3c2ntquunpqd" path="res://assets/meshes/materials/book_og_mat.tres" id="7_kvuet"]
 [ext_resource type="FontFile" uid="uid://lfuwrldc1jop" path="res://assets/fonts/PrStart.ttf" id="8_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://j15le6wlq45p" path="res://assets/textures/keybinds.png" id="9_0tnpc"]
 [ext_resource type="LabelSettings" uid="uid://cgjfdiv8ne6r0" path="res://assets/fonts/new_label_settings.tres" id="9_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dpcxdcqqmdk43" path="res://assets/textures/casino-border.png" id="12_dinhu"]
+[ext_resource type="Texture2D" uid="uid://d05hxmo0pgdml" path="res://assets/textures/casino-unfocus.png" id="14_trtic"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -40,30 +42,6 @@ data = PackedVector3Array(-1.0001, 0, 1, -1.2498, 0.0997, -0.987, -1.0001, 0, -1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gee14"]
 size = Vector3(12, 2, 16)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipuy6"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 10.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_ogn6l"]
-font = ExtResource("7_gee14")
-font_size = 12
-outline_size = 3
-outline_color = Color(0, 0, 0, 0.7372549)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtaks"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.020999998, 0.020999998, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
 
 [sub_resource type="Animation" id="Animation_vtaks"]
 length = 0.001
@@ -102,6 +80,33 @@ _data = {
 &"show_score": SubResource("Animation_dinhu")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipuy6"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ogn6l"]
+font = ExtResource("7_gee14")
+font_size = 12
+outline_size = 3
+outline_color = Color(0, 0, 0, 0.7372549)
+shadow_size = 14
+shadow_color = Color(0.04, 0.04, 0.04, 1)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtaks"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.58, 0.12179998, 0.12179998, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="Game" type="Node3D" unique_id=699036569]
 script = ExtResource("1_vtaks")
 
@@ -117,7 +122,6 @@ environment = SubResource("Environment_lnu2h")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" unique_id=1937671560]
 transform = Transform3D(-0.9396926, -0.32139385, 0.11697781, 0, 0.34202015, 0.9396926, -0.3420202, 0.8830222, -0.32139382, 0, 39.796944, -379.32867)
-light_color = Color(0.57254905, 1, 0.5921569, 1)
 light_energy = 0.1
 light_bake_mode = 1
 shadow_enabled = true
@@ -126,7 +130,7 @@ sky_mode = 1
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=729567200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8702097, 1.8433018)
-light_color = Color(0.9788044, 0.983048, 0.7571235, 1)
+light_color = Color(0.98, 0.81095, 0.7546, 1)
 light_energy = 10.609
 light_bake_mode = 1
 shadow_enabled = true
@@ -204,6 +208,9 @@ shape = SubResource("ConcavePolygonShape3D_yqjtg")
 [node name="RuleBook" parent="." unique_id=1630576376 instance=ExtResource("5_iywne")]
 transform = Transform3D(0.99690384, 0.07769816, -0.012069258, -0.07839296, 0.9940301, -0.07588877, 0.006100787, 0.07659995, 0.99704355, -24.612364, 8.404303, -12.264461)
 
+[node name="Book" parent="RuleBook" index="0" unique_id=1029137282]
+surface_material_override/0 = ExtResource("7_kvuet")
+
 [node name="Area3D" type="Area3D" parent="RuleBook" unique_id=1422871756]
 transform = Transform3D(1, -2.4612314e-09, 8.560805e-10, 2.4612314e-09, 1, 4.6508408e-18, -8.560805e-10, -2.5438285e-18, 1, 0, 0, 0)
 script = ExtResource("6_p57ef")
@@ -211,83 +218,6 @@ script = ExtResource("6_p57ef")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RuleBook/Area3D" unique_id=1652049176]
 transform = Transform3D(0.99999994, -2.1827873e-09, 0, 6.9849193e-09, 1.0000001, -2.9802322e-08, 0, -1.8626451e-09, 1, -4.7683716e-07, -0.0012540817, 0.004046917)
 shape = SubResource("BoxShape3D_gee14")
-
-[node name="RulesOverlay" type="CanvasLayer" parent="." unique_id=1279178896]
-
-[node name="Panel" type="Panel" parent="RulesOverlay" unique_id=1400290504]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="RulesOverlay/Panel" unique_id=1349323021]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.11, 0.09826667, 0.0396, 0.8352941)
-
-[node name="Label" type="Label" parent="RulesOverlay/Panel" unique_id=1579008433]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -83.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ipuy6")
-text = "This is a fast-paced dice game where the objective is to get all of your dice to show the same number.
-
-Tips:
-In your first roll identify the number that appears more often and commit to it, the timer starts when you select your first die.
-
-"
-label_settings = SubResource("LabelSettings_ogn6l")
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Label2" type="Label" parent="RulesOverlay/Panel" unique_id=1954496407]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = 49.0
-offset_right = 248.0
-offset_bottom = 73.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "¡¡Good Luck rolling!!"
-label_settings = ExtResource("9_kvpfn")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="RulesOverlay/Panel" unique_id=194063180]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 55.0
-offset_bottom = -34.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("8_0tnpc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vtaks")
-text = "EXIT"
 
 [node name="ControlsHints" type="CanvasLayer" parent="." unique_id=723400222]
 
@@ -403,6 +333,82 @@ text = "High Score: 0000"
 label_settings = ExtResource("9_kvpfn")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RulesOverlay" type="CanvasLayer" parent="." unique_id=1279178896]
+
+[node name="Panel" type="Panel" parent="RulesOverlay" unique_id=1400290504]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="RulesOverlay/Panel" unique_id=192200004]
+modulate = Color(0.62, 0.62, 0.62, 1)
+layout_mode = 0
+offset_left = -15.0
+offset_top = -9.0
+offset_right = 598.0
+offset_bottom = 327.0
+texture = ExtResource("14_trtic")
+
+[node name="Label" type="Label" parent="RulesOverlay/Panel" unique_id=1579008433]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ipuy6")
+text = "This is a fast-paced dice game where the objective is to get all of your dice to show the same number.
+
+Tips:
+In your first roll identify the number that appears more often and commit to it, the timer starts when you select your first die.
+
+"
+label_settings = SubResource("LabelSettings_ogn6l")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="RulesOverlay/Panel" unique_id=1954496407]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = 49.0
+offset_right = 248.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "¡¡Good Luck rolling!!"
+label_settings = ExtResource("9_kvpfn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="RulesOverlay/Panel" unique_id=194063180]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 55.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("8_0tnpc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vtaks")
+text = "EXIT"
 
 [connection signal="selected_value" from="Dices/Die" to="." method="_on_die_selected_value"]
 [connection signal="selected_value" from="Dices/Die2" to="." method="_on_die_selected_value"]
