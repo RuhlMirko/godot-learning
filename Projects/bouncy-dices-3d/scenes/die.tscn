@@ -15,7 +15,7 @@ radius = 2.0
 size = Vector3(2.38, 2.17, 2.52)
 
 [node name="Die" type="RigidBody3D" unique_id=617793010]
-mass = 2.0
+mass = 6.0
 physics_material_override = SubResource("PhysicsMaterial_lbhrr")
 freeze = true
 script = ExtResource("1_hvcds")

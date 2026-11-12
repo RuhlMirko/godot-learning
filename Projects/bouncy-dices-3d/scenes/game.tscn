@@ -10,6 +10,8 @@
 [ext_resource type="FontFile" uid="uid://bi8pcnv0buqy0" path="res://assets/fonts/prstartk.ttf" id="7_gee14"]
 [ext_resource type="FontFile" uid="uid://lfuwrldc1jop" path="res://assets/fonts/PrStart.ttf" id="8_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://j15le6wlq45p" path="res://assets/textures/keybinds.png" id="9_0tnpc"]
+[ext_resource type="LabelSettings" uid="uid://cgjfdiv8ne6r0" path="res://assets/fonts/new_label_settings.tres" id="9_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://dpcxdcqqmdk43" path="res://assets/textures/casino-border.png" id="12_dinhu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwrxv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -51,16 +53,6 @@ font_size = 12
 outline_size = 3
 outline_color = Color(0, 0, 0, 0.7372549)
 
-[sub_resource type="FontVariation" id="FontVariation_3dgon"]
-base_font = ExtResource("8_0tnpc")
-variation_transform = Transform2D(1, 0.43, 0, 1, 0, 0)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ipuy6"]
-font = SubResource("FontVariation_3dgon")
-font_size = 24
-outline_size = 5
-outline_color = Color(0.20690002, 0.3, 0.186, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtaks"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -78,38 +70,36 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Restart:modulate")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0, -300.42)]
 }
 
-[sub_resource type="Animation" id="Animation_kvpfn"]
-resource_name = "round_over"
+[sub_resource type="Animation" id="Animation_dinhu"]
+resource_name = "show_score"
 length = 0.5
-loop_mode = 1
-step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Restart:modulate")
-tracks/0/interp = 1
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.35, 0.5),
-"transitions": PackedFloat32Array(1, 8.282119, 1, 1),
+"times": PackedFloat32Array(0, 0.26666665, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.39607844), Color(1, 1, 1, 0.39607844), Color(1, 1, 1, 1)]
+"values": [Vector2(0, -300.42), Vector2(0, -20), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dinhu"]
 _data = {
 &"RESET": SubResource("Animation_vtaks"),
-&"round_over": SubResource("Animation_kvpfn")
+&"show_score": SubResource("Animation_dinhu")
 }
 
 [node name="Game" type="Node3D" unique_id=699036569]
@@ -278,7 +268,7 @@ offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "¡¡Good Luck rolling!!"
-label_settings = SubResource("LabelSettings_ipuy6")
+label_settings = ExtResource("9_kvpfn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -310,25 +300,49 @@ texture = ExtResource("9_0tnpc")
 stretch_mode = 2
 
 [node name="RoundTimerLabel" type="Label" parent="ControlsHints" unique_id=604187238]
+modulate = Color(1, 1, 1, 0.6666667)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -19.0
-offset_top = 22.0
-offset_right = 21.0
-offset_bottom = 45.0
+offset_left = -31.0
+offset_top = 13.0
+offset_right = 33.0
+offset_bottom = 36.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("8_0tnpc")
-text = "00:00"
+text = "0:00"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RoundOver" type="Control" parent="ControlsHints" unique_id=884536116]
-visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -300.42
+offset_right = 4.0
+offset_bottom = -301.42
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ControlsHints/RoundOver" unique_id=1533685068]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = -128.5
+offset_right = -129.0
+offset_bottom = -64.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("12_dinhu")
 
 [node name="Panel" type="Panel" parent="ControlsHints/RoundOver" unique_id=685572041]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 14.409
@@ -347,10 +361,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 210.5
-offset_top = 116.5
-offset_right = 325.5
-offset_bottom = 167.5
+offset_left = -62.0
+offset_top = -12.079987
+offset_right = 53.0
+offset_bottom = 38.920013
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 7
@@ -363,17 +377,32 @@ uppercase = true
 
 [node name="Restart" type="Label" parent="ControlsHints/RoundOver" unique_id=132702705]
 layout_mode = 0
-offset_left = 135.0
-offset_top = 214.0
-offset_right = 455.0
-offset_bottom = 237.0
+offset_left = 132.0
+offset_top = 228.0
+offset_right = 452.0
+offset_bottom = 251.0
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("8_0tnpc")
+theme_override_font_sizes/font_size = 12
 text = "Press \"R\" to restart"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ControlsHints/RoundOver" unique_id=739027324]
 libraries/ = SubResource("AnimationLibrary_dinhu")
-autoplay = &"round_over"
+
+[node name="HighScoreLbl" type="Label" parent="ControlsHints/RoundOver" unique_id=1047240625]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 114.0
+offset_right = 480.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("8_0tnpc")
+theme_override_font_sizes/font_size = 13
+text = "High Score: 0000"
+label_settings = ExtResource("9_kvpfn")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="selected_value" from="Dices/Die" to="." method="_on_die_selected_value"]
 [connection signal="selected_value" from="Dices/Die2" to="." method="_on_die_selected_value"]

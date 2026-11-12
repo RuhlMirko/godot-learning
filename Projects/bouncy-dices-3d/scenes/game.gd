@@ -5,13 +5,17 @@ extends Node3D
 @onready var round_timer_label: Label = $ControlsHints/RoundTimerLabel
 @onready var round_over_UI: Control = $ControlsHints/RoundOver
 @onready var controls_hints: CanvasLayer = $ControlsHints
+@onready var round_over_score_lbl: Label = $ControlsHints/RoundOver/Score
+@onready var high_score_lbl: Label = $ControlsHints/RoundOver/HighScoreLbl
+@onready var anim_score: AnimationPlayer = $ControlsHints/RoundOver/AnimationPlayer
 
 
 var selected_dice :Array[int]= []
 var round_over : bool = false
 var time_elapsed : float= 0.0
 var timer_running : bool = false
-
+var high_score : = 10000
+var curr_score : int = 0
 
 func _on_die_selected_value(value: Variant) -> void:
 	selected_dice.push_back(value)
@@ -26,10 +30,19 @@ func _on_die_selected_value(value: Variant) -> void:
 func check_dices()->void:
 	var all_same_face : bool = selected_dice.all(func(e): return e == selected_dice[0])  
 	print("All same face: ",all_same_face) 
+	timer_running = false
+	round_over = true
+	round_over_UI.visible = true
+	anim_score.play("show_score")
 	if all_same_face:
-		timer_running = false
-		round_over = true
-		round_over_UI.visible = true
+		curr_score = int(floor(time_elapsed) * 100)
+		if curr_score < high_score:
+			high_score = curr_score
+			high_score_lbl.text = "High Score:" + str(high_score)
+		round_over_score_lbl.text = "Score:\n" + str(curr_score)
+	else:
+		round_over_score_lbl.text = "Score: " + str(int(0))
+		
 
 # Game stopwatch
 func _process(delta):
@@ -38,7 +51,8 @@ func _process(delta):
 		# Format to show minutes and seconds
 		var minutes : float = int(time_elapsed) / 60
 		var seconds : float = int(time_elapsed) % 60
-		round_timer_label.text = "%02d:%02d" % [minutes, seconds]
+		round_timer_label.text = "%01d:%02d" % [minutes, seconds]
+		round_timer_label.modulate = "#ffff1c"
 
 
 func reset_stopwatch()->void:

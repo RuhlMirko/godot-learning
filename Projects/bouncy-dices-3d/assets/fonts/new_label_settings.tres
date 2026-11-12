@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cgjfdiv8ne6r0"]
+
+[ext_resource type="FontFile" uid="uid://lfuwrldc1jop" path="res://assets/fonts/PrStart.ttf" id="1_2xnox"]
+
+[sub_resource type="FontVariation" id="FontVariation_3dgon"]
+base_font = ExtResource("1_2xnox")
+variation_transform = Transform2D(1, 0.43, 0, 1, 0, 0)
+
+[resource]
+font = SubResource("FontVariation_3dgon")
+font_size = 21
+outline_size = 5
+outline_color = Color(0.20690002, 0.3, 0.186, 1)
