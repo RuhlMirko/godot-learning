@@ -35,13 +35,15 @@ func check_dices()->void:
 	round_over_UI.visible = true
 	anim_score.play("show_score")
 	if all_same_face:
-		curr_score = int(floor(time_elapsed) * 100)
+		#curr_score = int(10000.0 / (time_elapsed + 1.0))
+		#curr_score = clampi(curr_score, 0, 9999)
+		curr_score = clampi(10000 - int(time_elapsed * 100), 0, 9999)
 		if curr_score < high_score:
 			high_score = curr_score
-			high_score_lbl.text = "High Score:" + str(high_score)
+			high_score_lbl.text = "High Score:\n" + str(high_score)
 		round_over_score_lbl.text = "Score:\n" + str(curr_score)
 	else:
-		round_over_score_lbl.text = "Score: " + str(int(0))
+		round_over_score_lbl.text = "Score:\n " + str(int(0))
 		
 
 # Game stopwatch

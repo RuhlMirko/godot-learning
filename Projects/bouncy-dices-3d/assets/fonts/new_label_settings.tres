@@ -8,6 +8,7 @@ variation_transform = Transform2D(1, 0.43, 0, 1, 0, 0)
 
 [resource]
 font = SubResource("FontVariation_3dgon")
-font_size = 21
+font_size = 17
+font_color = Color(0.75, 0.75, 0.75, 1)
 outline_size = 10
-outline_color = Color(0.09, 0.08658001, 0.055800002, 1)
+outline_color = Color(0, 0, 0, 1)

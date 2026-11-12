@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bykfvvy5ahyem" path="res://assets/meshes/table.glb" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://tiih0vu031s7" path="res://scenes/game.gd" id="1_vtaks"]
-[ext_resource type="Texture2D" uid="uid://chrgesd1appd5" path="res://assets/textures/table-texture.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://b7g6j0vrb304" path="res://scenes/die.tscn" id="2_yqjtg"]
 [ext_resource type="Script" uid="uid://bs4b3l3dpj14m" path="res://scenes/camera_3d.gd" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c87s106rjcj2v" path="res://assets/meshes/book.glb" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://cjjdp73x1kumt" path="res://assets/meshes/table_table-texture.png" id="5_trtic"]
 [ext_resource type="Script" uid="uid://sqrqhity1tg3" path="res://scenes/book.gd" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://bi8pcnv0buqy0" path="res://assets/fonts/prstartk.ttf" id="7_gee14"]
 [ext_resource type="Material" uid="uid://c3c2ntquunpqd" path="res://assets/meshes/materials/book_og_mat.tres" id="7_kvuet"]
@@ -32,9 +32,8 @@ bounce = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_ogn6l"]
 size = Vector3(0.8465576, 6.2699585, 8.847168)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqjtg"]
-albedo_texture = ExtResource("2_lnu2h")
-emission = Color(0, 0.7607843, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p51ra"]
+albedo_texture = ExtResource("5_trtic")
 texture_filter = 0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yqjtg"]
@@ -42,6 +41,44 @@ data = PackedVector3Array(-1.0001, 0, 1, -1.2498, 0.0997, -0.987, -1.0001, 0, -1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gee14"]
 size = Vector3(12, 2, 16)
+
+[sub_resource type="Animation" id="Animation_trtic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.958, 0.58000004, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ir15t"]
+resource_name = "restart"
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.29, 0.67, 0.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.95686275, 0.5803922, 1), Color(1, 0.95686275, 0.5803922, 0.47843137), Color(1, 0.958, 0.58000004, 1), Color(1, 0.958, 0.58000004, 0.5058824)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ca42v"]
+_data = {
+&"RESET": SubResource("Animation_trtic"),
+&"restart": SubResource("Animation_ir15t")
+}
 
 [sub_resource type="Animation" id="Animation_vtaks"]
 length = 0.001
@@ -197,8 +234,9 @@ transform = Transform3D(1, 0, 0, 0, 0.99986184, -0.01662279, 0, 0.01662279, 0.99
 [node name="table" parent="." unique_id=1736134315 instance=ExtResource("1_uwrxv")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
 
-[node name="Plane" parent="table" index="0" unique_id=245616703]
-surface_material_override/0 = SubResource("StandardMaterial3D_yqjtg")
+[node name="Table" parent="table" index="0" unique_id=410792857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.023408493, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_p51ra")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="table" unique_id=948642166]
 
@@ -206,7 +244,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yqjtg")
 shape = SubResource("ConcavePolygonShape3D_yqjtg")
 
 [node name="RuleBook" parent="." unique_id=1630576376 instance=ExtResource("5_iywne")]
-transform = Transform3D(0.99690384, 0.07769816, -0.012069258, -0.07839296, 0.9940301, -0.07588877, 0.006100787, 0.07659995, 0.99704355, -24.612364, 8.404303, -12.264461)
+transform = Transform3D(0.99690384, 0.07769816, -0.012069258, -0.07839296, 0.9940301, -0.07588877, 0.006100787, 0.07659995, 0.99704355, -24.612364, 7.1536026, -12.264461)
 
 [node name="Book" parent="RuleBook" index="0" unique_id=1029137282]
 surface_material_override/0 = ExtResource("7_kvuet")
@@ -271,19 +309,6 @@ grow_vertical = 2
 scale = Vector2(4, 4)
 texture = ExtResource("12_dinhu")
 
-[node name="Panel" type="Panel" parent="ControlsHints/RoundOver" unique_id=685572041]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 14.409
-anchor_bottom = 8.190001
-offset_left = 99.0
-offset_top = 100.0
-offset_right = -98.359985
-offset_bottom = -57.600037
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Score" type="Label" parent="ControlsHints/RoundOver" unique_id=1756828288]
 layout_mode = 1
 anchors_preset = 8
@@ -291,26 +316,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -62.0
-offset_top = -12.079987
-offset_right = 53.0
-offset_bottom = 38.920013
+offset_left = -72.0
+offset_top = -31.079987
+offset_right = 63.0
+offset_bottom = 27.920013
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/outline_size = 7
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("8_0tnpc")
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 28
 text = "SCORE
 0000"
 horizontal_alignment = 1
 uppercase = true
 
 [node name="Restart" type="Label" parent="ControlsHints/RoundOver" unique_id=132702705]
+modulate = Color(1, 0.958, 0.58000004, 1)
 layout_mode = 0
-offset_left = 132.0
-offset_top = 228.0
-offset_right = 452.0
-offset_bottom = 251.0
+offset_left = 131.0
+offset_top = 214.42001
+offset_right = 451.0
+offset_bottom = 237.42001
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("8_0tnpc")
 theme_override_font_sizes/font_size = 12
@@ -318,18 +344,23 @@ text = "Press \"R\" to restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlsHints/RoundOver/Restart" unique_id=869161328]
+libraries/ = SubResource("AnimationLibrary_ca42v")
+autoplay = &"restart"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ControlsHints/RoundOver" unique_id=739027324]
 libraries/ = SubResource("AnimationLibrary_dinhu")
 
 [node name="HighScoreLbl" type="Label" parent="ControlsHints/RoundOver" unique_id=1047240625]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 114.0
-offset_right = 480.0
-offset_bottom = 138.0
+offset_left = 94.0
+offset_top = 72.42001
+offset_right = 478.0
+offset_bottom = 111.42001
 theme_override_fonts/font = ExtResource("8_0tnpc")
 theme_override_font_sizes/font_size = 13
-text = "High Score: 0000"
+text = "High Score:
+0000"
 label_settings = ExtResource("9_kvpfn")
 horizontal_alignment = 1
 vertical_alignment = 1

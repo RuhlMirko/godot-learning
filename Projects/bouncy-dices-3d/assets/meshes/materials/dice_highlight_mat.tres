@@ -6,5 +6,6 @@
 diffuse_mode = 3
 albedo_texture = ExtResource("1_5r7gh")
 emission_enabled = true
-emission = Color(0.56, 0.504, 0, 1)
-rim = 0.0
+emission = Color(0.67, 0.5248333, 0, 1)
+backlight = Color(0.59, 0.3098483, 0.1357, 1)
+texture_filter = 0

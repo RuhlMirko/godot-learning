@@ -7,3 +7,5 @@ diffuse_mode = 3
 albedo_texture = ExtResource("1_omri6")
 emission = Color(0.26, 0.26, 0.26, 1)
 rim = 0.0
+backlight = Color(0.79, 0.79, 0.79, 1)
+texture_filter = 0
