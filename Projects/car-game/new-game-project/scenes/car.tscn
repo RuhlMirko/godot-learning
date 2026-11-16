@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://c4dg2nladtm0m"]
+
+[ext_resource type="Script" uid="uid://451k2mlf74tg" path="res://scenes/car.gd" id="1_50v30"]
+[ext_resource type="PackedScene" uid="uid://b37uwsvdk1ms3" path="res://assets/car/doge-body.glb" id="1_qt2eu"]
+[ext_resource type="PackedScene" uid="uid://lfjpxfqs36nh" path="res://assets/car/Wheel.glb" id="2_50v30"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ogn6l"]
+size = Vector3(1.8357239, 1, 1.9929199)
+
+[node name="Car" type="VehicleBody3D" unique_id=1484992360]
+script = ExtResource("1_50v30")
+
+[node name="doge-body" parent="." unique_id=998857302 instance=ExtResource("1_qt2eu")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1145305350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0014190674, 0.7209803, 0.10168457)
+shape = SubResource("BoxShape3D_ogn6l")
+
+[node name="FrontRightWheel" type="VehicleWheel3D" parent="." unique_id=526308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.922, 0.32, 1.519)
+use_as_steering = true
+wheel_radius = 0.32
+
+[node name="Wheel" parent="FrontRightWheel" unique_id=1940626085 instance=ExtResource("2_50v30")]
+
+[node name="FrontLeftWheel" type="VehicleWheel3D" parent="." unique_id=581904679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8733538, 0.32, 1.482)
+use_as_steering = true
+wheel_radius = 0.32
+
+[node name="Wheel" parent="FrontLeftWheel" unique_id=1274940993 instance=ExtResource("2_50v30")]
+
+[node name="BackRightWheel" type="VehicleWheel3D" parent="." unique_id=168623253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92, 0.32, -1.23)
+use_as_traction = true
+wheel_radius = 0.32
+
+[node name="Wheel" parent="BackRightWheel" unique_id=243787343 instance=ExtResource("2_50v30")]
+
+[node name="BackLeftWheel" type="VehicleWheel3D" parent="." unique_id=8661364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92, 0.32, -1.239)
+use_as_traction = true
+wheel_radius = 0.32
+
+[node name="Wheel" parent="BackLeftWheel" unique_id=389573272 instance=ExtResource("2_50v30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043730855, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1693465793]
+transform = Transform3D(-1, -4.371139e-08, 7.5710346e-08, -2.262668e-08, 0.9659258, 0.25881904, -8.444392e-08, 0.25881904, -0.9659258, 0, 2, -4)
